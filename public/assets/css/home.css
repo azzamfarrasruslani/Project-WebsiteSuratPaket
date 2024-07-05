@@ -1,0 +1,503 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins";
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 30000px;
+}
+
+body {
+  opacity: 0.8;
+  background-size: 10px 10px;
+  height: 30000px;
+}
+
+/* ==========================================Navbar Start================================================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4px 4%;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 196, 0.25) 0px 2px 5px -1px,
+    rgba(83, 151, 203, 0.3) 0px 1px 3px -1px;
+  /* backdrop-filter: blur(300px);
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18); */
+}
+
+.navbar .logo {
+  width: 15rem;
+  cursor: pointer;
+  margin: 25px 0;
+  box-sizing: 4rem;
+  left: 50rem;
+}
+
+.navbar .navbar-nav a {
+  display: inline-block;
+  font-size: 1.1rem;
+  /* color: #1d498b; */
+  color: #5e72e4;
+  padding: 0.5rem 1.5rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #000000;
+  transition: 0.3s;
+}
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid;
+  transform: scaley(0);
+  transition: 0.3s linear;
+}
+.navbar .navbar-nav a:hover::after {
+  transform: scale(0.5);
+}
+.navbar .navbar-login {
+  border-color: #000000;
+}
+.navbar .navbar-login a {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #5e72e4;
+  border-style: solid;
+  padding: 8px 20px;
+  border-radius: 0.8rem;
+  border-width: 2px;
+}
+
+.navbar .navbar-login a:hover {
+  color: #000000;
+  transition: 0.3s;
+}
+
+/* Hamburger Menu */
+#hamburger-menu {
+  display: none;
+}
+.navbar .menu {
+  display: hidd;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+  width: 3rem;
+}
+.navbar .line {
+  fill: none;
+  stroke: #1c1678;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar .line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.navbar .line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+.navbar .line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.navbar .opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.navbar .opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.navbar .opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+/* ==========================================Navbar End================================================== */
+
+/* ==========================================Hero Section Start================================================== */
+
+.hero {
+  position: relative;
+  background: linear-gradient(
+    60deg,
+    rgb(72, 106, 192) 0%,
+    rgba(0, 172, 193, 1) 100%
+  );
+  color: white;
+  overflow: hidden;
+}
+
+.hero .content {
+  height: 71vh;
+  width: 100%;
+  padding: 0 5%;
+  margin-top: 4rem;
+}
+
+.flex {
+  /*Flexbox for containers*/
+  display: flex;
+  align-items: center;
+}
+
+.hero .content .content-judul {
+  margin-right: 3rem;
+}
+.hero .content .content-judul h1 {
+  font-size: 4rem;
+  color: white;
+}
+
+.hero .content .content-judul h2 {
+  font-size: 4rem;
+  color: white;
+}
+
+.hero .content .content-judul .cta {
+  display: inline-block;
+  background-color: #5e72e4;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: whitesmoke;
+}
+
+.hero .content .content-judul .cta:focus {
+  box-shadow: #17125f 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #17125f 0 -3px 0 inset;
+}
+
+.hero .content .content-judul .cta:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #17125f 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.hero .content .content-judul .cta:active {
+  box-shadow: #17125f 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.image-hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.hero .image-hero img {
+  width: 30rem;
+  margin-top: 4rem;
+  margin-left: 5rem;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  margin-bottom: -7px; /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.wave-content {
+  position: relative;
+  height: 20vh;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* ==========================================Hero Section End================================================== */
+
+
+/* ==========================================Tentang Section Start================================================== */
+.tentang {
+  padding: 9rem 7% 1.4rem;
+  text-align: center;
+}
+.tentang h1 {
+  font-size: 2.4rem;
+  color: #5e72e4;
+}
+/* ==========================================Tentang Section End================================================== */
+
+/* ==========================================Media Quaries Start ================================================== */
+
+/* Laptop =====================================================================================*/
+@media (max-width: 1366px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* Tablet =====================================================================================*/
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: white;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.7s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: black;
+    display: block;
+    margin: 1.5rem;
+    padding: 8px;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  /* Hero Section Start ========================================= */
+
+  .hero {
+    position: relative;
+    background: linear-gradient(
+      60deg,
+      rgb(72, 106, 192) 0%,
+      rgba(0, 172, 193, 1) 100%
+    );
+    color: white;
+    overflow: hidden;
+  }
+
+  .hero .content {
+    height: 85vh;
+    width: 100%;
+    padding: 0 5%;
+    margin-top: 4rem;
+  }
+
+  .flex {
+    /*Flexbox for containers*/
+    display: flex;
+    align-items: center;
+  }
+
+  .image-hero {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .hero .image-hero img {
+    width: 30rem;
+    margin-top: 4rem;
+    margin-right: 5rem;
+  }
+
+  .waves {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    margin-bottom: -9px; /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 40px;
+  }
+
+  .wave-content {
+    position: relative;
+    height: 30vh;
+    background-color: white;
+  }
+
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+
+  /* Hero Section End ========================================= */
+}
+
+/* Mobile Phone =====================================================================================*/
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+
+  /* Navbar Section Start ========================================= */
+  .navbar .logo {
+    width: 19rem;
+    cursor: pointer;
+    margin: 25px 0;
+    box-sizing: 4rem;
+    left: 50rem;
+  }
+  /* Navbar Section End ========================================= */
+
+  /* Hero Section Start ========================================= */
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+  .content {
+    height: 30vh;
+  }
+
+  .hero {
+    position: relative;
+    background: linear-gradient(
+      60deg,
+      rgb(72, 106, 192) 0%,
+      rgba(0, 172, 193, 1) 100%
+    );
+    color: white;
+    overflow: hidden;
+  }
+
+  .hero .content {
+    height: 60vh;
+    width: 100%;
+    padding: 0 5%;
+  }
+
+  .hero .content .content-judul {
+    margin-right: 4rem;
+    margin-top: 30rem;
+  }
+  .hero .content .content-judul h1 {
+    font-size: 4rem;
+    color: white;
+  }
+
+  .hero .content .content-judul h2 {
+    font-size: 4rem;
+    color: white;
+  }
+
+  .hero .content .content-judul .cta {
+    display: inline-block;
+    background-color: #1c1678;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    font-size: 1.5rem;
+    color: whitesmoke;
+  }
+
+  .flex {
+    /*Flexbox for containers*/
+    display: block;
+    align-items: center;
+  }
+
+  .hero .image-hero img {
+    width: 30rem;
+    margin-right: 5rem;
+  }
+
+  .waves {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    margin-bottom: -7px; /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 40px;
+  }
+
+  .wave-content {
+    position: relative;
+    height: 30vh;
+    background-color: white;
+  }
+
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+
+  /* Hero Section End ========================================= */
+}
+
+/* ========================================== Media Quaries End ================================================== */
