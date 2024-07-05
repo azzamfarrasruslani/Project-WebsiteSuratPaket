@@ -176,13 +176,26 @@
         <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">Data</h6>
       </li>
 
+
+
+      <!-- Data User -->
       <li class="mt-0.5 w-full">
-        <a class="py-2.7 bg-blue-500/13 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors "
+        <a class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
           href="<?= BASE_URL; ?>SerahTerima/dataPaket">
           <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-            <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
+            <i class="fa-solid fa-table" style="color: #e11414;"></i>
           </div>
           <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Data Paket</span>
+        </a>
+      </li>
+
+      <li class="mt-0.5 w-full">
+        <a class="py-2.7 bg-blue-500/13 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors "
+          href="<?= BASE_URL; ?>User/dataUser">
+          <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+            <i class="fa-solid fa-users-rectangle" style="color: #63E6BE;"></i>
+          </div>
+          <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Data User</span>
         </a>
       </li>
 
@@ -263,9 +276,9 @@
           </li>
           <li
             class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']"
-            aria-current="page">Data Paket</li>
+            aria-current="page">Data User</li>
         </ol>
-        <h6 class="mb-0 font-bold text-white capitalize">Data Paket</h6>
+        <h6 class="mb-0 font-bold text-white capitalize">Data User</h6>
       </nav>
 
       <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -407,10 +420,10 @@
           class="relative flex flex-col min-w-0 mb-6 pb-5 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
           <div
             class="p-6 pb-3 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between items-center">
-            <h2 class="text-xl font-bold mb-4">Data Paket Masuk</h2>
+            <h2 class="text-xl font-bold mb-4">Data User</h2>
             <button onclick="toggleModal()"
               class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-              <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah Data
+              <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah User
             </button>
           </div>
           <div class="px-8 mt-6 lg:mt-0 rounded shadow bg-white">
@@ -515,6 +528,36 @@
       }
     </script>
 
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <footer class="pt-4">
+      <div class="w-full px-6 mx-auto">
+        <div class=" flex-wrap items-center -mx-3 lg:justify-between">
+          <div class="w-full max-w-full px-3 mt-0 mb-6 ">
+            <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
+              ©
+              <script>
+                document.write(new Date().getFullYear() + ",");
+              </script>
+              made with by
+              <a href="https://pcr.ac.id/" class="font-semibold text-slate-700 dark:text-white"
+                target="_blank">Politeknik Caltex Riau</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Footer End -->
 
 
 

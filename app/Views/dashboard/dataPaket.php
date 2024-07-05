@@ -189,8 +189,8 @@
 
       <!-- Data User -->
       <li class="mt-0.5 w-full">
-        <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-          href="<?= BASE_URL; ?>serahTerima/dataUser">
+        <a class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+          href="<?= BASE_URL; ?>User/dataUser">
           <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
             <i class="fa-solid fa-users-rectangle" style="color: #63E6BE;"></i>
           </div>
@@ -529,6 +529,29 @@
 
 
 
+
+
+
+    <!-- Footer Start -->
+    <footer class="pt-4">
+      <div class="w-full px-6 mx-auto">
+        <div class=" flex-wrap items-center -mx-3 lg:justify-between">
+          <div class="w-full max-w-full px-3 mt-0 mb-6 ">
+            <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
+              ©
+              <script>
+                document.write(new Date().getFullYear() + ",");
+              </script>
+              made with by
+              <a href="https://pcr.ac.id/" class="font-semibold text-slate-700 dark:text-white"
+                target="_blank">Politeknik Caltex Riau</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Footer End -->
 
 </main>
 

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Surat Paket</title>
-    <!-- Shortcut Icon -->
-    <link rel="shortcut icon" href="<?= BASE_URL; ?>assets/images/envelope_icon.svg">
+     <!-- shortcut icon -->
+  <link rel="icon" type="image/png" href="<?= BASE_URL; ?>assets/images/envelope icon.svg" />
     <!-- CSS -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/styleLogin.css">
     <link href="<?= BASE_URL; ?>assets/css/styles.css" rel="stylesheet" />

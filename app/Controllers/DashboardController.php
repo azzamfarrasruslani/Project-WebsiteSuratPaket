@@ -8,5 +8,7 @@ class DashboardController extends Controller {
         
         $this->view('dashboard/dashboard');
     }
+
+    
 }
 ?>
