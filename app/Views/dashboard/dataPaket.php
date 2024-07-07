@@ -18,6 +18,7 @@
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <!-- Main Styling -->
   <link href="<?= BASE_URL; ?>assets/css/argon-dashboard-tailwind.css" rel="stylesheet" />
+  <!-- <link href="<?= BASE_URL; ?>assets/css/styles.css" rel="stylesheet" /> -->
   <!-- Table -->
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -410,10 +411,11 @@
 
 
 
-  <?php include ('form_input_data.php'); ?>
-  <div class="container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
+  <?php include ('inputDataBarang.php'); ?>
+
+  <div class=" container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
     <!-- Card -->
-    <div class="w-full px-2 py-6 mx-auto">
+    <div class=" w-full px-2 py-6 mx-auto">
       <div class="flex-none w-full max-w-full px-4">
         <div
           class="relative flex flex-col min-w-0 mb-6 pb-5 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
@@ -430,25 +432,43 @@
               <table id="example" class="stripe hover mb-12" style="width:100%; padding-top: 1em; padding-bottom: 1em;">
                 <thead>
                   <tr>
-                    <th data-priority="1">ID Barang</th>
-                    <th data-priority="2">Posisi</th>
-                    <th data-priority="3">Status</th>
-                    <th data-priority="4">Waktu Terima</th>
-                    <th data-priority="6">Nama Kurir</th>
-                    <th data-priority="8">Options</th>
+                    <th class="text-sm " data-priority="1">No Resi</th>
+                    <th class="text-sm" data-priority="2">Jenis Barang</th>
+                    <th class="text-sm" data-priority="3">Nama Pemilik</th>
+                    <th class="text-sm" data-priority="4">NO HP</th>
+                    <th class="text-sm" data-priority="5">Posisi</th>
+                    <th class="text-sm" data-priority="6">Status</th>
+                    <th class="text-sm" data-priority="7">Waktu Terima</th>
+                    <th class="text-sm" data-priority="8">Waktu Serah</th>
+                    <th class="text-sm" data-priority="9">Nama Security</th>
+                    <th class="text-sm" data-priority="10">Options</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($serah_terima as $index => $item): ?>
                     <tr>
-                      <td><?= $item['id_serah_terima'] ?></td>
-                      <td><?= $item['posisi'] ?></td>
-                      <td><?= $item['status_barang'] ?></td>
-                      <td><?= $item['waktu_penerimaan'] ?></td>
-                      <td class="capitalize">
-                        <?= !empty($item['nama_kurir']) ? $item['nama_kurir'] : 'data belum tersedia' ?>
+                      <td class="text-sm"><?= $item['no_resi'] ?></td>
+
+                      <td class="text-sm"><?= $item['jenis_barang'] ?></td>
+
+                      <td class="capitalize text-sm"><?= $item['nama_pemilik'] ?></td>
+                      <td><?= $item['noHp_pemilik'] ?></td>
+
+                      <td class="capitalize text-sm">
+                        <?= !empty($item['posisi']) ? $item['posisi'] : 'data tidak tersedia' ?>
                       </td>
+
+                      <td class="text-sm"><?= $item['status_barang'] ?></td>
+
+                      <td class="text-sm"><?= $item['waktu_penerimaan'] ?></td>
+
+                      <td class="text-sm">
+                        <?= !empty($item['waktu_penyerahan']) ? $item['waktu_penyerahan'] : '-' ?>
+                      </td>
+
+                      <td class="text-sm"><?= $item['nama_security'] ?></td>
                       <td>
+
                         <div class="relative inline-block text-left">
                           <div>
                             <button onclick="toggleDropdown(<?= $index ?>)" type="button"
@@ -462,34 +482,93 @@
                             </button>
                           </div>
                           <div id="dropdown-menu-<?= $index ?>"
-                            class="hidden mt-2 w-56 rounded-3 shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            class="hidden mt-2 rounded-3 shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="menu-button-<?= $index ?>"
                             tabindex="-1">
                             <div class="py-1" role="none">
+
+                              <a href="updateDataBarang.php?id=<?= $item['id_serah_terima'] ?>"
+                                class=" text-gray-700 block px-8 py-4 text-sm " role="menuitem" tabindex="-1"
+                                id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-image fa-xl"
+                                  style="color: #63E6BE;"></i>
+                                Gambar
+                              </a>
+
                               <a href="edit.php?id=<?= $item['id_serah_terima'] ?>"
-                                class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                                class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-pen-to-square fa-xl"
-                                  style="color: #0091ff;"></i> Edit</a>
+                                  style="color: #0091ff;"></i></a>
+
                               <a href="delete.php?id=<?= $item['id_serah_terima'] ?>"
-                                class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                                class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"
                                 onclick="return confirm('Are you sure you want to delete this item?');"><i
-                                  class="fa-solid fa-trash fa-xl" style="color: #ff004c;"></i> Hapus</a>
+                                  class="fa-solid fa-trash fa-xl" style="color: #ff004c;"></i></a>
+
+                              <a href="delete.php?id=<?= $item['id_serah_terima'] ?>"
+                                class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
+                                id="menu-item-<?= $index ?>-0"
+                                onclick="return confirm('Are you sure you want to delete this item?');"><i
+                                  class="fa-solid fa-folder-plus fa-xl" style="color: #FFD43B;"></i>
+                              </a>
                             </div>
                           </div>
                         </div>
+
+
+                        <!-- <div class="relative inline-block text-left">
+                            <div>
+                              <button onclick="toggleDropdown(<?= $index ?>)" type="button"
+                                class="bg-blue-500 inline-flex justify-center w-full rounded-3 border shadow-sm px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                id="menu-button-<?= $index ?>" aria-expanded="true" aria-haspopup="true">
+                                <svg class="fill-current text-white w-5 h-5" aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+                                  <path
+                                    d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                                </svg>
+                              </button>
+                            </div>
+                            <div id="dropdown-menu-<?= $index ?>"
+                              class="hidden mt-2 w-56 rounded-3 shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                              role="menu" aria-orientation="vertical" aria-labelledby="menu-button-<?= $index ?>"
+                              tabindex="-1">
+                              <div class="py-1" role="none">
+
+                                <a href="edit.php?id=<?= $item['id_serah_terima'] ?>"
+                                  class="text-gray-700 block px-4 py-2 text-3 hover:bg-sky-700" role="menuitem"
+                                  tabindex="-1" id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-image fa-xl"
+                                    style="color: #63E6BE;"></i>
+                                  Gambar</a>
+
+                                <a href="edit.php?id=<?= $item['id_serah_terima'] ?>"
+                                  class="text-gray-700 block px-4 py-2 text-3" role="menuitem" tabindex="-1"
+                                  id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-pen-to-square fa-xl"
+                                    style="color: #0091ff;"></i> Edit</a>
+
+                                <a href="delete.php?id=<?= $item['id_serah_terima'] ?>"
+                                  class="text-gray-700 block px-4 py-2 text-3" role="menuitem" tabindex="-1"
+                                  id="menu-item-<?= $index ?>-0"
+                                  onclick="return confirm('Are you sure you want to delete this item?');"><i
+                                    class="fa-solid fa-trash fa-xl" style="color: #ff004c;"></i> Hapus</a>
+                              </div>
+                            </div>
+                          </div> -->
                       </td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th data-priority="1">ID Barang</th>
-                    <th data-priority="2">Posisi</th>
-                    <th data-priority="3">Status</th>
-                    <th data-priority="4">Waktu Terima</th>
-                    <th data-priority="6">Nama Kurir</th>
-                    <th data-priority="8">Options</th>
+                    <th class="text-sm " data-priority="1">No Resi</th>
+                    <th class="text-sm" data-priority="2">Jenis Barang</th>
+                    <th class="text-sm" data-priority="3">Nama Pemilik</th>
+                    <th class="text-sm" data-priority="4">NO HP</th>
+                    <th class="text-sm" data-priority="5">Posisi</th>
+                    <th class="text-sm" data-priority="6">Status</th>
+                    <th class="text-sm" data-priority="7">Waktu Terima</th>
+                    <th class="text-sm" data-priority="8">Waktu Serah</th>
+                    <th class="text-sm" data-priority="9">Nama Security</th>
+                    <th class="text-sm" data-priority="10">Options</th>
                   </tr>
                 </tfoot>
               </table>
@@ -532,6 +611,9 @@
 
 
 
+
+
+
     <!-- Footer Start -->
     <footer class="pt-4">
       <div class="w-full px-6 mx-auto">
@@ -544,7 +626,8 @@
               </script>
               made with by
               <a href="https://pcr.ac.id/" class="font-semibold text-slate-700 dark:text-white"
-                target="_blank">Politeknik Caltex Riau</a>
+                target="_blank">Politeknik
+                Caltex Riau</a>
             </div>
           </div>
         </div>

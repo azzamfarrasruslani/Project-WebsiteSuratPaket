@@ -1,10 +1,12 @@
 <?php
-class App {
+class App
+{
     protected $controller = 'HomeController';
     protected $method = 'index';
     protected $params = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         // Initialize database connection
         $db = new mysqli('localhost', 'root', '', 'suratpaket');
 
@@ -13,7 +15,7 @@ class App {
         }
 
         $url = $this->parseUrl();
-        
+
         if (isset($url[0]) && file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
             $this->controller = ucfirst($url[0]) . 'Controller';
             unset($url[0]);
@@ -27,13 +29,14 @@ class App {
                 $this->method = $url[1];
                 unset($url[1]);
             }
-        }
+        } 
 
         $this->params = $url ? array_values($url) : [];
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
-    public function parseUrl() {
+    public function parseUrl()
+    {
         if (isset($_GET['url'])) {
             return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }

@@ -14,7 +14,7 @@ class SerahTerimaController extends Controller
         $search = $_GET['search'] ?? '';
         $order = $_GET['order'] ?? 'id_serah_terima';
         $orderType = $_GET['orderType'] ?? 'ASC';
-        $limit = $_GET['limit'] ?? 30;
+        $limit = $_GET['limit'] ?? 40;
         $page = $_GET['page'] ?? 1;
         $offset = ($page - 1) * $limit;
 
@@ -31,9 +31,13 @@ class SerahTerimaController extends Controller
 
     private function getPenyerahanterimaan($search, $order, $orderType, $limit, $offset)
     {
-        $query = "SELECT st.id_serah_terima, st.posisi, st.status_barang, st.waktu_penerimaan, k.nama_kurir 
+        $query = "SELECT st.id_serah_terima, b.no_resi, b.jenis_barang, p.nama_pemilik, p.noHp_pemilik, st.posisi, 
+                  st.status_barang, st.waktu_penerimaan, st.waktu_penyerahan, s.nama_security
                   FROM serah_terima st
                   JOIN kurir k ON st.id_kurir = k.id_kurir 
+                  JOIN barang b ON st.id_barang = b.id_barang 
+                  JOIN pemilik p ON st.id_pemilik = p.id_pemilik
+                  JOIN security s ON st.id_security = s.id_security
                   WHERE 1";
 
         if ($search) {
@@ -53,6 +57,31 @@ class SerahTerimaController extends Controller
 
         return $data;
     }
+
+    // private function getPenyerahanterimaan($search, $order, $orderType, $limit, $offset)
+    // {
+    //     $query = "SELECT st.id_serah_terima, st.posisi, st.status_barang, st.waktu_penerimaan, k.nama_kurir 
+    //               FROM serah_terima st
+    //               JOIN kurir k ON st.id_kurir = k.id_kurir 
+    //               WHERE 1";
+
+    //     if ($search) {
+    //         $query .= " AND (st.posisi LIKE '%$search%' OR st.status_barang LIKE '%$search%' OR k.nama_kurir LIKE '%$search%')";
+    //     }
+
+    //     $query .= " ORDER BY $order $orderType LIMIT $limit OFFSET $offset";
+
+    //     $result = $this->conn->query($query);
+    //     $data = [];
+
+    //     if ($result) {
+    //         while ($row = $result->fetch_assoc()) {
+    //             $data[] = $row;
+    //         }
+    //     }
+
+    //     return $data;
+    // }
 
     private function countAllPenyerahanterimaan($search)
     {

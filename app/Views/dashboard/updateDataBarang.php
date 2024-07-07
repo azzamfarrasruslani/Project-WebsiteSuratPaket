@@ -1,6 +1,6 @@
 <!-- Modal -->
-
-<div id="modal" class="relative inset-0  hidden z-50 overflow-y-auto">
+<!-- <div id="modal" class="absolute w-full inset-0 hidden z-50 overflow-y-auto"> -->
+<div id="modal" class="w-full inset-0 hidden z-50 overflow-y-auto">
   <div class="flex items-center justify-center min-h-screen px-4">
     <div class="fixed inset-0 transition-opacity">
       <div class="absolute inset-0 bg-gray-500 opacity-75"></div>

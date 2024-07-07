@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Example</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <script></script>
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="fixed top-24 w-52 text-right">
+    <div class="relative inline-block text-left">
+      <div>
+        <button id="menu-button" aria-expanded="false" aria-haspopup="true" class="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm font-semibold text-white shadow-inner shadow-white/10 focus:outline-none hover:bg-gray-700">
+          Options
+          <svg class="w-4 h-4 fill-current text-white/60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 13l-5-5h10l-5 5z"/></svg>
+        </button>
+      </div>
+      <div id="menu-items" class="origin-top-right absolute right-0 mt-2 w-52 rounded-xl border border-white/5 bg-white/5 p-1 text-sm text-white transition duration-100 ease-out transform scale-95 opacity-0 invisible">
+        <div class="py-1">
+          <button class="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 hover:bg-white/10 focus:bg-white/10">
+            <svg class="w-4 h-4 fill-current text-white/30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M15.293 4.707a1 1 0 010 1.414L7.414 14H4v-3.414l7.879-7.879a1 1 0 011.414 0zM4 15a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
+            Edit
+            <kbd class="ml-auto hidden font-sans text-xs text-white/50 group-hover:inline">⌘E</kbd>
+          </button>
+          <button class="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 hover:bg-white/10 focus:bg-white/10">
+            <svg class="w-4 h-4 fill-current text-white/30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 2a1 1 0 01.993.883L11 3v6h6a1 1 0 01.117 1.993L17 11h-6v6a1 1 0 01-1.993.117L9 17v-6H3a1 1 0 01-.117-1.993L3 9h6V3a1 1 0 01.883-.993L10 2z"/></svg>
+            Duplicate
+            <kbd class="ml-auto hidden font-sans text-xs text-white/50 group-hover:inline">⌘D</kbd>
+          </button>
+          <div class="my-1 h-px bg-white/5"></div>
+          <button class="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 hover:bg-white/10 focus:bg-white/10">
+            <svg class="w-4 h-4 fill-current text-white/30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm3 2h4a1 1 0 01.993.883L13 6v8a1 1 0 01-.883.993L12 15H8a1 1 0 01-.993-.883L7 14V6a1 1 0 01.883-.993L8 5zm-1 7a1 1 0 100 2h2a1 1 0 000-2H7zm6-4a1 1 0 100 2h2a1 1 0 000-2h-2z"/></svg>
+            Archive
+            <kbd class="ml-auto hidden font-sans text-xs text-white/50 group-hover:inline">⌘A</kbd>
+          </button>
+          <button class="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 hover:bg-white/10 focus:bg-white/10">
+            <svg class="w-4 h-4 fill-current text-white/30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 4h12v2H4V4zm1 3h10v11H5V7zm1 1v9h8V8H6z"/></svg>
+            Delete
+            <kbd class="ml-auto hidden font-sans text-xs text-white/50 group-hover:inline">⌘D</kbd>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Toggle menu visibility
+    const menuButton = document.getElementById('menu-button');
+    const menuItems = document.getElementById('menu-items');
+
+    menuButton.addEventListener('click', () => {
+      const isVisible = menuItems.classList.contains('scale-100');
+      menuButton.setAttribute('aria-expanded', !isVisible);
+      menuItems.classList.toggle('scale-95', isVisible);
+      menuItems.classList.toggle('opacity-0', isVisible);
+      menuItems.classList.toggle('invisible', isVisible);
+      menuItems.classList.toggle('scale-100', !isVisible);
+      menuItems.classList.toggle('opacity-100', !isVisible);
+    });
+  </script>
+</body>
+</html>
