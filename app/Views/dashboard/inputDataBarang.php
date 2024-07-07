@@ -26,7 +26,7 @@
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="nomor-resi">
-                      Nomor Resi
+                      Nomor Resi :
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
@@ -36,12 +36,13 @@
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="jenis-barang">
-                      Jenis Barang
+                      Jenis Barang :
                     </label>
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="jenis-barang">
+                        <option value="" disabled selected>Pilih Jenis Barang</option>
                         <option>Surat</option>
                         <option>Paket</option>
                         <option>Cargo</option>
@@ -57,18 +58,50 @@
                   <div class="w-full px-3 mb-6">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="nama-pemilik">
-                      Nama Pemilik
+                      Nama Pemilik :
                     </label>
                     <input
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
                       id="nama-pemilik" type="text">
                   </div>
                 </div>
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                      for="">
+                      Tanggal Penerimaan :
+                    </label>
+                    <input
+                      class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                      id="" type="datetime-local">
+                  </div>
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                      for="">
+                      Tanggal Penyerahaan :
+                    </label>
+                    <input
+                      class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                      id="" type="datetime-local">
+                  </div>
+
+                  <div class="w-full px-3 mb-6">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                      for="nama-kurir">
+                      Nama Kurir :
+                    </label>
+                    <input
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
+                      id="nama-kurir" type="text">
+                  </div>
+                </div>
+
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="nomor-hp">
-                      Nomor HP
+                      Nomor HP :
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
@@ -77,7 +110,7 @@
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="email">
-                      Email
+                      Email :
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
@@ -87,7 +120,7 @@
                   <div class="w-full px-3 mb-6">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="nama-kurir">
-                      Nama Kurir
+                      Nama Kurir :
                     </label>
                     <input
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -99,12 +132,13 @@
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="ekspedisi">
-                      Ekspedisi
+                      Ekspedisi :
                     </label>
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="ekspedisi">
+                        <option value="" disabled selected>Pilih Ekspedisi</option>
                         <option>JNE</option>
                         <option>POS</option>
                         <option>TIKI</option>
@@ -120,15 +154,41 @@
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="security">
-                      Security (Penerima)
+                      Security (Penerima) :
+                    </label>
+                    <div class="relative">
+
+                      <select
+                        class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="security">
+                        <option value="" disabled selected>Pilih Security</option>
+                        <?php foreach ($serah_terima as $index => $item): ?>
+                          <option><?= $item['nama_security'] ?></option>
+                        <?php endforeach; ?>
+                      </select>
+
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-12">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                      for="ekspedisi">
+                      Posisi Barang :
                     </label>
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="security">
-                        <option>Security 1</option>
-                        <option>Security 2</option>
-                        <option>Security 3</option>
+                        id="ekspedisi">
+                        <option value="" disabled selected>Pilih Posisi Barang</option>
+                        <option>Gedung Rektorat</option>
+                        <option>Sarana Prasarana</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -136,6 +196,15 @@
                         </svg>
                       </div>
                     </div>
+                  </div>
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                      for="nomor-resi">
+                      Foto Barang :  
+                    </label>
+                    <input
+                      class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                      id="nomor-resi" type="file">
                   </div>
                 </div>
 
@@ -146,7 +215,8 @@
                     <i class="fa-solid fa-file"></i> Simpan
                   </button>
                   <button
-                    class="justify-items-start mb-4 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-gradient-to-tl from-red-600 to-orange-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
+                    class="justify-items-start mb-4 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-gradient-to-tl from-red-600 to-orange-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm"
+                    onclick="return confirm('Apakah Anda Yakin Ingin Keluar?');">
                     <i class="fa-solid fa-file-excel"></i> Batal
                   </button>
                 </div>
@@ -157,4 +227,24 @@
       </div>
     </div>
   </div>
+  <!-- Footer Start -->
+  <footer class="pt-4">
+    <div class="w-full px-6 mx-auto">
+      <div class=" flex-wrap items-center -mx-3 lg:justify-between">
+        <div class="w-full max-w-full px-3 mt-0 mb-6 ">
+          <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
+            ©
+            <script>
+              document.write(new Date().getFullYear() + ",");
+            </script>
+            made with by
+            <a href="https://pcr.ac.id/" class="font-semibold text-slate-700 dark:text-white" target="_blank">Politeknik
+              Caltex Riau</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- Footer End -->
 </div>

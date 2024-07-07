@@ -182,8 +182,9 @@
         <a class="py-2.7 bg-blue-500/13 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors "
           href="<?= BASE_URL; ?>SerahTerima/dataPaket">
           <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-            <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
+            <i class="fa-solid fa-table" style="color:  #fb6340;"></i>
           </div>
+
           <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Data Paket</span>
         </a>
       </li>
@@ -413,7 +414,7 @@
 
   <?php include ('inputDataBarang.php'); ?>
 
-  <div class=" container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
+  <div id="table" class="container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
     <!-- Card -->
     <div class=" w-full px-2 py-6 mx-auto">
       <div class="flex-none w-full max-w-full px-4">
@@ -491,7 +492,6 @@
                                 class=" text-gray-700 block px-8 py-4 text-sm " role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-image fa-xl"
                                   style="color: #63E6BE;"></i>
-                                Gambar
                               </a>
 
                               <a href="edit.php?id=<?= $item['id_serah_terima'] ?>"
@@ -509,50 +509,11 @@
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"
                                 onclick="return confirm('Are you sure you want to delete this item?');"><i
-                                  class="fa-solid fa-folder-plus fa-xl" style="color: #FFD43B;"></i>
+                                  class="fa-solid fa-magnifying-glass-plus fa-xl" style="color: #FFD43B;"></i>
                               </a>
                             </div>
                           </div>
                         </div>
-
-
-                        <!-- <div class="relative inline-block text-left">
-                            <div>
-                              <button onclick="toggleDropdown(<?= $index ?>)" type="button"
-                                class="bg-blue-500 inline-flex justify-center w-full rounded-3 border shadow-sm px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                id="menu-button-<?= $index ?>" aria-expanded="true" aria-haspopup="true">
-                                <svg class="fill-current text-white w-5 h-5" aria-hidden="true"
-                                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
-                                  <path
-                                    d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                                </svg>
-                              </button>
-                            </div>
-                            <div id="dropdown-menu-<?= $index ?>"
-                              class="hidden mt-2 w-56 rounded-3 shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                              role="menu" aria-orientation="vertical" aria-labelledby="menu-button-<?= $index ?>"
-                              tabindex="-1">
-                              <div class="py-1" role="none">
-
-                                <a href="edit.php?id=<?= $item['id_serah_terima'] ?>"
-                                  class="text-gray-700 block px-4 py-2 text-3 hover:bg-sky-700" role="menuitem"
-                                  tabindex="-1" id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-image fa-xl"
-                                    style="color: #63E6BE;"></i>
-                                  Gambar</a>
-
-                                <a href="edit.php?id=<?= $item['id_serah_terima'] ?>"
-                                  class="text-gray-700 block px-4 py-2 text-3" role="menuitem" tabindex="-1"
-                                  id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-pen-to-square fa-xl"
-                                    style="color: #0091ff;"></i> Edit</a>
-
-                                <a href="delete.php?id=<?= $item['id_serah_terima'] ?>"
-                                  class="text-gray-700 block px-4 py-2 text-3" role="menuitem" tabindex="-1"
-                                  id="menu-item-<?= $index ?>-0"
-                                  onclick="return confirm('Are you sure you want to delete this item?');"><i
-                                    class="fa-solid fa-trash fa-xl" style="color: #ff004c;"></i> Hapus</a>
-                              </div>
-                            </div>
-                          </div> -->
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -586,6 +547,7 @@
     <script>
       function toggleModal() {
         document.getElementById('modal').classList.toggle('hidden');
+        document.getElementById('table').classList.toggle('hidden');
       }
 
       function toggleDropdown(index) {
