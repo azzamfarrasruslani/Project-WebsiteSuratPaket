@@ -488,13 +488,13 @@
                             tabindex="-1">
                             <div class="py-1" role="none">
 
-                              <a href="updateDataBarang.php?id=<?= $item['id_serah_terima'] ?>"
+                              <a href="<?= BASE_URL; ?>serahTerima/getFotoBarang ?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm " role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-image fa-xl"
                                   style="color: #63E6BE;"></i>
                               </a>
 
-                              <a href="edit.php?id=<?= $item['id_serah_terima'] ?>"
+                              <a href="?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-pen-to-square fa-xl"
                                   style="color: #0091ff;"></i></a>

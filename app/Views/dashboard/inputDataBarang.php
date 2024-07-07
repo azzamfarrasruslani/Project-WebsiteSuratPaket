@@ -157,15 +157,21 @@
                       Security (Penerima) :
                     </label>
                     <div class="relative">
-
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="security">
                         <option value="" disabled selected>Pilih Security</option>
-                        <?php foreach ($serah_terima as $index => $item): ?>
-                          <option><?= $item['nama_security'] ?></option>
-                        <?php endforeach; ?>
+                        <?php if (!empty($security_names)): ?>
+                          <?php foreach ($security_names as $security): ?>
+                            <option value="<?= htmlspecialchars($security['nama_security']) ?>">
+                              <?= htmlspecialchars($security['nama_security']) ?>
+                            </option>
+                          <?php endforeach; ?>
+                        <?php else: ?>
+                          <option value="" disabled>Tidak ada data security</option>
+                        <?php endif; ?>
                       </select>
+
 
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -200,7 +206,7 @@
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="nomor-resi">
-                      Foto Barang :  
+                      Foto Barang :
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"

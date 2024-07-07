@@ -1,5 +1,11 @@
 <?php
-class Model {
-    // Implementasi koneksi database jika diperlukan
+
+class Model
+{
+    protected $conn;
+
+    public function __construct($db)
+    {
+        $this->conn = $db;
+    }
 }
-?>
