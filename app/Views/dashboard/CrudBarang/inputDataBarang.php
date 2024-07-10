@@ -13,7 +13,7 @@
             </h3>
 
             <div class="mt-2">
-              <form action="" method="post">
+              <form action="store" method="post" enctype="multipart/form-data">
 
                 <div class="flex justify-start mb-4">
                   <button type="reset"
@@ -30,7 +30,7 @@
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="nomor-resi" type="text">
+                      id="no_resi" name="no_resi" type="text">
                   </div>
 
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -41,7 +41,7 @@
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="jenis-barang">
+                        id="jenis_barang" name="jenis_barang">
                         <option value="" disabled selected>Pilih Jenis Barang</option>
                         <option>Surat</option>
                         <option>Paket</option>
@@ -62,7 +62,7 @@
                     </label>
                     <input
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
-                      id="nama-pemilik" type="text">
+                      id="nama_pemilik" name="nama_pemilik" type="text">
                   </div>
                 </div>
 
@@ -74,7 +74,7 @@
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="" type="datetime-local">
+                      id="tgl_terima" name="tgl_terima" type="datetime-local">
                   </div>
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
@@ -83,7 +83,7 @@
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="" type="datetime-local">
+                      id="tgl_serah" name="tgl_serah" type="datetime-local">
                   </div>
 
                   <div class="w-full px-3 mb-6">
@@ -93,19 +93,19 @@
                     </label>
                     <input
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
-                      id="nama-kurir" type="text">
+                      id="nama_kurir" name="nama_kurir" type="text">
                   </div>
                 </div>
 
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
-                      for="nomor-hp">
+                      for="no_hp">
                       Nomor HP :
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="nomor-hp" type="text">
+                      id="no_hp" name="no_hp" type="text">
                   </div>
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
@@ -114,7 +114,7 @@
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="email" type="email">
+                      id="email" name="email" type="email">
                   </div>
 
                   <div class="w-full px-3 mb-6">
@@ -124,7 +124,7 @@
                     </label>
                     <input
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
-                      id="nama-kurir" type="text">
+                      id="nama_kurir" name="nama_kurir" type="text">
                   </div>
                 </div>
 
@@ -137,7 +137,7 @@
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="ekspedisi">
+                        id="ekspedisi" name="ekspedisi">
                         <option value="" disabled selected>Pilih Ekspedisi</option>
                         <option>JNE</option>
                         <option>POS</option>
@@ -159,7 +159,7 @@
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="security">
+                        id="security" name="security">
                         <option value="" disabled selected>Pilih Security</option>
                         <?php if (!empty($security_names)): ?>
                           <?php foreach ($security_names as $security): ?>
@@ -191,7 +191,7 @@
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="ekspedisi">
+                        id="posisi_barang" name="posisi_barang">
                         <option value="" disabled selected>Pilih Posisi Barang</option>
                         <option>Gedung Rektorat</option>
                         <option>Sarana Prasarana</option>
@@ -205,12 +205,12 @@
                   </div>
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
-                      for="nomor-resi">
+                      for="foto_barang">
                       Foto Barang :
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="nomor-resi" type="file">
+                      id="foto_barang" name="foto_barang" type="file">
                   </div>
                 </div>
 

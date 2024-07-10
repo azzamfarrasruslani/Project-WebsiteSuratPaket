@@ -1,0 +1,31 @@
+public function insertBarang($jenis_barang, $no_resi, $foto_barang) {
+    $sql = "INSERT INTO barang (jenis_barang, no_resi, foto_barang) VALUES (?, ?, ?)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("sss", $jenis_barang, $no_resi, $foto_barang);
+    $stmt->execute();
+    return $this->conn->insert_id;
+}
+
+public function insertKurir($nama_kurir, $ekspedisi) {
+    $sql = "INSERT INTO kurir (nama_kurir, ekspedisi) VALUES (?, ?)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("ss", $nama_kurir, $ekspedisi);
+    $stmt->execute();
+    return $this->conn->insert_id;
+}
+
+public function insertPemilik($nama_pemilik, $noHp_pemilik, $email_pemilik) {
+    $sql = "INSERT INTO pemilik (nama_pemilik, noHp_pemilik, email_pemilik) VALUES (?, ?, ?)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("sss", $nama_pemilik, $noHp_pemilik, $email_pemilik);
+    $stmt->execute();
+    return $this->conn->insert_id;
+}
+
+public function insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security) {
+    $sql = "INSERT INTO serah_terima (posisi, status_barang, waktu_penerimaan, waktu_penyerahan, id_barang, id_kurir, id_pemilik, id_security) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("ssssiiii", $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
+    return $stmt->execute();
+}
+}

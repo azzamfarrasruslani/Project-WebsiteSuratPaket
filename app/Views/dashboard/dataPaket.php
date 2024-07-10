@@ -412,7 +412,7 @@
 
 
 
-  <?php include ('inputDataBarang.php'); ?>
+  <?php include ('CrudBarang/inputDataBarang.php'); ?>
 
   <div id="table" class="container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
     <!-- Card -->

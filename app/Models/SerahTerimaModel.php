@@ -33,7 +33,7 @@ class SerahTerimaModel extends Model
 
     public function getNamaSecurity()
     {
-        $query = "SELECT nama_security FROM security";
+        $query = "SELECT id_security, nama_security FROM security";
 
         $result = $this->conn->query($query);
         $data = [];
@@ -48,20 +48,73 @@ class SerahTerimaModel extends Model
     }
 
     public function getFotoBarang($id_barang)
-    {
-        $query = "SELECT b.foto_barang
-                  FROM serah_terima st
-                  JOIN barang b ON st.id_barang = b.id_barang 
-                  WHERE st.id_serah_terima = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $id_barang);
-        $stmt->execute();
-        $stmt->store_result();
-        $foto_barang = null;
-        $stmt->bind_result($foto_barang);
-        $stmt->fetch();
-        $stmt->close();
-
-        return $foto_barang;
-    }
+{
+    $query = "SELECT foto_barang FROM barang WHERE id_barang = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("i", $id_barang);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    return $row['foto_barang'];
 }
+
+
+    
+    public function insertBarang($jenis_barang, $no_resi, $foto_barang)
+    {
+        $sql = "INSERT INTO barang (jenis_barang, no_resi, foto_barang) VALUES (?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sss", $jenis_barang, $no_resi, $foto_barang);
+        $stmt->execute();
+        return $this->conn->insert_id;
+    }
+
+    public function insertKurir($nama_kurir, $ekspedisi)
+    {
+        $sql = "INSERT INTO kurir (nama_kurir, ekspedisi) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ss", $nama_kurir, $ekspedisi);
+        if ($stmt->execute()) {
+            return $this->conn->insert_id;
+        } else {
+            return false;
+        }
+    }
+
+    public function insertPemilik($nama_pemilik, $noHp_pemilik, $email_pemilik)
+    {
+        $sql = "INSERT INTO pemilik (nama_pemilik, noHp_pemilik, email_pemilik) VALUES (?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sss", $nama_pemilik, $noHp_pemilik, $email_pemilik);
+        $stmt->execute();
+        return $this->conn->insert_id;
+    }
+
+    private function getSecurityIdByName($nama_security)
+    {
+        $query = "SELECT id_security FROM security WHERE nama_security =?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $nama_security);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row['id_security'];
+    }
+
+    public function insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $nama_security)
+{
+    $security_id = $this->getSecurityIdByName($nama_security);
+    if (!$security_id) {
+        throw new Exception("Security with name $nama_security does not exist");
+    }
+    
+    $sql = "INSERT INTO serah_terima (posisi, status_barang, waktu_penerimaan, waktu_penyerahan, id_barang, id_kurir, id_pemilik, id_security) VALUES (?,?,?,?,?,?,?,?)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("ssssiiii", $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $security_id);
+    $stmt->execute();
+    return $stmt->affected_rows;
+}
+    
+   
+}
+?>
