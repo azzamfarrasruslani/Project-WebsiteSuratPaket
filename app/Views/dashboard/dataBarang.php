@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- shortcut icon -->
   <link rel="icon" type="image/png" href="<?= BASE_URL; ?>assets/images/envelope icon.svg" />
-  <title>Surat Paket | Dashboard</title>
+  <title>Surat Paket | Data Barang</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Fontawesome Icon -->
@@ -180,7 +180,7 @@
       <!-- Data Paket -->
       <li class="mt-0.5 w-full">
         <a class="py-2.7 bg-blue-500/13 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors "
-          href="<?= BASE_URL; ?>SerahTerima/dataPaket">
+          href="<?= BASE_URL; ?>SerahTerima/dataBarang">
           <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
             <i class="fa-solid fa-table" style="color:  #fb6340;"></i>
           </div>
@@ -414,6 +414,12 @@
 
   <?php include ('CrudBarang/inputDataBarang.php'); ?>
 
+
+
+
+
+
+
   <div id="table" class="container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
     <!-- Card -->
     <div class=" w-full px-2 py-6 mx-auto">
@@ -487,30 +493,38 @@
                             role="menu" aria-orientation="vertical" aria-labelledby="menu-button-<?= $index ?>"
                             tabindex="-1">
                             <div class="py-1" role="none">
-
+                              <!-- Gambar -->
                               <a href="<?= BASE_URL; ?>serahTerima/getFotoBarang ?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm " role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-image fa-xl"
                                   style="color: #63E6BE;"></i>
                               </a>
-
-                              <a href="?id=<?= $item['id_serah_terima'] ?>"
+                              <!-- Edit -->
+                              <!-- <a href="#?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
-                                id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-pen-to-square fa-xl"
-                                  style="color: #0091ff;"></i></a>
+                                id="menu-item-<?= $index ?>-0" onclick="toggleModalEdit()"><i
+                                  class="fa-solid fa-pen-to-square fa-xl" style="color: #0091ff;"></i></a> -->
 
-                              <a href="delete.php?id=<?= $item['id_serah_terima'] ?>"
+                              <a href="getDataValue?id=<?= $item['id_serah_terima'] ?>"
+                                class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
+                                id="menu-item-<?= $index ?>-0" onclick="toggleModalEdit()"><i
+                                  class="fa-solid fa-pen-to-square fa-xl" style="color: #0091ff;"></i></a>
+
+
+                              <!-- Hapus -->
+                              <a href="hapusData?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"
                                 onclick="return confirm('Are you sure you want to delete this item?');"><i
                                   class="fa-solid fa-trash fa-xl" style="color: #ff004c;"></i></a>
-
+                              <!-- More Data -->
                               <a href="delete.php?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"
                                 onclick="return confirm('Are you sure you want to delete this item?');"><i
                                   class="fa-solid fa-magnifying-glass-plus fa-xl" style="color: #FFD43B;"></i>
                               </a>
+
                             </div>
                           </div>
                         </div>
@@ -550,6 +564,21 @@
         document.getElementById('table').classList.toggle('hidden');
       }
 
+      function toggleModalEdit() {
+        document.getElementById('modal-edit').classList.toggle('hidden');
+        document.getElementById('table').classList.toggle('hidden');
+      }
+
+      // function toggleModalEdit(id) {
+      //   // Toggle modal dan table visibility
+      //   document.getElementById('modal-edit').classList.toggle('hidden');
+      //   document.getElementById('table').classList.toggle('hidden');
+
+      //   // Simpan id_serah_terima untuk digunakan kemudian
+      //   document.getElementById('modal-edit').dataset.idSerahTerima = id;
+      // }
+
+
       function toggleDropdown(index) {
         var dropdown = document.getElementById("dropdown-menu-" + index);
         dropdown.classList.toggle("hidden");
@@ -559,14 +588,11 @@
         if (!event.target.matches('[id^="menu-button-"]')) {
           var dropdowns = document.getElementsByClassName("dropdown-menu");
           for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (!openDropdown.classList.contains('hidden')) {
-              openDropdown.classList.add('hidden');
-            }
+            var openDropdown = dropdowns[i]; if
+              (!openDropdown.classList.contains('hidden')) { openDropdown.classList.add('hidden'); }
           }
         }
-      }
-    </script>
+      } </script>
 
 
 

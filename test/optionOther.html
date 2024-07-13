@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Option Input Other</title>
+<style>
+  /* Optional: Styling for demonstration */
+  .other-input {
+    margin-top: 10px;
+    display: none; /* hide initially */
+  }
+</style>
+</head>
+<body>
+
+<select id="mySelect" onchange="handleOtherOption(this)">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+  <option value="other">Other</option>
+</select>
+
+<!-- Input field for "other" option -->
+<input type="text" id="otherInput" class="other-input" placeholder="Enter other option">
+
+<script>
+function handleOtherOption(select) {
+  var otherInput = document.getElementById('otherInput');
+
+  if (select.value === 'other') {
+    otherInput.style.display = 'inline-block'; // show input field
+    otherInput.value = ''; // clear input value
+    otherInput.focus(); // focus on input field
+  } else {
+    otherInput.style.display = 'none'; // hide input field
+    otherInput.value = ''; // clear input value if hidden
+  }
+}
+</script>
+
+</body>
+</html>

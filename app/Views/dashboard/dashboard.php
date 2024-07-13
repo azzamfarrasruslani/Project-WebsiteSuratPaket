@@ -69,7 +69,7 @@
       <!-- Data Barang -->
       <li class="mt-0.5 w-full">
         <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-          href="<?= BASE_URL; ?>serahTerima/dataPaket">
+          href="<?= BASE_URL; ?>serahTerima/dataBarang">
           <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
           <i class="fa-solid fa-table" style="color:  #fb6340;"></i>
           </div>
@@ -310,7 +310,8 @@
                 <div>
                   <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                     Paket Masuk </p>
-                  <h5 class="mb-2 font-bold dark:text-white"></h5>
+                    <h5 class="mb-2 font-bold dark:text-white"><?= $jumlahBarang; ?></h5>
+
 
 
                   <p class="mb-0 dark:text-white dark:opacity-60">
