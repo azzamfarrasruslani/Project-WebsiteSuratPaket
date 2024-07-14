@@ -125,26 +125,34 @@ class SerahTerimaModel extends Model
         return $stmt->affected_rows;
     }
 
+    public function updateStatusSerahTerima($id_serah_terima, $status_barang, $waktu_penyerahan)
+    {
+        $sql = "UPDATE serah_terima SET status_barang = ?, waktu_penyerahan = ? WHERE id_serah_terima = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ssi", $status_barang, $waktu_penyerahan, $id_serah_terima);
+        return $stmt->execute();
+    }
 
 
 
 
 
-  public function getSerahTerimaById($id_serah_terima)
-{
-    $query = "SELECT st.*, b.*, k.*, p.*, s.nama_security 
+
+    public function getSerahTerimaById($id_serah_terima)
+    {
+        $query = "SELECT st.*, b.*, k.*, p.*, s.nama_security 
               FROM serah_terima st
               JOIN kurir k ON st.id_kurir = k.id_kurir 
               JOIN barang b ON st.id_barang = b.id_barang 
               JOIN pemilik p ON st.id_pemilik = p.id_pemilik
               JOIN security s ON st.id_security = s.id_security
               WHERE st.id_serah_terima = ?";
-    $stmt = $this->conn->prepare($query);
-    $stmt->bind_param("i", $id_serah_terima);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    return $result->fetch_assoc();
-}
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $id_serah_terima);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
 
 
     public function updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang)
@@ -170,6 +178,7 @@ class SerahTerimaModel extends Model
         $stmt->bind_param("sssi", $nama_pemilik, $noHp_pemilik, $email_pemilik, $id_pemilik);
         return $stmt->execute();
     }
+
 
     public function updateSerahTerima($id_serah_terima, $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security)
     {

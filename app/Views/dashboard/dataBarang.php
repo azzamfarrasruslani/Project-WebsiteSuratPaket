@@ -506,6 +506,16 @@
                             tabindex="-1">
                             <div class="py-1" role="none">
 
+                              <?php if ($item['status_barang'] == 'Belum Diambil'): ?>
+                                <!-- Update Status-->
+                                <a href="viewUpdateStatus?id=<?= $item['id_serah_terima'] ?>"
+                                  class=" text-gray-700 block px-8 py-4 text-sm " role="menuitem" tabindex="-1"
+                                  onclick="return confirm('Apakah anda yakin upadate status barang ?') "
+                                  id=" menu-item-<?= $index ?>-0"><i class="fa-solid fa-check fa-xl"
+                                    style="color: #63E6BE;"></i>
+                                </a>
+                              <?php endif; ?>
+
                               <!-- More Data -->
                               <a href="detailData?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
@@ -520,12 +530,12 @@
                                   style="color: #63E6BE;"></i>
                               </a> -->
 
+
                               <!-- Edit -->
                               <a href="editBarang?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
-                                id="menu-item-<?= $index ?>-0" onclick="toggleModalEdit()"><i
-                                  class="fa-solid fa-pen-to-square fa-xl" style="color: #0091ff;"></i></a>
-
+                                id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-pen-to-square fa-xl"
+                                  style="color: #0091ff;"></i></a>
                               <!-- Hapus -->
                               <a href="hapusData?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
@@ -573,10 +583,14 @@
         document.getElementById('table').classList.toggle('hidden');
       }
 
-      function toggleModalEdit() {
-        document.getElementById('modal-edit').classList.toggle('hidden');
-        document.getElementById('table').classList.toggle('hidden');
-      }
+      // function toggleModalUpdateStatus() {
+      //   const modal = document.getElementById('modal-updateStatus');
+      //   const body = document.querySelector('body');
+
+      //   modal.classList.toggle('hidden');
+      //   body.classList.toggle('modal-blur');
+      // }
+
 
       // function toggleModalEdit(id) {
       //   // Toggle modal dan table visibility
