@@ -77,17 +77,14 @@
                       id="tgl_terima" name="tgl_terima" type="datetime-local">
                   </div>
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <!-- <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="">
                       Tanggal Penyerahaan :
                     </label>
                     <input
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="tgl_serah" name="tgl_serah" type="datetime-local">
-                  </div>
-
-                  <div class="w-full px-3 mb-6">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                      id="tgl_serah" name="tgl_serah" type="datetime-local"> -->
+                      <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                       for="nama-kurir">
                       Nama Kurir :
                     </label>
@@ -95,6 +92,17 @@
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
                       id="nama_kurir" name="nama_kurir" type="text">
                   </div>
+                  
+
+                  <!-- <div class="w-full px-3 mb-6">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                      for="nama-kurir">
+                      Nama Kurir :
+                    </label>
+                    <input
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
+                      id="nama_kurir" name="nama_kurir" type="text">
+                  </div> -->
                 </div>
 
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -213,8 +221,6 @@
                       id="foto_barang" name="foto_barang" type="file">
                   </div>
                 </div>
-
-
                 <div class="flex justify-start mb-4">
                   <button type="submit"
                     class="justify-items-start mb-4 mr-2 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
@@ -226,6 +232,8 @@
                     <i class="fa-solid fa-file-excel"></i> Batal
                   </button>
                 </div>
+
+
               </form>
             </div>
           </div>

@@ -88,6 +88,7 @@ class SerahTerimaController extends Controller
             $posisi = $_POST['posisi_barang'] ?? null;
             $waktu_penerimaan = $_POST['tgl_terima'] ?? null;
             $waktu_penyerahan = $_POST['tgl_serah'] ?? null;
+            // $waktu_penyerahan = '';
             $id_security = $_POST['security'] ?? null;
             $status_barang = 'Belum Diambil';
 
@@ -175,21 +176,35 @@ class SerahTerimaController extends Controller
     //     $this->view('dashboard/editDataBarang', $data);
     // }
 
-    public function getDataValue()
+    public function editBarang()
     {
         // Mengambil ID dari query string
         $id_serah_terima = $_GET['id'];
-
         if ($id_serah_terima) {
-            // Menampilkan alert ID ditemukan
-            echo "<script>alert('ID Ditemukan!');</script>";
-            // Mengambil data dari model
-           
+            echo "<script>alert('ID Ditemukan!');</script>";  
             $data['serah_terima'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
             $data['security_names'] = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
             // Memuat view dengan data
             $this->loadLayout('header');
             $this->loadView('dashboard/CrudBarang/editDataBarang', $data, $this);
+            $this->loadLayout('footer');
+
+        } else {
+            // Menampilkan alert jika ID gagal ditemukan
+            echo "<script>alert('ID Gagal Ditemukan!');</script>";
+        }
+    }
+
+
+    public function detailData () {
+        $id_serah_terima = $_GET['id'];
+        if ($id_serah_terima) {
+            // echo "<script>alert('ID Ditemukan!');</script>";  
+            $data['serah_terima'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
+            $data['security_names'] = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
+            // Memuat view dengan data
+            $this->loadLayout('header');
+            $this->loadView('dashboard/CrudBarang/detailDataBarang', $data, $this);
             $this->loadLayout('footer');
 
         } else {

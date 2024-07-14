@@ -422,7 +422,7 @@
 
   <div id="table" class="container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
     <!-- Card -->
-    <div class=" w-full px-2 py-6 mx-auto">
+    <div class="w-full px-2 py-6 mx-auto">
       <div class="flex-none w-full max-w-full px-4">
         <div
           class="relative flex flex-col min-w-0 mb-6 pb-5 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
@@ -446,7 +446,7 @@
                     <th class="text-sm" data-priority="5">Posisi</th>
                     <th class="text-sm" data-priority="6">Status</th>
                     <th class="text-sm" data-priority="7">Waktu Terima</th>
-                    <th class="text-sm" data-priority="8">Waktu Serah</th>
+                    <!-- <th class="text-sm" data-priority="8">Waktu Serah</th> -->
                     <th class="text-sm" data-priority="9">Nama Security</th>
                     <th class="text-sm" data-priority="10">Options</th>
                   </tr>
@@ -465,13 +465,25 @@
                         <?= !empty($item['posisi']) ? $item['posisi'] : 'data tidak tersedia' ?>
                       </td>
 
-                      <td class="text-sm"><?= $item['status_barang'] ?></td>
-
+                      <!-- <td class="text-sm"><?= $item['status_barang'] ?></td> -->
+                      <td class="text-xs px-4">
+                        <?php if ($item['status_barang'] == 'Belum Diambil'): ?>
+                          <span
+                            class="bg-gradient-to-tl from-red-600 to-orange-600 text-white px-2 py-2 rounded-1 whitespace-nowrap">
+                            Belum Diambil
+                          </span>
+                        <?php else: ?>
+                          <span
+                            class="bg-gradient-to-tl from-emerald-500 to-teal-400 text-white px-2 py-2 rounded-1 whitespace-nowrap">
+                            Sudah Diambil
+                          </span>
+                        <?php endif; ?>
+                      </td>
                       <td class="text-sm"><?= $item['waktu_penerimaan'] ?></td>
 
-                      <td class="text-sm">
+                      <!-- <td class="text-sm">
                         <?= !empty($item['waktu_penyerahan']) ? $item['waktu_penyerahan'] : '-' ?>
-                      </td>
+                      </td> -->
 
                       <td class="text-sm"><?= $item['nama_security'] ?></td>
                       <td>
@@ -493,23 +505,26 @@
                             role="menu" aria-orientation="vertical" aria-labelledby="menu-button-<?= $index ?>"
                             tabindex="-1">
                             <div class="py-1" role="none">
-                              <!-- Gambar -->
+
+                              <!-- More Data -->
+                              <a href="detailData?id=<?= $item['id_serah_terima'] ?>"
+                                class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
+                                id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-magnifying-glass-plus fa-xl"
+                                  style="color: #FFD43B;"></i>
+                              </a>
+
+                              <!-- Gambar
                               <a href="<?= BASE_URL; ?>serahTerima/getFotoBarang ?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm " role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-image fa-xl"
                                   style="color: #63E6BE;"></i>
-                              </a>
-                              <!-- Edit -->
-                              <!-- <a href="#?id=<?= $item['id_serah_terima'] ?>"
-                                class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
-                                id="menu-item-<?= $index ?>-0" onclick="toggleModalEdit()"><i
-                                  class="fa-solid fa-pen-to-square fa-xl" style="color: #0091ff;"></i></a> -->
+                              </a> -->
 
-                              <a href="getDataValue?id=<?= $item['id_serah_terima'] ?>"
+                              <!-- Edit -->
+                              <a href="editBarang?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0" onclick="toggleModalEdit()"><i
                                   class="fa-solid fa-pen-to-square fa-xl" style="color: #0091ff;"></i></a>
-
 
                               <!-- Hapus -->
                               <a href="hapusData?id=<?= $item['id_serah_terima'] ?>"
@@ -517,13 +532,7 @@
                                 id="menu-item-<?= $index ?>-0"
                                 onclick="return confirm('Are you sure you want to delete this item?');"><i
                                   class="fa-solid fa-trash fa-xl" style="color: #ff004c;"></i></a>
-                              <!-- More Data -->
-                              <a href="delete.php?id=<?= $item['id_serah_terima'] ?>"
-                                class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
-                                id="menu-item-<?= $index ?>-0"
-                                onclick="return confirm('Are you sure you want to delete this item?');"><i
-                                  class="fa-solid fa-magnifying-glass-plus fa-xl" style="color: #FFD43B;"></i>
-                              </a>
+
 
                             </div>
                           </div>
@@ -541,7 +550,7 @@
                     <th class="text-sm" data-priority="5">Posisi</th>
                     <th class="text-sm" data-priority="6">Status</th>
                     <th class="text-sm" data-priority="7">Waktu Terima</th>
-                    <th class="text-sm" data-priority="8">Waktu Serah</th>
+                    <!-- <th class="text-sm" data-priority="8">Waktu Serah</th> -->
                     <th class="text-sm" data-priority="9">Nama Security</th>
                     <th class="text-sm" data-priority="10">Options</th>
                   </tr>
