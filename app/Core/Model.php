@@ -8,4 +8,8 @@ class Model
     {
         $this->conn = $db;
     }
+
+    public function notifikasi() {
+     $notif = new Notifikasi();
+    }
 }

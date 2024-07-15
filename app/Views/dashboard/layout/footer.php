@@ -1,25 +1,23 @@
-
-    <!-- Footer Start -->
-    <footer class="pt-4">
-      <div class="w-full px-6 mx-auto">
-        <div class=" flex-wrap items-center -mx-3 lg:justify-between">
-          <div class="w-full max-w-full px-3 mt-0 mb-6 ">
-            <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
-              ©
-              <script>
-                document.write(new Date().getFullYear() + ",");
-              </script>
-              made with by
-              <a href="https://pcr.ac.id/" class="font-semibold text-slate-700 dark:text-white"
-                target="_blank">Politeknik
-                Caltex Riau</a>
-            </div>
-          </div>
+<!-- Footer Start -->
+<footer class="pt-4">
+  <div class="w-full px-6 mx-auto">
+    <div class=" flex-wrap items-center -mx-3 lg:justify-between">
+      <div class="w-full max-w-full px-3 mt-0 mb-6 ">
+        <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
+          ©
+          <script>
+            document.write(new Date().getFullYear() + ",");
+          </script>
+          made with by
+          <a href="https://pcr.ac.id/" class="font-semibold text-slate-700 dark:text-white" target="_blank">Politeknik
+            Caltex Riau</a>
         </div>
       </div>
-    </footer>
+    </div>
   </div>
-  <!-- Footer End -->
+</footer>
+</div>
+<!-- Footer End -->
 </main>
 <div fixed-plugin>
   <a fixed-plugin-button
@@ -118,6 +116,7 @@
 <script src="<?= BASE_URL; ?>assets/js/dashboard-tailwind.js?v=1.0.1" async></script>
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 
 <!--Datatables -->
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

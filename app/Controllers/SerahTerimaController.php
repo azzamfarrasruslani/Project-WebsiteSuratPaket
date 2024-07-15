@@ -124,8 +124,8 @@ class SerahTerimaController extends Controller
             }
 
             if (empty($errors)) {
-                $foto_barang = file_get_contents($_FILES['foto_barang']['tmp_name']);
 
+                $foto_barang = file_get_contents($_FILES['foto_barang']['tmp_name']);
                 // Insert data into tables
                 $id_barang = $this->serahTerimaModel->insertBarang($jenis_barang, $no_resi, $foto_barang);
                 $id_kurir = $this->serahTerimaModel->insertKurir($nama_kurir, $ekspedisi);
@@ -133,6 +133,7 @@ class SerahTerimaController extends Controller
                 $result = $this->serahTerimaModel->insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
 
                 if ($result) {
+
                     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
                     exit;
                 } else {
@@ -152,7 +153,10 @@ class SerahTerimaController extends Controller
         $id = $_GET['id'];
         $result = $this->serahTerimaModel->hapusDataSerahTerima($id);
         if ($result) {
-            header('Location:' . BASE_URL . 'serahTerima/dataBarang');
+            echo "<script>
+            alert('Data Berhasil dihapus!');
+            window.location.href='" . BASE_URL . "serahTerima/dataBarang';
+        </script>";
         } else {
             header('Location:' . BASE_URL . 'serahTerima/dataBarang');
         }

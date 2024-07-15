@@ -1,16 +1,20 @@
 <?php
-class AuthController extends Controller {
+class AuthController extends Controller
+{
     private $modelUser;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->modelUser = $this->model('ModelUser');
     }
 
-    public function login() {
+    public function login()
+    {
         $this->view('auth/login');
     }
 
-    public function authenticate() {
+    public function authenticate()
+    {
         session_start();
 
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
@@ -39,13 +43,12 @@ class AuthController extends Controller {
         exit;
     }
 
-    public function logout() {
+    public function logout()
+    {
         session_start();
         session_destroy();
         header('Location: ' . BASE_URL . '/auth/login');
-        exit;
     }
 }
 
 
-?>
