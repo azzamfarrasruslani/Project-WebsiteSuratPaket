@@ -20,17 +20,7 @@
     </footer>
   </div>
   <!-- Footer End -->
-
 </main>
-
-
-
-
-
-
-
-
-
 <div fixed-plugin>
   <a fixed-plugin-button
     class="fixed px-4 py-2 text-xl bg-white shadow-lg cursor-pointer bottom-8 right-8 z-990 rounded-circle text-slate-700">
@@ -126,8 +116,6 @@
 <script src="<?= BASE_URL; ?>assets/js/plugins/perfect-scrollbar.min.js" async></script>
 <!-- main script file  -->
 <script src="<?= BASE_URL; ?>assets/js/dashboard-tailwind.js?v=1.0.1" async></script>
-
-
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 

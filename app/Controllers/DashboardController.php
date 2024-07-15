@@ -8,23 +8,17 @@ class DashboardController extends Controller
             exit;
         }
 
-        // Panggil fungsi countDataSerahTerima untuk mendapatkan jumlah barang
         $jmlBarangMasuk = $this->model('DashboardModel')->countDataByWaktuTerima();
         $jmlBarangKeluar = $this->model('DashboardModel')->countDataByWaktuSerah();
+        $title = "Dashboard";
 
-        // Muat tampilan dan kirim data
-        $this->loadView('dashboard/dashboard', ['jmlBarangMasuk' => $jmlBarangMasuk, 'jmlBarangKeluar' => $jmlBarangKeluar]);
-    }
-
-    private function loadView($view, $data)
-    {
-        $viewPath = "../app/views/$view.php";
-        if (file_exists($viewPath)) {
-            extract($data);
-            include $viewPath;
-        } else {
-            echo "View file not found: $viewPath";
-        }
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar');
+        $this->view('dashboard/dashboard', [
+            'jmlBarangMasuk' => $jmlBarangMasuk, 
+            'jmlBarangKeluar' => $jmlBarangKeluar
+        ]);
+        $this->loadFooter('footer');
     }
 }
 ?>

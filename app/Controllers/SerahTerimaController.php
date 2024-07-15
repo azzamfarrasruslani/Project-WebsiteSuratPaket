@@ -29,10 +29,12 @@ class SerahTerimaController extends Controller
         $data['search'] = $search;
         $data['order'] = $order;
         $data['orderType'] = $orderType;
-
-      
         $data['security_names'] = $this->serahTerimaModel->getNamaSecurity();
-        $this->loadView('dashboard/dataBarang', $data, $this);
+        $title = "Data Paket";
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar');
+        $this->view('dashboard/dataBarang', $data);
+        $this->loadFooter('footer');
     }
 
 
@@ -128,7 +130,6 @@ class SerahTerimaController extends Controller
                 $id_barang = $this->serahTerimaModel->insertBarang($jenis_barang, $no_resi, $foto_barang);
                 $id_kurir = $this->serahTerimaModel->insertKurir($nama_kurir, $ekspedisi);
                 $id_pemilik = $this->serahTerimaModel->insertPemilik($nama_pemilik, $noHp_pemilik, $email_pemilik);
-
                 $result = $this->serahTerimaModel->insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
 
                 if ($result) {
@@ -165,9 +166,11 @@ class SerahTerimaController extends Controller
             $data['serah_terima'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
             $data['security_names'] = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
             // Memuat view dengan data
-            $this->loadLayout('header');
-            $this->loadView('dashboard/CrudBarang/detailDataBarang', $data, $this);
-            $this->loadLayout('footer');
+            $title = 'Detail Data';
+            $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+            $this->loadNavbar('navbar');
+            $this->view('dashboard/CrudBarang/detailDataBarang', $data);
+            $this->loadFooter('footer');
 
         } else {
             // Menampilkan alert jika ID gagal ditemukan
@@ -178,9 +181,11 @@ class SerahTerimaController extends Controller
     public function viewUpdateStatus()
     {
         $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
-        $this->loadLayout('header');
-        $this->loadViewCrud('dashboard/CrudBarang/updateStatusBarang', ['id_serah_terima' => $id_serah_terima]);
-        $this->loadLayout('footer');
+        $title = 'Update Status';
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar');
+        $this->view('dashboard/CrudBarang/updateStatusBarang', ['id_serah_terima' => $id_serah_terima], );
+        $this->loadFooter('footer');
     }
 
 
@@ -218,9 +223,11 @@ class SerahTerimaController extends Controller
             $data['serah_terima'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
             $data['security_names'] = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
             // Memuat view dengan data
-            $this->loadLayout('header');
-            $this->loadView('dashboard/CrudBarang/editDataBarang', $data, $this);
-            $this->loadLayout('footer');
+            $title = 'Edit Barang';
+            $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+            $this->loadNavbar('navbar');
+            $this->view('dashboard/CrudBarang/editDataBarang', $data);
+            $this->loadFooter('footer');
 
         } else {
             // Menampilkan alert jika ID gagal ditemukan
@@ -273,34 +280,4 @@ class SerahTerimaController extends Controller
         //     }
         // }
     }
-
-
-
-    private function loadView($view, $data, $controller)
-    {
-        $viewPath = "../app/views/$view.php";
-        if (file_exists($viewPath)) {
-            extract($data);
-            include $viewPath;
-        } else {
-            echo "View file not found: $viewPath";
-        }
-    }
-    private function loadViewCrud($view, $data = [])
-    {
-        $viewPath = "../app/views/$view.php";
-        if (file_exists($viewPath)) {
-            extract($data);
-            include $viewPath;
-        } else {
-            echo "View file not found: $viewPath";
-        }
-    }
-
-    private function loadLayout($layout)
-    {
-        require_once "../app/views/dashboard/layout/$layout.php";
-
-    }
 }
-?>
