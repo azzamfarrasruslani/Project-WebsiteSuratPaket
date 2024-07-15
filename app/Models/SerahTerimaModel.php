@@ -4,8 +4,7 @@ class SerahTerimaModel extends Model
 {
     public function getPenyerahanTerimaan($search, $order, $orderType, $limit, $offset)
     {
-        $query = "SELECT st.id_serah_terima, b.no_resi, b.jenis_barang, p.nama_pemilik, p.noHp_pemilik, st.posisi, 
-                  st.status_barang, st.waktu_penerimaan, st.waktu_penyerahan, s.nama_security
+        $query = "SELECT st.*, b.*, k.*, p.*, s.nama_security
                   FROM serah_terima st
                   JOIN kurir k ON st.id_kurir = k.id_kurir 
                   JOIN barang b ON st.id_barang = b.id_barang 
