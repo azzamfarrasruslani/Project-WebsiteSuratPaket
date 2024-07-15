@@ -532,7 +532,7 @@
 
 
                               <!-- Edit -->
-                              <a href="editBarang?id=<?= $item['id_serah_terima'] ?>"
+                              <a href="viewEditBarang?id=<?= $item['id_serah_terima'] ?>"
                                 class=" text-gray-700 block px-8 py-4 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-<?= $index ?>-0"><i class="fa-solid fa-pen-to-square fa-xl"
                                   style="color: #0091ff;"></i></a>

@@ -134,10 +134,6 @@ class SerahTerimaModel extends Model
     }
 
 
-
-
-
-
     public function getSerahTerimaById($id_serah_terima)
     {
         $query = "SELECT st.*, b.*, k.*, p.*, s.nama_security 

@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div id="modal-updateStatus" class="w-full inset-0 z-50 overflow-y-auto">
     <div class="flex items-center justify-center min-h-screen px-4">
         <div class="fixed inset-0 transition-opacity">
@@ -23,7 +22,7 @@
                                         </label>
                                         <input
                                             class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                                            id="tgl_serah" name="tgl_serah" type="datetime-local">
+                                            id="tgl_serah" name="tgl_serah" type="datetime-local" required>
                                     </div>
                                     <div class="flex justify-center mb-4">
                                         <button type="submit"

@@ -30,18 +30,8 @@ class SerahTerimaController extends Controller
         $data['order'] = $order;
         $data['orderType'] = $orderType;
 
-        // Retrieve security names
+      
         $data['security_names'] = $this->serahTerimaModel->getNamaSecurity();
-
-        // // Retrieve serah terima data if ID is provided
-        // if (isset($_GET['id'])) {
-        //     $id_serah_terima = $_GET['id'];
-        //     $data['edit_data'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
-        // }else{
-        //      echo "
-        //     <script>alert('ID Gagal Ditemukan!');</script>"; 
-        // }
-
         $this->loadView('dashboard/dataBarang', $data, $this);
     }
 
@@ -167,16 +157,6 @@ class SerahTerimaController extends Controller
         }
     }
 
-    // public function editBarang($id_serah_terima)
-    // {
-    //     $data['serah_terima'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
-    //     $data['security_names'] = $this->serahTerimaModel->getNamaSecurity();
-    //     $this->view('dashboard/editDataBarang', $data);
-    // }
-
-
-
-
     public function detailData()
     {
         $id_serah_terima = $_GET['id'];
@@ -194,15 +174,6 @@ class SerahTerimaController extends Controller
             echo "<script>alert('ID Gagal Ditemukan!');</script>";
         }
     }
-
-
-    // public function viewUpdateStatus()
-    // {
-    //     $id_serah_terima = $_GET['id'];
-    //     $this->loadLayout('header');
-    //     $this->loadViewCrud('dashboard/CrudBarang/updateStatusBarang', $this);
-    //     $this->loadLayout('footer');
-    // }
 
     public function viewUpdateStatus()
     {
@@ -238,10 +209,7 @@ class SerahTerimaController extends Controller
 
     }
 
-
-
-
-    public function editBarang()
+    public function viewEditBarang()
     {
         // Mengambil ID dari query string
         $id_serah_terima = $_GET['id'];
@@ -259,7 +227,6 @@ class SerahTerimaController extends Controller
             echo "<script>alert('ID Gagal Ditemukan!');</script>";
         }
     }
-
 
     public function updateBarang()
     {
@@ -323,7 +290,7 @@ class SerahTerimaController extends Controller
     {
         $viewPath = "../app/views/$view.php";
         if (file_exists($viewPath)) {
-            extract($data); // Menjadikan data sebagai variabel individual
+            extract($data);
             include $viewPath;
         } else {
             echo "View file not found: $viewPath";
