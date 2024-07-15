@@ -71,7 +71,7 @@
         <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
           href="<?= BASE_URL; ?>serahTerima/dataBarang">
           <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-          <i class="fa-solid fa-table" style="color:  #fb6340;"></i>
+            <i class="fa-solid fa-table" style="color:  #fb6340;"></i>
           </div>
           <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Data Paket</span>
         </a>
@@ -87,39 +87,6 @@
           <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Data User</span>
         </a>
       </li>
-
-
-      <!-- <li class="mt-0.5 w-full">
-        <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-          href="../pages/billing.html">
-          <div
-            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-            <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
-          </div>
-          <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Billing</span>
-        </a>
-      </li>
-
-      <li class="mt-0.5 w-full">
-        <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-          href="../pages/virtual-reality.html">
-          <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-            <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
-          </div>
-          <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Virtual Reality</span>
-        </a>
-      </li>
-
-      <li class="mt-0.5 w-full">
-        <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-          href="../pages/rtl.html">
-          <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-            <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-world-2"></i>
-          </div>
-          <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">RTL</span>
-        </a>
-      </li> -->
-
       <li class="w-full mt-4">
         <h6 class="pl-6 ml-2 text-xs font-bold leading-tight uppercase dark:text-white opacity-60">Akun</h6>
       </li>
@@ -300,7 +267,7 @@
   <div class="w-full px-6 py-6 mx-auto">
     <!-- row 1 -->
     <div class="flex flex-wrap -mx-3">
-      <!-- card1 -->
+      <!-- Paket Masuk Hari Ini -->
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
         <div
           class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
@@ -310,10 +277,7 @@
                 <div>
                   <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                     Paket Masuk </p>
-                    <h5 class="mb-2 font-bold dark:text-white"><?= $jumlahBarang; ?></h5>
-
-
-
+                  <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangMasuk; ?></h5>
                   <p class="mb-0 dark:text-white dark:opacity-60">
                     hari ini
                   </p>
@@ -322,7 +286,6 @@
               <div class="px-3 text-right basis-1/3">
                 <div
                   class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-blue-500 to-violet-500">
-                  <!-- <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i> -->
                   <i class="leading-none fa-solid fa-inbox text-lg relative top-3.5 text-white"
                     style="color: #ffffff;"></i>
                 </div>
@@ -332,7 +295,7 @@
         </div>
       </div>
 
-      <!-- card2 -->
+      <!-- Paket Diambil Hari Ini -->
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
         <div
           class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
@@ -341,8 +304,8 @@
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div>
                   <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
-                    Paket Keluar</p>
-                  <h5 class="mb-2 font-bold dark:text-white">-3</h5>
+                    Paket Diambil</p>
+                  <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangKeluar ?></h5>
                   <p class="mb-0 dark:text-white dark:opacity-60">
                     hari ini
                   </p>
@@ -351,7 +314,6 @@
               <div class="px-3 text-right basis-1/3">
                 <div
                   class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-red-600 to-orange-600">
-                  <!-- <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i> -->
                   <i class="leading-none fa-solid fa-door-open text-lg relative top-3.5 text-white"
                     style="color: #ffffff;"></i>
                 </div>
@@ -425,13 +387,11 @@
           <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0">
             <h6 class="capitalize dark:text-white">Riwayat Aktifitas</h6>
             <p class="mb-0 text-sm leading-normal dark:text-white dark:opacity-60">
-              <i class="fa fa-arrow-up text-emerald-500"></i>
-              <span class="font-semibold">4% more</span> in 2021
             </p>
           </div>
           <div class="flex-auto p-4">
             <div>
-              <canvas id="chart-line" height="300"></canvas>
+              <!-- <canvas id="chart-line" height="300"></canvas> -->
             </div>
           </div>
         </div>

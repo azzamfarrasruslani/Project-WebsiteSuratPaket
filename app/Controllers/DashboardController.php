@@ -9,10 +9,11 @@ class DashboardController extends Controller
         }
 
         // Panggil fungsi countDataSerahTerima untuk mendapatkan jumlah barang
-        $jumlahBarang = $this->model('DashboardModel')->countData();
+        $jmlBarangMasuk = $this->model('DashboardModel')->countDataByWaktuTerima();
+        $jmlBarangKeluar = $this->model('DashboardModel')->countDataByWaktuSerah();
 
         // Muat tampilan dan kirim data
-        $this->loadView('dashboard/dashboard', ['jumlahBarang' => $jumlahBarang]);
+        $this->loadView('dashboard/dashboard', ['jmlBarangMasuk' => $jmlBarangMasuk, 'jmlBarangKeluar' => $jmlBarangKeluar]);
     }
 
     private function loadView($view, $data)
