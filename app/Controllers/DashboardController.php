@@ -10,13 +10,15 @@ class DashboardController extends Controller
 
         $jmlBarangMasuk = $this->model('DashboardModel')->countDataByWaktuTerima();
         $jmlBarangKeluar = $this->model('DashboardModel')->countDataByWaktuSerah();
+        $jmlBarangBelumDiambil = $this->model('DashboardModel')->countDataByStatus();
         $title = "Dashboard";
 
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
         $this->loadNavbar('navbar',$title);
         $this->view('dashboard/dashboard', [
             'jmlBarangMasuk' => $jmlBarangMasuk, 
-            'jmlBarangKeluar' => $jmlBarangKeluar
+            'jmlBarangKeluar' => $jmlBarangKeluar,
+            'jmlBarangBelumDiambil' => $jmlBarangBelumDiambil
         ]);
         $this->loadFooter('footer');
     }

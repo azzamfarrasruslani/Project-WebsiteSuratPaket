@@ -20,5 +20,15 @@ class DashboardModel extends Model
         $result = $stmt->get_result()->fetch_assoc();
         return $result['jumlahBarang'];
     }
+
+    public function countDataByStatus()
+    {
+        $query = "SELECT COUNT(*) AS jumlahBarang FROM serah_terima
+           WHERE status_barang = 'Belum Diambil' ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        return $result['jumlahBarang'];
+    }
 }
 ?>
