@@ -244,46 +244,59 @@ class SerahTerimaController extends Controller
     }
 
     public function updateBarang()
-    {
-        // var_dump($_POST);
-        $id_serah_terima = $_GET['id'];
-        $result = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $id_serah_terima = $_POST['id_serah_terima'] ?? null;
-            $jenis_barang = $_POST['jenis_barang'] ?? null;
-            $no_resi = $_POST['no_resi'] ?? null;
-            $nama_kurir = $_POST['nama_kurir'] ?? null;
-            $ekspedisi = $_POST['ekspedisi'] ?? null;
-            $nama_pemilik = $_POST['nama_pemilik'] ?? null;
-            $noHp_pemilik = $_POST['no_hp'] ?? null;
-            $email_pemilik = $_POST['email'] ?? null;
-            $posisi = $_POST['posisi_barang'] ?? null;
-            $waktu_penerimaan = $_POST['tgl_terima'] ?? null;
-            $waktu_penyerahan = $_POST['tgl_serah'] ?? null;
-            $id_security = $_POST['id_security'] ?? null;
-            $status_barang = $_POST['status_barang'] ?? null;
+{
+    $id_serah_terima = $_GET['id'];
+    $result = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $errors = []; // Initialize error array
+        $id_serah_terima = $_POST['id_serah_terima'] ?? null;
+        $jenis_barang = $_POST['jenis_barang'] ?? null;
+        $no_resi = $_POST['no_resi'] ?? null;
+        $nama_kurir = $_POST['nama_kurir'] ?? null;
+        $ekspedisi = $_POST['ekspedisi'] ?? null;
+        $nama_pemilik = $_POST['nama_pemilik'] ?? null;
+        $noHp_pemilik = $_POST['no_hp'] ?? null;
+        $email_pemilik = $_POST['email'] ?? null;
+        $posisi = $_POST['posisi_barang'] ?? null;
+        $waktu_penerimaan = $_POST['tgl_terima'] ?? null;
+        $waktu_penyerahan = $_POST['tgl_serah'] ?? null;
+        $id_security = $_POST['id_security'] ?? null;
+        $status_barang = $_POST['status_barang'] ?? null;
 
+        // Validate each field
+        if (empty($jenis_barang)) {
+            $errors[] = 'Jenis barang is required.';
+        } 
+        if (empty($no_resi)) {
+            $errors[] = 'Nomor resi is required.';
+        } 
+        if (empty($nama_kurir)) {
+            $errors[] = 'Nama kurir is required.';
+        } 
+        if (empty($nama_pemilik)) {
+            $errors[] = 'Nama pemilik is required.';
+        } 
+        if (empty($noHp_pemilik)) {
+            $errors[] = 'Nomor HP is required.';
+        } 
+        if (empty($waktu_penerimaan)) {
+            $errors[] = 'Waktu penerimaan is required.';
+        } 
+        if (empty($id_security)) {
+            $errors[] = 'Security is required.';
+        }
 
-            // Menambahkan validasi untuk memeriksa apakah setiap variabel memiliki nilai
-            if (empty($jenis_barang)) {
-                $errors[] = 'Jenis barang is required.';
-            } else if (empty($no_resi)) {
-                $errors[] = 'Nomor resi is required.';
-            } else if (empty($nama_kurir)) {
-                $errors[] = 'Nama kurir is required.';
-            } else if (empty($nama_pemilik)) {
-                $errors[] = 'Nama pemilik is required.';
-            } else if (empty($noHp_pemilik)) {
-                $errors[] = 'Nomor HP is required.';
-            } else if (empty($waktu_penerimaan)) {
-                $errors[] = 'Waktu penerimaan is required.';
-            } else if (empty($id_security)) {
-                $errors[] = 'Security is required.';
-            } else if (empty($_FILES['foto_barang']['tmp_name'])) {
-                $errors[] = 'Foto barang is required.';
-                header('Location:' . BASE_URL . 'serahTerima/dataBarang');
-            } else {
-                // Validasi tipe dan ukuran file
+        // Get IDs from serah terima
+        $serahTerima = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
+        $id_barang = $serahTerima['id_barang'];
+        $id_kurir = $serahTerima['id_kurir'];
+        $id_pemilik = $serahTerima['id_pemilik'];
+
+        if (empty($errors)) {
+            // Update related tables
+            $foto_barang = null;
+            if (!empty($_FILES['foto_barang']['tmp_name'])) {
+                // Validate file type and size
                 $allowedTypes = ['image/jpeg', 'image/png'];
                 $fileType = $_FILES['foto_barang']['type'];
                 $fileSize = $_FILES['foto_barang']['size'];
@@ -300,32 +313,34 @@ class SerahTerimaController extends Controller
                 if ($_FILES['foto_barang']['error'] != 0) {
                     $errors[] = 'Error uploading foto barang: ' . $_FILES['foto_barang']['error'];
                 }
+
+                if (empty($errors)) {
+                    $foto_barang = file_get_contents($_FILES['foto_barang']['tmp_name']);
+                }
             }
 
-            // Dapatkan ID barang, kurir, dan pemilik dari serah terima
-            $serahTerima = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
-            $id_barang = $serahTerima['id_barang'];
-            $id_kurir = $serahTerima['id_kurir'];
-            $id_pemilik = $serahTerima['id_pemilik'];
-            if (empty($errors)) {
-                // Pembaruan tabel terkait
-                $foto_barang = file_get_contents($_FILES['foto_barang']['tmp_name']);
-                $result = $this->serahTerimaModel->updateSerahTerima($id_serah_terima, $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
-                $this->serahTerimaModel->updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang);
-                $this->serahTerimaModel->updateKurir($id_kurir, $nama_kurir, $ekspedisi);
-                $this->serahTerimaModel->updatePemilik($id_pemilik, $nama_pemilik, $noHp_pemilik, $email_pemilik);
+            $updateSerahTerimaResult = $this->serahTerimaModel->updateSerahTerima($id_serah_terima, $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
+            $updateBarangResult = $this->serahTerimaModel->updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang);
+            $updateKurirResult = $this->serahTerimaModel->updateKurir($id_kurir, $nama_kurir, $ekspedisi);
+            $updatePemilikResult = $this->serahTerimaModel->updatePemilik($id_pemilik, $nama_pemilik, $noHp_pemilik, $email_pemilik);
 
-                // Pembaruan tabel serah_terima
-
-
-                if ($result) {
-                    header('Location: ' . BASE_URL . 'serahTerima/dataBarang');
-                } else {
-                    echo "Error updating data.";
-                }
+            // Check if all updates were successful
+            if ($updateSerahTerimaResult && $updateBarangResult && $updateKurirResult && $updatePemilikResult) {
+                header('Location: ' . BASE_URL . 'serahTerima/dataBarang');
+                exit();
+            } else {
+                echo "Error updating data.";
+                var_dump($updateSerahTerimaResult, $updateBarangResult, $updateKurirResult, $updatePemilikResult);
+            }
+        } else {
+            foreach ($errors as $error) {
+                echo $error . "<br>";
             }
         }
     }
+}
+
+    
 
 
     public function hapusData()
