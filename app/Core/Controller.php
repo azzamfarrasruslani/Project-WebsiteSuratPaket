@@ -36,7 +36,8 @@ class Controller
         require_once "../app/views/dashboard/layout/$layout.php";
     }
 
-    public function loadNavbar($layout,$title) {
+    public function loadNavbar($layout,$title, $data = []) {
+        extract($data);
         require_once "../app/views/dashboard/layout/$layout.php";
     }
 

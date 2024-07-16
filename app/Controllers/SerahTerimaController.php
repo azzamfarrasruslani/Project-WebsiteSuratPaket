@@ -32,7 +32,7 @@ class SerahTerimaController extends Controller
         $data['security_names'] = $this->serahTerimaModel->getNamaSecurity();
         $title = "Data Paket";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar',$title);
+        $this->loadNavbar('navbar',$title, $data);
         $this->view('dashboard/dataBarang', $data);
         $this->loadFooter('footer');
     }
