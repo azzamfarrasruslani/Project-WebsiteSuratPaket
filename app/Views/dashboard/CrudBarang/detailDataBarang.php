@@ -38,7 +38,14 @@
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">Foto Barang</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <!-- Tempatkan tag img jika ada foto -->
+                                            <a href="getFotoBarang?id=<?= $serah_terima['id_serah_terima'] ?>"
+                                                class="bg-gradient-to-tl from-emerald-500 to-teal-400 text-sm px-2 py-2 text-white rounded-1"
+                                                target="_blank">
+                                                <i class="fa-regular fa-image fa-xl" style="color: #ffffff;"></i>
+                                                <span class="ml-2">Buka Foto</span>
+                                            </a>
+                                            <!-- <img src="getFotoBarang?id=<?= $serah_terima['id_serah_terima'] ?>"
+                                                alt="Product Image" style="width: 200px; height: auto;"> -->
                                         </td>
                                     </tr>
                                     <tr>

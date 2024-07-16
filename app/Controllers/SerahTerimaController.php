@@ -39,25 +39,7 @@ class SerahTerimaController extends Controller
 
 
 
-    // public function getFotoBarang()
-    // {
-    //     if (isset($_GET['id_serah_terima'])) {
-    //         $id_barang = $_GET['id_serah_terima'];
-    //         $foto_barang = $this->serahTerimaModel->getFotoBarang($id_barang);
 
-    //         // Tampilkan gambar
-    //         if ($foto_barang) {
-    //             header("Content-type: image/jpeg");
-    //             echo $foto_barang;
-    //         } else {
-    //             http_response_code(404);
-    //             echo "Image not found.";
-    //         }
-    //     } else {
-    //         http_response_code(400);
-    //         echo "Invalid request.";
-    //     }
-    // }
 
 
 
@@ -182,6 +164,8 @@ class SerahTerimaController extends Controller
         }
     }
 
+
+
     public function viewUpdateStatus()
     {
         $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
@@ -191,6 +175,31 @@ class SerahTerimaController extends Controller
         $this->view('dashboard/CrudBarang/updateStatusBarang', ['id_serah_terima' => $id_serah_terima], );
         $this->loadFooter('footer');
     }
+
+    public function getFotoBarang() {
+        $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
+        var_dump($id_serah_terima); // Debugging output
+    
+        if ($id_serah_terima) {
+            $foto = $this->serahTerimaModel->getImageById($id_serah_terima);
+            // var_dump($foto); // Debugging output
+    
+            if ($foto) {
+                // Bersihkan output buffer sebelum mengirim header
+                if (ob_get_length()) {
+                    ob_clean();
+                }
+    
+                header("Content-type: image/jpeg");
+                echo $foto;
+            } else {
+                echo "<script>alert('Gambar tidak ditemukan!');</script>";
+            }
+        } else {
+            echo "<script>alert('ID Gagal Ditemukan!');</script>";
+        }
+    }
+    
 
 
 

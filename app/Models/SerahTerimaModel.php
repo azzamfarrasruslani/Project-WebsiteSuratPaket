@@ -46,16 +46,7 @@ class SerahTerimaModel extends Model
         return $data;
     }
 
-    //     public function getFotoBarang($id_barang)
-// {
-//     $query = "SELECT foto_barang FROM barang WHERE id_barang = ?";
-//     $stmt = $this->conn->prepare($query);
-//     $stmt->bind_param("i", $id_barang);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     $row = $result->fetch_assoc();
-//     return $row['foto_barang'];
-// }
+
 
 
 
@@ -148,6 +139,44 @@ class SerahTerimaModel extends Model
         $result = $stmt->get_result();
         return $result->fetch_assoc();
     }
+
+    // public function getImage($id_serah_terima) {
+    //     $query = "SELECT b.foto_barang FROM serah_terima st 
+    //     JOIN barang b ON st.id_barang = b.id_barang 
+    //     WHERE id_serah_terima = ?";
+    //     $stmt = $this->conn->prepare($query);
+    //     $stmt->bind_param("i", $id_serah_terima);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result();
+    //     if ($result->num_rows > 0) {
+    //         $row = $result->fetch_assoc();
+    //         return $row['foto_barang'];
+    //     } else {
+    //         return false; // jika data tidak ditemukan
+    //     }
+    // }
+
+    public function getImageById($id_serah_terima)
+    {
+        $query = "SELECT b.foto_barang 
+              FROM serah_terima st 
+              JOIN barang b ON st.id_barang = b.id_barang 
+              WHERE st.id_serah_terima = ?";
+
+        $stmt = $this->conn->prepare($query);
+        if ($stmt) {
+            $stmt->bind_param('i', $id_serah_terima);
+            $stmt->execute();
+            $foto_barang = null;
+            $stmt->bind_result($foto_barang);
+            $stmt->fetch();
+            $stmt->close();
+            return $foto_barang ? $foto_barang : null;
+        } else {
+            return null;
+        }
+    }
+
 
 
     public function updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang)
