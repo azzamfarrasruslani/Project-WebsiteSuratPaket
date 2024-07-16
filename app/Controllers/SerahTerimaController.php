@@ -32,7 +32,7 @@ class SerahTerimaController extends Controller
         $data['security_names'] = $this->serahTerimaModel->getNamaSecurity();
         $title = "Data Paket";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar');
+        $this->loadNavbar('navbar',$title);
         $this->view('dashboard/dataBarang', $data);
         $this->loadFooter('footer');
     }
@@ -133,7 +133,7 @@ class SerahTerimaController extends Controller
             // Memuat view dengan data
             $title = 'Detail Data';
             $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-            $this->loadNavbar('navbar');
+            $this->loadNavbar('navbar',$title);
             $this->view('dashboard/CrudBarang/detailDataBarang', $data);
             $this->loadFooter('footer');
 
@@ -150,7 +150,7 @@ class SerahTerimaController extends Controller
         $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
         $title = 'Update Status';
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar');
+        $this->loadNavbar('navbar',$title);
         $this->view('dashboard/CrudBarang/updateStatusBarang', ['id_serah_terima' => $id_serah_terima], );
         $this->loadFooter('footer');
     }
@@ -218,7 +218,7 @@ class SerahTerimaController extends Controller
             // Memuat view dengan data
             $title = 'Edit Barang';
             $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-            $this->loadNavbar('navbar');
+            $this->loadNavbar('navbar',$title);
             $this->view('dashboard/CrudBarang/editDataBarang', $data);
             $this->loadFooter('footer');
 

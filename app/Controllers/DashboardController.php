@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $title = "Dashboard";
 
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar');
+        $this->loadNavbar('navbar',$title);
         $this->view('dashboard/dashboard', [
             'jmlBarangMasuk' => $jmlBarangMasuk, 
             'jmlBarangKeluar' => $jmlBarangKeluar

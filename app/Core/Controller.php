@@ -38,7 +38,7 @@ class Controller
         require_once "../app/views/dashboard/layout/$layout.php";
     }
 
-    public function loadNavbar($layout) {
+    public function loadNavbar($layout,$title) {
         require_once "../app/views/dashboard/layout/$layout.php";
     }
 

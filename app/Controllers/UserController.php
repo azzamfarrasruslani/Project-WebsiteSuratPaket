@@ -17,15 +17,15 @@ class UserController extends Controller {
         $this->checkRole('admin'); // Memeriksa peran admin
         $title = "Data User";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar');
+        $this->loadNavbar('navbar',$title);
         $this->view('dashboard/dataUser');
         $this->loadFooter('footer');
     }
 
     public function viewProfile() {
-        $title = "View Profile";
+        $title = "Profile";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar');
+        $this->loadNavbar('navbar',$title);
         $this->view('dashboard/profile');
         $this->loadFooter('footer');
     }
@@ -34,7 +34,7 @@ class UserController extends Controller {
         $this->checkRole('user'); // Memeriksa peran user biasa
         $title = "Manage Packages";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar');
+        $this->loadNavbar('navbar',$title);
         $this->view('dashboard/managePackages');
         $this->loadFooter('footer');
     }
