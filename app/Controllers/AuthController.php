@@ -1,24 +1,22 @@
 <?php
-class AuthController extends Controller
-{
-    private $modelUser;
+class AuthController extends Controller {
+    private $userModel;
 
-    public function __construct()
+    public function __construct($db)
     {
-        $this->modelUser = $this->model('ModelUser');
+        parent::__construct($db);
+        $this->userModel = $this->model('userModel');
     }
 
-    public function login()
-    {
+    public function login() {
         $this->view('auth/login');
     }
 
-    public function authenticate()
-    {
+    public function authenticate() {
         session_start();
 
-        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if (empty($username) || empty($password)) {
             $_SESSION['error'] = 'Silahkan masukan username dan password';
@@ -26,7 +24,7 @@ class AuthController extends Controller
             exit;
         }
 
-        $dataUser = $this->modelUser->getUserByUsername($username);
+        $dataUser = $this->userModel->getUserByUsername($username);
 
         if (!$dataUser || $dataUser['password'] !== md5($password)) {
             $_SESSION['error'] = 'Username atau password salah';
@@ -43,12 +41,10 @@ class AuthController extends Controller
         exit;
     }
 
-    public function logout()
-    {
+    public function logout() {
         session_start();
         session_destroy();
         header('Location: ' . BASE_URL . '/auth/login');
     }
 }
-
-
+?>
