@@ -84,31 +84,4 @@
  }
 
 
- <select
- class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
- id="status_barang" name="status_barang" required>
- <option selected value="<?= $serah_terima['status_barang'] ?>" required>
-     <?= $serah_terima['status_barang'] ?></option>
-     <option>Sudah Diambil</option>
-     <option>Belum Diambil</option>
-</select>
-
-
-<select
-                                                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                id="id_security" name="id_security">
-                                                <option value="" disabled selected>Pilih Security</option>
-                                                <option selected value="<?= $serah_terima['id_security'] ?>">
-                                                    <?= $serah_terima['id_security'] ?>-<?= $serah_terima['nama_security'] ?>
-                                                </option>
-                                                <?php if (!empty($security_names)): ?>
-                                                    <?php foreach ($security_names as $security): ?>
-                                                        <option value="<?= htmlspecialchars($security['id_security']) ?>">
-                                                            <?= htmlspecialchars($security['id_security']) ?> -
-                                                            <?= htmlspecialchars($security['nama_security']) ?>
-                                                        </option>
-                                                    <?php endforeach; ?>
-                                                <?php else: ?>
-                                                    <option value="" disabled>Tidak ada data security</option>
-                                                <?php endif; ?>
-                                            </select>
+ 
