@@ -49,6 +49,6 @@ class Controller
 
     protected function isActive($path)
     {
-        return strpos($_SERVER['REQUEST_URI'], $path) !== false ? 'bg-blue-500/13 rounded-lg' : '';
+        return strpos($_SERVER['REQUEST_URI'], $path) !== false ? 'font-semibold text-slate-700 bg-blue-500/13 rounded-lg' : '';
     }
 }
