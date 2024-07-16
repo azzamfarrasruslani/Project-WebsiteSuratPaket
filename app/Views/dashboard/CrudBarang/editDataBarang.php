@@ -43,11 +43,13 @@
                                                 id="jenis_barang" name="jenis_barang"
                                                 onchange="handleOtherOption(this, 'otherInputJenisBarang', 'finalJenisBarang')"
                                                 required>
-                                                <option value="" disabled selected>Pilih Jenis Barang</option>
+                                                <!-- <option value="" disabled selected>Pilih Jenis Barang</option> -->
+                                                <option value=" <?= $serah_terima['jenis_barang']?>" selected> <?= $serah_terima['jenis_barang']?></option>
                                                 <option value="Surat" <?= $serah_terima['jenis_barang'] == 'Surat' ? 'selected' : '' ?>>Surat</option>
                                                 <option value="Paket" <?= $serah_terima['jenis_barang'] == 'Paket' ? 'selected' : '' ?>>Paket</option>
                                                 <option value="Cargo" <?= $serah_terima['jenis_barang'] == 'Cargo' ? 'selected' : '' ?>>Cargo</option>
                                                 <option value="other" <?= $serah_terima['jenis_barang'] == 'other' ? 'selected' : '' ?>>Other</option>
+                                              
                                             </select>
                                             <div
                                                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -185,7 +187,7 @@
                                                 id="ekspedisi" name="ekspedisi"
                                                 onchange="handleOtherOption(this, 'otherInputEkspedisi', 'finalEkspedisi')"
                                                 required>
-                                                <option value="" disabled <?= empty($serah_terima['ekspedisi']) ? 'selected' : '' ?>>Pilih Ekspedisi</option>
+                                                <option value=" <?= $serah_terima['ekspedisi']?>" selected> <?= $serah_terima['ekspedisi']?></option>
                                                 <option value="JNE" <?= $serah_terima['ekspedisi'] == 'JNE' ? 'selected' : '' ?>>JNE</option>
                                                 <option value="POS" <?= $serah_terima['ekspedisi'] == 'POS' ? 'selected' : '' ?>>POS</option>
                                                 <option value="TIKI" <?= $serah_terima['ekspedisi'] == 'TIKI' ? 'selected' : '' ?>>TIKI</option>
@@ -259,7 +261,7 @@
                                                 class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="posisi_barang" name="posisi_barang" 
                                                 onchange="handleOtherOption(this, 'otherInputPosisi', 'finalPosisi')" required>
-                                                <option value="" disabled <?= empty($serah_terima['posisi']) ? 'selected' : '' ?>>Pilih Ekspedisi</option>
+                                                <option value=" <?= $serah_terima['posisi']?>" selected> <?= $serah_terima['posisi']?></option>
                                                 <option value="JNE" <?= $serah_terima['posisi'] == 'JNE' ? 'selected' : '' ?>>Gedung Rektorat</option>
                                                 <option value="POS" <?= $serah_terima['posisi'] == 'POS' ? 'selected' : '' ?>>Sarana Prasarana</option>
                                                 <option value="other" <?= $serah_terima['posisi'] == 'other' ? 'selected' : '' ?>>Other</option>
