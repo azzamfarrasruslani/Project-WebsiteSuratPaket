@@ -133,7 +133,8 @@
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="ekspedisi" name="ekspedisi" onchange="handleOtherOption(this, 'otherInputEkspedisi', 'finalEkspedisi')">
+                        id="ekspedisi" name="ekspedisi"
+                        onchange="handleOtherOption(this, 'otherInputEkspedisi', 'finalEkspedisi')">
                         <option value="" disabled selected>Pilih Ekspedisi</option>
                         <option>JNE</option>
                         <option>POS</option>
@@ -166,7 +167,8 @@
                         <option value="" disabled selected>Pilih Security</option>
                         <?php if (!empty($security_names)): ?>
                           <?php foreach ($security_names as $security): ?>
-                            <option value="<?= htmlspecialchars($security['nama_security']) ?>">
+                            <option value="<?= htmlspecialchars($security['id_security']) ?>">
+                              <?= htmlspecialchars($security['id_security']) ?> -
                               <?= htmlspecialchars($security['nama_security']) ?>
                             </option>
                           <?php endforeach; ?>
@@ -193,7 +195,8 @@
                     <div class="relative">
                       <select
                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="posisi_barang" name="posisi_barang" onchange="handleOtherOption(this, 'otherInputPosisi', 'finalPosisi')">
+                        id="posisi_barang" name="posisi_barang"
+                        onchange="handleOtherOption(this, 'otherInputPosisi', 'finalPosisi')">
                         <option value="" disabled selected>Pilih Posisi Barang</option>
                         <option>Gedung Rektorat</option>
                         <option>Sarana Prasarana</option>
@@ -205,8 +208,8 @@
                         </svg>
                       </div>
                     </div>
-                     <!-- Input field for "other" option -->
-                     <input
+                    <!-- Input field for "other" option -->
+                    <input
                       class="other-input hidden appearance-none mt-2 w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
                       id="otherInputPosisi" type="text" placeholder="Enter other option">
                     <!-- Hidden input field to store the final value -->

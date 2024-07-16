@@ -91,16 +91,11 @@ class SerahTerimaModel extends Model
         return $row['id_security'];
     }
 
-    public function insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $nama_security)
+    public function insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik,$id_security)
     {
-        $security_id = $this->getSecurityIdByName($nama_security);
-        if (!$security_id) {
-            throw new Exception("Security with name $nama_security does not exist");
-        }
-
         $sql = "INSERT INTO serah_terima (posisi, status_barang, waktu_penerimaan, waktu_penyerahan, id_barang, id_kurir, id_pemilik, id_security) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssssiiii", $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $security_id);
+        $stmt->bind_param("ssssiiii", $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
         $stmt->execute();
         return $stmt->affected_rows;
     }
@@ -201,6 +196,7 @@ class SerahTerimaModel extends Model
     }
 
 
+    
 
     public function updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang)
     {
@@ -226,9 +222,12 @@ class SerahTerimaModel extends Model
         return $stmt->execute();
     }
 
-
     public function updateSerahTerima($id_serah_terima, $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security)
     {
+        // $security_id = $this->getSecurityIdByName($nama_security);
+        // if (!$security_id) {
+        //     throw new Exception("Security with name $nama_security does not exist");
+        // }
         $query = "UPDATE serah_terima 
                   SET posisi = ?, status_barang = ?, waktu_penerimaan = ?, waktu_penyerahan = ?, id_barang = ?, id_kurir = ?, id_pemilik = ?, id_security = ?
                   WHERE id_serah_terima = ?";
@@ -236,6 +235,9 @@ class SerahTerimaModel extends Model
         $stmt->bind_param("ssssiiiii", $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security, $id_serah_terima);
         return $stmt->execute();
     }
+
+
+  
 
 }
 

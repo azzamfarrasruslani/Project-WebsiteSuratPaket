@@ -77,6 +77,10 @@
                                         <td class="px-6 py-4 whitespace-nowrap">Posisi Barang</td>
                                         <td class="px-6 py-4 whitespace-nowrap"><?= $serah_terima['posisi'] ?></td>
                                     </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">Penerima</td>
+                                        <td class="px-6 py-4 whitespace-nowrap"><?= $serah_terima['nama_security'] ?></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

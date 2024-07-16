@@ -32,7 +32,7 @@ class SerahTerimaController extends Controller
         $data['security_names'] = $this->serahTerimaModel->getNamaSecurity();
         $title = "Data Paket";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar',$title, $data);
+        $this->loadNavbar('navbar', $title, $data);
         $this->view('dashboard/dataBarang', $data);
         $this->loadFooter('footer');
     }
@@ -129,11 +129,11 @@ class SerahTerimaController extends Controller
         if ($id_serah_terima) {
             // echo "<script>alert('ID Ditemukan!');</script>";  
             $data['serah_terima'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
-            $data['security_names'] = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
+            // $data['security_names'] = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
             // Memuat view dengan data
             $title = 'Detail Data';
             $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-            $this->loadNavbar('navbar',$title);
+            $this->loadNavbar('navbar', $title);
             $this->view('dashboard/CrudBarang/detailDataBarang', $data);
             $this->loadFooter('footer');
 
@@ -143,17 +143,6 @@ class SerahTerimaController extends Controller
         }
     }
 
-
-
-    public function viewUpdateStatus()
-    {
-        $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
-        $title = 'Update Status';
-        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar',$title);
-        $this->view('dashboard/CrudBarang/updateStatusBarang', ['id_serah_terima' => $id_serah_terima], );
-        $this->loadFooter('footer');
-    }
 
     public function getFotoBarang()
     {
@@ -182,7 +171,6 @@ class SerahTerimaController extends Controller
 
 
 
-
     public function updateStatus()
     {
         $id_serah_terima = $_GET['id'];
@@ -207,21 +195,49 @@ class SerahTerimaController extends Controller
 
     }
 
+    public function viewUpdateStatus()
+    {
+        $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
+        $title = 'Update Status';
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar', $title);
+        $this->view('dashboard/CrudBarang/updateStatusBarang', ['id_serah_terima' => $id_serah_terima]);
+        $this->loadFooter('footer');
+    }
+
+
     public function viewEditBarang()
     {
         // Mengambil ID dari query string
-        $id_serah_terima = $_GET['id'];
+        $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
+
         if ($id_serah_terima) {
-            echo "<script>alert('ID Ditemukan!');</script>";
-            $data['serah_terima'] = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
-            $data['security_names'] = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
-            // Memuat view dengan data
+            // echo "<script>alert('ID Ditemukan!');</script>";
+
+            // Ambil data serah terima dan nama security
+            $serah_terima = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
+            $security_names = $this->serahTerimaModel->getNamaSecurity($id_serah_terima);
+
+            // Encode gambar sebagai base64
+            $base64Image = '';
+            if (isset($serah_terima['foto_barang'])) {
+                $base64Image = base64_encode($serah_terima['foto_barang']);
+            }
+
+            // Mengirim data ke view
+            $data = [
+                'id_serah_terima' => $id_serah_terima,
+                'serah_terima' => $serah_terima,
+                'security_names' => $security_names,
+                'base64Image' => $base64Image
+            ];
+
+            // Muat header, navbar, dan view dengan data
             $title = 'Edit Barang';
             $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-            $this->loadNavbar('navbar',$title);
+            $this->loadNavbar('navbar', $title);
             $this->view('dashboard/CrudBarang/editDataBarang', $data);
             $this->loadFooter('footer');
-
         } else {
             // Menampilkan alert jika ID gagal ditemukan
             echo "<script>alert('ID Gagal Ditemukan!');</script>";
@@ -230,48 +246,55 @@ class SerahTerimaController extends Controller
 
     public function updateBarang()
     {
-        echo 'test';
+        // var_dump($_POST);
+        $id_serah_terima = $_GET['id'];
+        $result = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id_serah_terima = $_POST['id_serah_terima'] ?? null;
+            $jenis_barang = $_POST['jenis_barang']?? null;
+            $no_resi = $_POST['no_resi']?? null;
+            $nama_kurir = $_POST['nama_kurir']?? null;
+            $ekspedisi = $_POST['ekspedisi']?? null;
+            $nama_pemilik = $_POST['nama_pemilik']?? null;
+            $noHp_pemilik = $_POST['no_hp']?? null;
+            $email_pemilik = $_POST['email']?? null;
+            $posisi = $_POST['posisi_barang']?? null;
+            $waktu_penerimaan = $_POST['tgl_terima']?? null;
+            $waktu_penyerahan = $_POST['tgl_serah']?? null;
+            $id_security = $_POST['id_security']?? null;
+            $status_barang = $_POST['status_barang']?? null;
 
-        var_dump($_POST);
-        // $id = $_GET['id'];
-        // $result = $this->serahTerimaModel->getSerahTerimaById($id);
 
-        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //     $id_serah_terima = $_POST['id_serah_terima'];
-        //     $jenis_barang = $_POST['jenis_barang'];
-        //     $no_resi = $_POST['no_resi'];
-        //     $nama_kurir = $_POST['nama_kurir'];
-        //     $ekspedisi = $_POST['ekspedisi'];
-        //     $nama_pemilik = $_POST['nama_pemilik'];
-        //     $noHp_pemilik = $_POST['no_hp'];
-        //     $email_pemilik = $_POST['email'];
-        //     $posisi = $_POST['posisi_barang'];
-        //     $waktu_penerimaan = $_POST['tgl_terima'];
-        //     $waktu_penyerahan = $_POST['tgl_serah'];
-        //     $id_security = $_POST['security'];
-        //     $status_barang = 'Belum Diambil';
 
-        //     // Dapatkan ID barang, kurir, dan pemilik dari serah terima
-        //     $serahTerima = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
-        //     $id_barang = $serahTerima['id_barang'];
-        //     $id_kurir = $serahTerima['id_kurir'];
-        //     $id_pemilik = $serahTerima['id_pemilik'];
+            // if (empty($jenis_barang)) {
+            //     $errors[] = 'Jenis barang is required.';
+            //     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
+            // } else if (empty($no_resi)) {
+            //     $errors[] = 'Nomor resi is required.';
+            // } 
 
-        //     // Pembaruan tabel terkait
-        //     $foto_barang = file_get_contents($_FILES['foto_barang']['tmp_name']);
-        //     $this->serahTerimaModel->updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang);
-        //     $this->serahTerimaModel->updateKurir($id_kurir, $nama_kurir, $ekspedisi);
-        //     $this->serahTerimaModel->updatePemilik($id_pemilik, $nama_pemilik, $noHp_pemilik, $email_pemilik);
+            // Dapatkan ID barang, kurir, dan pemilik dari serah terima
+            $serahTerima = $this->serahTerimaModel->getSerahTerimaById($id_serah_terima);
+            $id_barang = $serahTerima['id_barang'];
+            $id_kurir = $serahTerima['id_kurir'];
+            $id_pemilik = $serahTerima['id_pemilik'];
 
-        //     // Pembaruan tabel serah_terima
-        //     $result = $this->serahTerimaModel->updateSerahTerima($id_serah_terima, $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
+            // Pembaruan tabel terkait
+            $foto_barang = file_get_contents($_FILES['foto_barang']['tmp_name']);
+            $result = $this->serahTerimaModel->updateSerahTerima($id_serah_terima, $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
+            $this->serahTerimaModel->updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang);
+            $this->serahTerimaModel->updateKurir($id_kurir, $nama_kurir, $ekspedisi);
+            $this->serahTerimaModel->updatePemilik($id_pemilik, $nama_pemilik, $noHp_pemilik, $email_pemilik);
 
-        //     if ($result) {
-        //         header('Location: ' . BASE_URL . 'serahTerima/dataBarang');
-        //     } else {
-        //         echo "Error updating data.";
-        //     }
-        // }
+            // Pembaruan tabel serah_terima
+          
+
+            if ($result) {
+                header('Location: ' . BASE_URL . 'serahTerima/dataBarang');
+            } else {
+                echo "Error updating data.";
+            }
+        }
     }
 
 
@@ -282,15 +305,15 @@ class SerahTerimaController extends Controller
 
         // Ambil data serah terima berdasarkan id
         $serahTerima = $this->serahTerimaModel->getSerahTerimaById($id);
-        $id_barang = $serahTerima['id_barang'];  
-        $id_kurir = $serahTerima['id_kurir'];    
-        $id_pemilik = $serahTerima['id_pemilik']; 
+        $id_barang = $serahTerima['id_barang'];
+        $id_kurir = $serahTerima['id_kurir'];
+        $id_pemilik = $serahTerima['id_pemilik'];
 
         // Hapus data terkait
         // Warning ! : untuk menghapus data perlu untuk menghapus Assosiative Entity nya terlebih dahulu
-        $result = $this->serahTerimaModel->hapusDataSerahTerima($id); 
-        $this->serahTerimaModel->hapusdataBarang($id_barang); 
-        $this->serahTerimaModel->hapusdataKurir($id_kurir);  
+        $result = $this->serahTerimaModel->hapusDataSerahTerima($id);
+        $this->serahTerimaModel->hapusdataBarang($id_barang);
+        $this->serahTerimaModel->hapusdataKurir($id_kurir);
         $this->serahTerimaModel->hapusdataPemilik($id_pemilik);
 
         // Tampilkan pesan sukses atau arahkan ke halaman lain
@@ -298,9 +321,9 @@ class SerahTerimaController extends Controller
             echo "<script>
                 alert('Data Berhasil dihapus!');
                 window.location.href='" . BASE_URL . "serahTerima/dataBarang';
-            </script>"; 
+            </script>";
         } else {
-            header('Location:' . BASE_URL . 'serahTerima/dataBarang'); 
+            header('Location:' . BASE_URL . 'serahTerima/dataBarang');
         }
     }
 

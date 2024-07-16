@@ -11,9 +11,9 @@
                         <h3 class="text-start mb-12 text-lg leading-6 font-medium text-gray-900" id="modal-title">
                             Edit Barang
                         </h3>
-
                         <div class="mt-2">
-                            <form action="updateBarang" method="post" enctype="multipart/form-data">
+                            <form action="updateBarang?id=<?= htmlspecialchars($id_serah_terima) ?>" method="post"
+                                enctype="multipart/form-data">
                                 <input type="hidden" name="id_serah_terima"
                                     value="<?= $serah_terima['id_serah_terima'] ?>" required>
 
@@ -44,14 +44,10 @@
                                                 onchange="handleOtherOption(this, 'otherInputJenisBarang', 'finalJenisBarang')"
                                                 required>
                                                 <option value="" disabled selected>Pilih Jenis Barang</option>
-                                                <option class="bg-blue-500 text-white" selected
-                                                    value="<?= $serah_terima['jenis_barang'] ?>">
-                                                    <?= $serah_terima['jenis_barang'] ?>
-                                                </option>
-                                                <option>Surat</option>
-                                                <option>Paket</option>
-                                                <option>Cargo</option>
-                                                <option value="other">Other</option>
+                                                <option value="Surat" <?= $serah_terima['jenis_barang'] == 'Surat' ? 'selected' : '' ?>>Surat</option>
+                                                <option value="Paket" <?= $serah_terima['jenis_barang'] == 'Paket' ? 'selected' : '' ?>>Paket</option>
+                                                <option value="Cargo" <?= $serah_terima['jenis_barang'] == 'Cargo' ? 'selected' : '' ?>>Cargo</option>
+                                                <option value="other" <?= $serah_terima['jenis_barang'] == 'other' ? 'selected' : '' ?>>Other</option>
                                             </select>
                                             <div
                                                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -64,10 +60,12 @@
                                         </div>
                                         <!-- Input field for "other" option -->
                                         <input
-                                            class="other-input hidden appearance-none mt-2 w-full bg-gray-200 text-gray-700 border  rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                                            class="other-input hidden appearance-none mt-2 w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
                                             id="otherInputJenisBarang" type="text" placeholder="Enter other option">
                                         <!-- Hidden input field to store the final value -->
-                                        <input type="hidden" id="finalJenisBarang" name="jenis_barang">
+                                        <input type="hidden" id="finalJenisBarang" name="jenis_barang"
+                                            value="<?= $serah_terima['jenis_barang'] ?>">
+
                                     </div>
                                     <!-- Nama Pemilik -->
                                     <div class="w-full px-3 mb-6">
@@ -132,6 +130,9 @@
                                                 id="status_barang" name="status_barang" required>
                                                 <option selected value="<?= $serah_terima['status_barang'] ?>" required>
                                                     <?= $serah_terima['status_barang'] ?>
+                                                </option>
+                                                <option>Sudah Diambil</option>
+                                                <option>Belum Diambil</option>
                                             </select>
                                             <div
                                                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -182,15 +183,13 @@
                                             <select
                                                 class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="ekspedisi" name="ekspedisi"
-                                                onchange="handleOtherOption(this, 'otherInputEkspedisi', 'finalEkspedisi')">
-                                                <option value="" disabled selected>Pilih Ekspedisi</option>
-                                                <option selected value="<?= $serah_terima['ekspedisi'] ?>" required>
-                                                    <?= $serah_terima['ekspedisi'] ?>
-                                                </option>
-                                                <option>JNE</option>
-                                                <option>POS</option>
-                                                <option>TIKI</option>
-                                                <option value="other">Other</option>
+                                                onchange="handleOtherOption(this, 'otherInputEkspedisi', 'finalEkspedisi')"
+                                                required>
+                                                <option value="" disabled <?= empty($serah_terima['ekspedisi']) ? 'selected' : '' ?>>Pilih Ekspedisi</option>
+                                                <option value="JNE" <?= $serah_terima['ekspedisi'] == 'JNE' ? 'selected' : '' ?>>JNE</option>
+                                                <option value="POS" <?= $serah_terima['ekspedisi'] == 'POS' ? 'selected' : '' ?>>POS</option>
+                                                <option value="TIKI" <?= $serah_terima['ekspedisi'] == 'TIKI' ? 'selected' : '' ?>>TIKI</option>
+                                                <option value="other" <?= $serah_terima['ekspedisi'] == 'other' ? 'selected' : '' ?>>Other</option>
                                             </select>
                                             <div
                                                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -206,7 +205,8 @@
                                             class="other-input hidden appearance-none mt-2 w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
                                             id="otherInputEkspedisi" type="text" placeholder="Enter other option">
                                         <!-- Hidden input field to store the final value -->
-                                        <input type="hidden" id="finalEkspedisi" name="ekspedisi">
+                                        <input type="hidden" id="finalEkspedisi" name="ekspedisi"
+                                            value="<?= $serah_terima['ekspedisi'] ?>">
                                     </div>
                                     <!-- Security -->
                                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -218,14 +218,15 @@
                                         <div class="relative">
                                             <select
                                                 class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                id="security" name="security">
+                                                id="id_security" name="id_security">
                                                 <option value="" disabled selected>Pilih Security</option>
-                                                <option selected value="<?= $serah_terima['nama_security'] ?>">
-                                                    <?= $serah_terima['nama_security'] ?>
+                                                <option selected value="<?= $serah_terima['id_security'] ?>">
+                                                    <?= $serah_terima['id_security'] ?>-<?= $serah_terima['nama_security'] ?>
                                                 </option>
                                                 <?php if (!empty($security_names)): ?>
                                                     <?php foreach ($security_names as $security): ?>
-                                                        <option value="<?= htmlspecialchars($security['nama_security']) ?>">
+                                                        <option value="<?= htmlspecialchars($security['id_security']) ?>">
+                                                            <?= htmlspecialchars($security['id_security']) ?> -
                                                             <?= htmlspecialchars($security['nama_security']) ?>
                                                         </option>
                                                     <?php endforeach; ?>
@@ -256,13 +257,13 @@
                                         <div class="relative">
                                             <select
                                                 class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                id="posisi_barang" name="posisi_barang">
-                                                <option value="" disabled selected>Pilih Posisi Barang</option>
-                                                <option selected value="<?= $serah_terima['posisi'] ?>" required>
-                                                    <?= $serah_terima['posisi'] ?>
-                                                <option>Gedung Rektorat</option>
-                                                <option>Sarana Prasarana</option>
-                                                <option value="other">Other</option>
+                                                id="posisi_barang" name="posisi_barang" 
+                                                onchange="handleOtherOption(this, 'otherInputPosisi', 'finalPosisi')" required>
+                                                <option value="" disabled <?= empty($serah_terima['posisi']) ? 'selected' : '' ?>>Pilih Ekspedisi</option>
+                                                <option value="JNE" <?= $serah_terima['posisi'] == 'JNE' ? 'selected' : '' ?>>Gedung Rektorat</option>
+                                                <option value="POS" <?= $serah_terima['posisi'] == 'POS' ? 'selected' : '' ?>>Sarana Prasarana</option>
+                                                <option value="other" <?= $serah_terima['posisi'] == 'other' ? 'selected' : '' ?>>Other</option>
+                                                
                                             </select>
                                             <div
                                                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -273,12 +274,14 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <!-- Input field for "other" option -->
-                                        <input
+
+                                         <!-- Input field for "other" option -->
+                                         <input
                                             class="other-input hidden appearance-none mt-2 w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
                                             id="otherInputPosisi" type="text" placeholder="Enter other option">
                                         <!-- Hidden input field to store the final value -->
-                                        <input type="hidden" id="finalPosisi" name="posisi_barang">
+                                        <input type="hidden" id="finalPosisi" name="posisi_barang"
+                                            value="<?= $serah_terima['posisi'] ?>">
                                     </div>
                                     <!-- Foto Barang -->
                                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -287,9 +290,18 @@
                                             for="foto_barang">
                                             Foto Barang :
                                         </label>
-                                        <input
-                                            class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                                            id="foto_barang" name="foto_barang" type="file">
+                                        <div class="flex flex-wrap">
+                                            <input
+                                                class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                                                id="foto_barang" name="foto_barang" type="file">
+                                            <a href="getFotoBarang?id=<?= $serah_terima['id_serah_terima'] ?>"
+                                                class="w-full h-full bg-gradient-to-tl from-emerald-500 to-teal-400 text-sm px-2 py-4 text-white rounded-1"
+                                                target="_blank">
+                                                <i class="fa-regular fa-image fa-xl" style="color: #ffffff;"></i>
+                                                <span class="ml-2">Buka Foto</span>
+                                            </a>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="flex justify-start mb-4">
@@ -303,8 +315,6 @@
                                         <i class="fa-solid fa-file-excel"></i> Batal
                                     </button>
                                 </div>
-
-
                             </form>
                         </div>
                     </div>
@@ -342,4 +352,5 @@
     addOtherInputListener('otherInputJenisBarang', 'finalJenisBarang');
     addOtherInputListener('otherInputEkspedisi', 'finalEkspedisi');
     addOtherInputListener('otherInputPosisi', 'finalPosisi');
+
 </script>
