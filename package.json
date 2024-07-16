@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-     "build-css": "npx tailwindcss -i public/assets/css/tailwind.css -o public/assets/css/styles.css --watch"
+     "build-css": "npx tailwindcss -i public/assets/css/tailwind.css -o public/assets/css/argon-dashboard-tailwind.css --watch"
   },
   "keywords": [],
   "author": "",
