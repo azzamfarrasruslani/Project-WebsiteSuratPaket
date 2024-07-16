@@ -1,9 +1,9 @@
 <?php
+// app/controllers/AuthController.php
 class AuthController extends Controller {
     private $userModel;
 
-    public function __construct($db)
-    {
+    public function __construct($db) {
         parent::__construct($db);
         $this->userModel = $this->model('userModel');
     }
@@ -13,7 +13,9 @@ class AuthController extends Controller {
     }
 
     public function authenticate() {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -36,15 +38,18 @@ class AuthController extends Controller {
         $_SESSION['nama_security'] = $dataUser['nama_security'];
         $_SESSION['noHp_security'] = $dataUser['noHp_security'];
         $_SESSION['username'] = $dataUser['username'];
+        $_SESSION['user_role'] = $dataUser['role'];
 
         header('Location: ' . BASE_URL . 'dashboard/dashboard');
         exit;
     }
 
     public function logout() {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         session_destroy();
         header('Location: ' . BASE_URL . '/auth/login');
     }
 }
-?>
+

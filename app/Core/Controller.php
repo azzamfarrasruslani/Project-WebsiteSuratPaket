@@ -14,6 +14,18 @@ class Controller
         return new $model($this->db);
     }
 
+ public function checkRole($role) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if ($_SESSION['user_role'] !== $role) {
+            die("Akses ditolak: Anda tidak memiliki izin untuk mengakses halaman ini.");
+        }
+    }
+
+
+
+
     public function view($view, $data = [])
     {
         extract($data);
