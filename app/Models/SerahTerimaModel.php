@@ -105,14 +105,37 @@ class SerahTerimaModel extends Model
         return $stmt->affected_rows;
     }
 
-
-    public function hapusDataSerahTerima($id)
-    {
-        $sql = "DELETE FROM serah_terima WHERE id_serah_terima = (?)";
+    public function hapusdataKurir($id_kurir) {
+        $sql = "DELETE FROM kurir WHERE id_kurir = ?"; // Query untuk menghapus data kurir
+        $stmt = $this->conn->prepare($sql); // Persiapkan statement
+        $stmt->bind_param("i", $id_kurir); // Bind parameter
+        $stmt->execute(); // Eksekusi query
+        return $stmt->affected_rows; // Kembalikan jumlah baris yang terpengaruh
+    }
+    
+    public function hapusdataBarang($id_barang) {
+        $sql = "DELETE FROM barang WHERE id_barang = ?"; 
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        return $stmt->affected_rows;
+        $stmt->bind_param("i", $id_barang);
+        $stmt->execute(); 
+        return $stmt->affected_rows; 
+    }
+    
+    public function hapusdataPemilik($id_pemilik) {
+        $sql = "DELETE FROM pemilik WHERE id_pemilik = ?"; 
+        $stmt = $this->conn->prepare($sql); 
+        $stmt->bind_param("i", $id_pemilik); 
+        $stmt->execute(); 
+        return $stmt->affected_rows; 
+    }
+    
+    public function hapusDataSerahTerima($id_serah_terima)
+    {
+        $sql = "DELETE FROM serah_terima WHERE id_serah_terima = ?"; 
+        $stmt = $this->conn->prepare($sql); 
+        $stmt->bind_param("i", $id_serah_terima); 
+        $stmt->execute(); 
+        return $stmt->affected_rows; 
     }
 
     public function updateStatusSerahTerima($id_serah_terima, $status_barang, $waktu_penyerahan)

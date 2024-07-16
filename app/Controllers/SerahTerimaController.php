@@ -37,15 +37,6 @@ class SerahTerimaController extends Controller
         $this->loadFooter('footer');
     }
 
-
-
-
-
-
-
-
-
-
     public function store()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -130,19 +121,7 @@ class SerahTerimaController extends Controller
         }
     }
 
-    public function hapusData()
-    {
-        $id = $_GET['id'];
-        $result = $this->serahTerimaModel->hapusDataSerahTerima($id);
-        if ($result) {
-            echo "<script>
-            alert('Data Berhasil dihapus!');
-            window.location.href='" . BASE_URL . "serahTerima/dataBarang';
-        </script>";
-        } else {
-            header('Location:' . BASE_URL . 'serahTerima/dataBarang');
-        }
-    }
+
 
     public function detailData()
     {
@@ -176,20 +155,21 @@ class SerahTerimaController extends Controller
         $this->loadFooter('footer');
     }
 
-    public function getFotoBarang() {
+    public function getFotoBarang()
+    {
         $id_serah_terima = isset($_GET['id']) ? $_GET['id'] : '';
         var_dump($id_serah_terima); // Debugging output
-    
+
         if ($id_serah_terima) {
             $foto = $this->serahTerimaModel->getImageById($id_serah_terima);
             // var_dump($foto); // Debugging output
-    
+
             if ($foto) {
                 // Bersihkan output buffer sebelum mengirim header
                 if (ob_get_length()) {
                     ob_clean();
                 }
-    
+
                 header("Content-type: image/jpeg");
                 echo $foto;
             } else {
@@ -199,7 +179,7 @@ class SerahTerimaController extends Controller
             echo "<script>alert('ID Gagal Ditemukan!');</script>";
         }
     }
-    
+
 
 
 
@@ -293,4 +273,35 @@ class SerahTerimaController extends Controller
         //     }
         // }
     }
+
+
+    public function hapusData()
+    {
+        // Mendapatkan ID dari parameter URL
+        $id = $_GET['id'];
+
+        // Ambil data serah terima berdasarkan id
+        $serahTerima = $this->serahTerimaModel->getSerahTerimaById($id);
+        $id_barang = $serahTerima['id_barang'];  
+        $id_kurir = $serahTerima['id_kurir'];    
+        $id_pemilik = $serahTerima['id_pemilik']; 
+
+        // Hapus data terkait
+        // Warning ! : untuk menghapus data perlu untuk menghapus Assosiative Entity nya terlebih dahulu
+        $result = $this->serahTerimaModel->hapusDataSerahTerima($id); 
+        $this->serahTerimaModel->hapusdataBarang($id_barang); 
+        $this->serahTerimaModel->hapusdataKurir($id_kurir);  
+        $this->serahTerimaModel->hapusdataPemilik($id_pemilik);
+
+        // Tampilkan pesan sukses atau arahkan ke halaman lain
+        if ($result) {
+            echo "<script>
+                alert('Data Berhasil dihapus!');
+                window.location.href='" . BASE_URL . "serahTerima/dataBarang';
+            </script>"; 
+        } else {
+            header('Location:' . BASE_URL . 'serahTerima/dataBarang'); 
+        }
+    }
+
 }
