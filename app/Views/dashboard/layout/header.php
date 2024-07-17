@@ -134,9 +134,10 @@
     class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
 </body>
 
-<div class="absolute bg-y-50 w-full top-0 bg-[url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg')] min-h-75">
-      <span class="absolute top-0 left-0 w-full h-full bg-blue-500 opacity-60"></span>
-    </div>
+<div
+    class="absolute bg-y-50 w-full top-0  min-h-75">
+    <span class="absolute top-0 left-0 w-full h-full bg-blue-500"></span>
+</div>
 <?php
 $isActive = $data['isActive'];
 ?>
@@ -180,7 +181,8 @@ $isActive = $data['isActive'];
             </li>
 
             <li class="mt-0.5 w-full">
-                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  px-4  transition-colors dark:text-white dark:opacity-80 <?= $isActive('SerahTerima/dataBarang') ?>"
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  px-4  transition-colors dark:text-white dark:opacity-80 <?= $isActive('SerahTerima/dataBarang') ?>
+                <?= $isActive('SerahTerima/detailData') ?> <?= $isActive('SerahTerima/viewEditBarang') ?> <?= $isActive('SerahTerima/viewUpdateStatus') ?>" 
                     href="<?= BASE_URL; ?>SerahTerima/dataBarang">
                     <div
                         class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
@@ -207,7 +209,7 @@ $isActive = $data['isActive'];
             </li>
 
             <li class="mt-0.5 w-full">
-                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80 <?= $isActive('dashboard/profile') ?>"
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80 <?= $isActive('User/profile') ?>"
                     href="<?= BASE_URL; ?>User/profile">
                     <div
                         class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">

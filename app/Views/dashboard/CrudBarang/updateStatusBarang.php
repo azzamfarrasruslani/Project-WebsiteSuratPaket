@@ -29,11 +29,11 @@
                                             class="mr-2 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
                                             Simpan
                                         </button>
-                                        <button
+                                        <a href="<?= BASE_URL; ?>SerahTerima/dataBarang"
                                             class="rounded-3 border border-transparent shadow-sm px-5 py-2 bg-gradient-to-tl from-red-600 to-orange-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm "
                                             onclick="return confirm('Apakah Anda Yakin Ingin Keluar?');">
                                             Batal
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </form>

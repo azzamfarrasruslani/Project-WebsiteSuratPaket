@@ -311,11 +311,11 @@
                                         class="justify-items-start mb-4 mr-2 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
                                         <i class="fa-solid fa-file"></i> Simpan
                                     </button>
-                                    <button
+                                    <a href="<?= BASE_URL; ?>SerahTerima/dataBarang"
                                         class="justify-items-start mb-4 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-gradient-to-tl from-red-600 to-orange-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm"
                                         onclick="return confirm('Apakah Anda Yakin Ingin Keluar?');">
                                         <i class="fa-solid fa-file-excel"></i> Batal
-                                    </button>
+                                    </a>
                                 </div>
                             </form>
                         </div>
