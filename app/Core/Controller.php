@@ -14,7 +14,8 @@ class Controller
         return new $model($this->db);
     }
 
- public function checkRole($role) {
+    public function checkRole($role)
+    {
         if (!isset($_SESSION)) {
             session_start();
         }
@@ -22,6 +23,15 @@ class Controller
             die("Akses ditolak: Anda tidak memiliki izin untuk mengakses halaman ini.");
         }
     }
+
+    // public function checkStatusAkun($status) {
+    //     if (!isset($_SESSION)) {
+    //         session_start();
+    //     }
+    //     if ($_SESSION['status'] !== $status) {
+    //         die("Akun anda non aktif coba hubungi admin");
+    //     }
+    // }
 
 
     public function view($view, $data = [])
@@ -36,7 +46,8 @@ class Controller
         require_once "../app/views/dashboard/layout/$layout.php";
     }
 
-    public function loadNavbar($layout,$title, $data = []) {
+    public function loadNavbar($layout, $title, $data = [])
+    {
         extract($data);
         require_once "../app/views/dashboard/layout/$layout.php";
     }

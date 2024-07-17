@@ -30,14 +30,7 @@ class UserController extends Controller {
         $this->loadFooter('footer');
     }
 
-    public function managePackages() {
-        $this->checkRole('user'); // Memeriksa peran user biasa
-        $title = "Manage Packages";
-        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar',$title);
-        $this->view('dashboard/managePackages');
-        $this->loadFooter('footer');
-    }
+    
 }
 
 

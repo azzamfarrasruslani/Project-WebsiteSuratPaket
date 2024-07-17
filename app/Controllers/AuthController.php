@@ -1,18 +1,22 @@
 <?php
 // app/controllers/AuthController.php
-class AuthController extends Controller {
+class AuthController extends Controller
+{
     private $userModel;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         parent::__construct($db);
         $this->userModel = $this->model('userModel');
     }
 
-    public function login() {
+    public function login()
+    {
         $this->view('auth/login');
     }
 
-    public function authenticate() {
+    public function authenticate()
+    {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -34,17 +38,27 @@ class AuthController extends Controller {
             exit;
         }
 
+        // Cek status akun
+        if ($dataUser['status'] == 0) {
+            $_SESSION['error'] = 'Akun anda non aktif coba hubungi admin';
+            header('Location: ' . BASE_URL . '/auth/login');
+            exit;
+        }
+
+        // Jika status 1, maka lanjutkan
         $_SESSION['id_security'] = $dataUser['id_security'];
         $_SESSION['nama_security'] = $dataUser['nama_security'];
         $_SESSION['noHp_security'] = $dataUser['noHp_security'];
         $_SESSION['username'] = $dataUser['username'];
+        $_SESSION['status'] = $dataUser['status'];
         $_SESSION['user_role'] = $dataUser['role'];
 
         header('Location: ' . BASE_URL . 'dashboard/dashboard');
         exit;
     }
 
-    public function logout() {
+    public function logout()
+    {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -52,4 +66,3 @@ class AuthController extends Controller {
         header('Location: ' . BASE_URL . '/auth/login');
     }
 }
-
