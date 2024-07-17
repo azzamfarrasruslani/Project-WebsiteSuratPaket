@@ -307,7 +307,7 @@
                                     </div>
                                 </div>
                                 <div class="flex justify-start mb-4">
-                                    <button type="submit"
+                                    <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin menyimpan perubahan?');"
                                         class="justify-items-start mb-4 mr-2 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
                                         <i class="fa-solid fa-file"></i> Simpan
                                     </button>
