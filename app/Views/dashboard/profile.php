@@ -1,4 +1,4 @@
-   <div class="relative w-full mx-auto mt-60 ">
+   <div class="relative w-full mx-auto  ">
     <div
       class="relative flex flex-col flex-auto min-w-0 p-4 mx-6 overflow-hidden break-words bg-white border-0 dark:bg-slate-850 dark:shadow-dark-xl shadow-3xl rounded-2xl bg-clip-border">
       <div class="flex flex-wrap -mx-3">
