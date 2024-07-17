@@ -23,7 +23,7 @@
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <!-- No Resi -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="nomor-resi">
                       Nomor Resi :
                     </label>
@@ -33,7 +33,7 @@
                   </div>
                   <!-- Jenis Barang -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="jenis_barang">
                       Jenis Barang :
                     </label>
@@ -66,7 +66,7 @@
 
                   <!-- Nama Pemilik -->
                   <div class="w-full px-3 mb-6">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="nama-pemilik">
                       Nama Pemilik :
                     </label>
@@ -79,7 +79,7 @@
                 <!-- Tanggal Penerimaan -->
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="">
                       Tanggal Penerimaan :
                     </label>
@@ -89,7 +89,7 @@
                   </div>
                   <!-- Nama Kurir -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="nama-kurir">
                       Nama Kurir :
                     </label>
@@ -103,7 +103,7 @@
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <!-- No HP -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="no_hp">
                       Nomor HP :
                     </label>
@@ -113,7 +113,7 @@
                   </div>
                   <!-- Email -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="email">
                       Email :
                     </label>
@@ -126,7 +126,7 @@
                 <div class="flex flex-wrap -mx-3 mb-12">
                   <!-- Ekspedisi -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="ekspedisi">
                       Ekspedisi :
                     </label>
@@ -156,7 +156,7 @@
                   </div>
                   <!-- Security -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="security">
                       Security (Penerima) :
                     </label>
@@ -188,7 +188,7 @@
                 <div class="flex flex-wrap -mx-3 mb-12">
                   <!-- Posisi Barang -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="ekspedisi">
                       Posisi Barang :
                     </label>
@@ -217,7 +217,7 @@
                   </div>
                   <!-- Foto Barang -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold  mb-2"
                       for="foto_barang">
                       Foto Barang :
                     </label>
