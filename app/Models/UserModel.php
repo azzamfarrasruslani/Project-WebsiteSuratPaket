@@ -34,10 +34,11 @@ class UserModel extends Model
         return $data;
     }
 
-    public function UpdateStatusAkun ($status, $id_security) {
+    public function UpdateStatusAkun($status, $id_security)
+    {
         $query = "UPDATE security SET status = ? WHERE id_security = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("si",$status, $id_security);
+        $stmt->bind_param("si", $status, $id_security);
         return $stmt->execute();
     }
 
@@ -60,6 +61,15 @@ class UserModel extends Model
         } else {
             return null;
         }
+    }
+
+    public function insertSecurity($nama_security, $noHp_security, $username, $password, $role)
+    {
+        $query = "INSERT INTO security (nama_security, noHp_security, username, password, role) VALUES (?, ?, ?, MD5(?), ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("sssss", $nama_security, $noHp_security, $username, $password, $role);
+        $stmt->execute();
+        return $stmt->affected_rows;
     }
 }
 ?>

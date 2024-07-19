@@ -42,7 +42,7 @@ class UserController extends Controller
         $id_security = isset($_GET['id']) ? $_GET['id'] : '';
         $setStatus = '1';
         if ($id_security) {
-            $result = $this->userModel->UpdateStatusAkun( $setStatus, $id_security);
+            $result = $this->userModel->UpdateStatusAkun($setStatus, $id_security);
             if ($result) {
                 header('Location:' . BASE_URL . 'user/dataUser');
                 exit;
@@ -60,7 +60,7 @@ class UserController extends Controller
         $id_security = isset($_GET['id']) ? $_GET['id'] : '';
         $setStatus = '0';
         if ($id_security) {
-            $result = $this->userModel->UpdateStatusAkun( $setStatus, $id_security);
+            $result = $this->userModel->UpdateStatusAkun($setStatus, $id_security);
             if ($result) {
                 header('Location:' . BASE_URL . 'User/dataUser');
                 exit;
@@ -100,7 +100,7 @@ class UserController extends Controller
         }
     }
 
-    public function viewInsertData()
+    public function viewInsertDataUser()
     {
         $title = 'Insert User';
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
@@ -109,7 +109,47 @@ class UserController extends Controller
         $this->loadFooter('footer');
     }
 
-   
+    public function insertDataUser()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $errors = [];
+            $nama_security = $_POST['nama_security'] ?? null;
+            $noHp_security = $_POST['noHp_security'] ?? null;
+            $username = $_POST['username'] ?? null;
+            $password = $_POST['password'] ?? null;
+            $role = $_POST['role'] ?? null;
+
+            if (empty($nama_security)) {
+                $errors[] = 'Nama Security is required.';
+            }
+            if (empty($noHp_security)) {
+                $errors[] = 'Nomor HP is required.';
+            }
+            if (empty($username)) {
+                $errors[] = 'Username is required.';
+            }
+            if (empty($password)) {
+                $errors[] = 'Password is required.';
+            }
+            if (empty($role)) {
+                $errors[] = 'Role is required.';
+            }
+
+
+            if (empty($errors)) {
+                $result = $this->userModel->insertSecurity($nama_security, $noHp_security, $username, $password, $role);
+
+                if ($result) {
+                    header('Location:' . BASE_URL . 'User/dataUser');
+                    exit;
+                } else {
+                    header('Location:' . BASE_URL . 'User/dataUser');
+                }
+            }
+        }
+    }
+
+
 
 
 }
