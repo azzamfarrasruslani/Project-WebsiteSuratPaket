@@ -34,9 +34,15 @@
                     <td class="text-sm whitespace-nowrap">
                       <div class="flex px-2 py-1">
                         <div>
-                          <img src="getFotoProfile?id=<?= $item['id_security'] ?>"
-                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                            alt="foto-profile"/>
+                          <?php if (empty($item['foto_profile'])): ?>
+                            <img src="<?= BASE_URL; ?>assets/images/blank-profile-picture.png"
+                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                              alt="foto-profile" />
+                          <?php else: ?>
+                            <img src="getFotoProfile?id=<?= $item['id_security'] ?>"
+                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                              alt="foto-profile" />
+                          <?php endif; ?>
                         </div>
                         <div class="flex flex-col justify-center">
                           <h6 class="mb-0 text-sm leading-normal dark:text-white"> <?= $item['nama_security'] ?></h6>
@@ -87,7 +93,7 @@
               </tbody>
               <tfoot>
                 <tr>
-                <th class="text-sm " data-priority="1">AUTHOR</th>
+                  <th class="text-sm " data-priority="1">AUTHOR</th>
                   <!-- <th class="text-sm" data-priority="2">Nama Secuirty</th> -->
                   <th class="text-sm" data-priority="3">No Hp</th>
                   <th class="text-sm" data-priority="4">Username</th>
