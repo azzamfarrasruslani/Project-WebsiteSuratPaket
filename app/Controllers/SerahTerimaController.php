@@ -54,7 +54,7 @@ class SerahTerimaController extends Controller
             $waktu_penerimaan = $_POST['tgl_terima'] ?? null;
             // $waktu_penyerahan = $_POST['tgl_serah'] ?? null;
             $waktu_penyerahan = NULL;
-            $id_security = $_POST['security'] ?? null;
+            $id_security = $_SESSION['id_security'] ?? null;
             $status_barang = 'Belum Diambil';
 
             // Menambahkan validasi untuk memeriksa apakah setiap variabel memiliki nilai

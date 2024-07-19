@@ -80,16 +80,16 @@ class SerahTerimaModel extends Model
         return $this->conn->insert_id;
     }
 
-    private function getSecurityIdByName($nama_security)
-    {
-        $query = "SELECT id_security FROM security WHERE nama_security =?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("s", $nama_security);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        return $row['id_security'];
-    }
+    // private function getSecurityIdByName($nama_security)
+    // {
+    //     $query = "SELECT id_security FROM security WHERE nama_security =?";
+    //     $stmt = $this->conn->prepare($query);
+    //     $stmt->bind_param("s", $nama_security);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result();
+    //     $row = $result->fetch_assoc();
+    //     return $row['id_security'];
+    // }
 
     public function insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik,$id_security)
     {

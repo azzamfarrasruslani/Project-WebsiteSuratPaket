@@ -125,7 +125,7 @@
 
                 <div class="flex flex-wrap -mx-3 mb-12">
                   <!-- Ekspedisi -->
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <div class="w-full px-3 mb-6">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="ekspedisi">
                       Ekspedisi :
@@ -155,7 +155,7 @@
                     <input type="hidden" id="finalEkspedisi" name="ekspedisi">
                   </div>
                   <!-- Security -->
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <!-- <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="security">
                       Security (Penerima) :
@@ -182,7 +182,7 @@
                         </svg>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
 
                 <div class="flex flex-wrap -mx-3 mb-12">
