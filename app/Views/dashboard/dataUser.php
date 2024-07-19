@@ -36,11 +36,11 @@
                         <div>
                           <?php if (empty($item['foto_profile'])): ?>
                             <img src="<?= BASE_URL; ?>assets/images/blank-profile-picture.png"
-                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl object-cover"
                               alt="foto-profile" />
                           <?php else: ?>
-                            <img src="getFotoProfile?id=<?= $item['id_security'] ?>"
-                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                            <img src="getFotoProfile?id=<?=$item['id_security'] ?>"
+                              class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl object-cover"
                               alt="foto-profile" />
                           <?php endif; ?>
                         </div>

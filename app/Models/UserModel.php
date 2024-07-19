@@ -42,13 +42,10 @@ class UserModel extends Model
         return $stmt->execute();
     }
 
-
     public function getImageById($id_security)
     {
-        $query = "SELECT foto_profile 
-              FROM security 
-              WHERE id_security = ?";
-
+        $query = "SELECT foto_profile FROM security WHERE id_security = ?";
+    
         $stmt = $this->conn->prepare($query);
         if ($stmt) {
             $stmt->bind_param('i', $id_security);
@@ -62,6 +59,7 @@ class UserModel extends Model
             return null;
         }
     }
+    
 
     public function insertSecurity($nama_security, $noHp_security, $username, $password, $role)
     {

@@ -30,10 +30,11 @@ class UserController extends Controller
 
     public function viewProfile()
     {
+        $data['security'] = $this->userModel->getDataUser();
         $title = "Profile";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar', $title);
-        $this->view('dashboard/profile');
+        $this->loadNavbar('navbar', $title, $data);
+        $this->view('dashboard/profile', $data);
         $this->loadFooter('footer');
     }
 
@@ -78,8 +79,6 @@ class UserController extends Controller
     public function getFotoProfile()
     {
         $id_security = isset($_GET['id']) ? $_GET['id'] : '';
-        var_dump($id_security); // Debugging output
-
         if ($id_security) {
             $foto = $this->userModel->getImageById($id_security);
             // var_dump($foto); // Debugging output
