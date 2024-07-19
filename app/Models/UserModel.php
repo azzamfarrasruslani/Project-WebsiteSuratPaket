@@ -40,5 +40,26 @@ class UserModel extends Model
         $stmt->bind_param("si",$status, $id_security);
         return $stmt->execute();
     }
+
+
+    public function getImageById($id_security)
+    {
+        $query = "SELECT foto_profile 
+              FROM security 
+              WHERE id_security = ?";
+
+        $stmt = $this->conn->prepare($query);
+        if ($stmt) {
+            $stmt->bind_param('i', $id_security);
+            $stmt->execute();
+            $foto_profile = null;
+            $stmt->bind_result($foto_profile);
+            $stmt->fetch();
+            $stmt->close();
+            return $foto_profile ? $foto_profile : null;
+        } else {
+            return null;
+        }
+    }
 }
 ?>

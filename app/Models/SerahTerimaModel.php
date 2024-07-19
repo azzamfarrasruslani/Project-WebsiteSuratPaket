@@ -47,9 +47,6 @@ class SerahTerimaModel extends Model
     }
 
 
-
-
-
     public function insertBarang($jenis_barang, $no_resi, $foto_barang)
     {
         $sql = "INSERT INTO barang (jenis_barang, no_resi, foto_barang) VALUES (?, ?, ?)";

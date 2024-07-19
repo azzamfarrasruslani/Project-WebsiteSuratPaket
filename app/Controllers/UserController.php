@@ -1,6 +1,4 @@
 <?php
-
-// app/controllers/UserController.php
 class UserController extends Controller
 {
     private $userModel;
@@ -74,6 +72,41 @@ class UserController extends Controller
             echo "<script>alert('id security tidak ditemukan');</script>";
         }
 
+    }
+
+
+    public function getFotoProfile()
+    {
+        $id_security = isset($_GET['id']) ? $_GET['id'] : '';
+        var_dump($id_security); // Debugging output
+
+        if ($id_security) {
+            $foto = $this->userModel->getImageById($id_security);
+            // var_dump($foto); // Debugging output
+
+            if ($foto) {
+                // Bersihkan output buffer sebelum mengirim header
+                if (ob_get_length()) {
+                    ob_clean();
+                }
+
+                header("Content-type: image/jpeg");
+                echo $foto;
+            } else {
+                echo "<script>alert('Gambar tidak ditemukan!');</script>";
+            }
+        } else {
+            echo "<script>alert('ID Gagal Ditemukan!');</script>";
+        }
+    }
+
+    public function viewInsertData()
+    {
+        $title = 'Insert User';
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar', $title);
+        $this->view('dashboard/CrudUser/inputDataUser');
+        $this->loadFooter('footer');
     }
 
    

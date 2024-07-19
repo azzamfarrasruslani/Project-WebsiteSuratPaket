@@ -8,18 +8,18 @@
         <div
           class="p-6 pb-3 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between items-center">
           <h2 class="text-xl font-bold mb-4">Data User</h2>
-          <button onclick="toggleModal()"
+          <a href="viewInsertData"
             class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
             <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah User
-          </button>
+          </a>
         </div>
         <div class="px-8 mt-6 lg:mt-0 rounded shadow bg-white">
           <?php if (!empty($security)): ?>
             <table id="example" class="stripe hover mb-12" style="width:100%; padding-top: 1em; padding-bottom: 1em;">
               <thead>
                 <tr>
-                  <th class="text-sm " data-priority="1">ID Security</th>
-                  <th class="text-sm" data-priority="2">Nama Secuirty</th>
+                  <th class="text-sm " data-priority="1">AUTHOR</th>
+                  <!-- <th class="text-sm" data-priority="2">Nama Secuirty</th> -->
                   <th class="text-sm" data-priority="3">No Hp</th>
                   <th class="text-sm" data-priority="4">Username</th>
                   <th class="text-sm" data-priority="5">Tanggal Registrasi</th>
@@ -34,17 +34,20 @@
                     <td class="text-sm whitespace-nowrap">
                       <div class="flex px-2 py-1">
                         <div>
-                          <img src="../assets/img/team-2.jpg"
+                          <img src="getFotoProfile?id=<?= $item['id_security'] ?>"
                             class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                            alt="user1" />
+                            alt="foto-profile"/>
                         </div>
                         <div class="flex flex-col justify-center">
-                          <?= $item['id_security'] ?>
+                          <h6 class="mb-0 text-sm leading-normal dark:text-white"> <?= $item['nama_security'] ?></h6>
+                          <p class="mb-0 text-xs leading-tight dark:text-white dark:opacity-80 text-slate-400">
+                            ID <?= $item['id_security'] ?>
+                          </p>
                         </div>
                       </div>
                     </td>
 
-                    <td class="capitalize text-sm"><?= $item['nama_security'] ?></td>
+                    <!-- <td class="capitalize text-sm"><?= $item['nama_security'] ?></td> -->
 
                     <td class="text-sm"><?= $item['noHp_security'] ?></td>
                     <td class="capitalize text-sm"> <?= $item['username'] ?>
@@ -84,8 +87,8 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th class="text-sm " data-priority="1">ID Security</th>
-                  <th class="text-sm" data-priority="2">Nama Secuirty</th>
+                <th class="text-sm " data-priority="1">AUTHOR</th>
+                  <!-- <th class="text-sm" data-priority="2">Nama Secuirty</th> -->
                   <th class="text-sm" data-priority="3">No Hp</th>
                   <th class="text-sm" data-priority="4">Username</th>
                   <th class="text-sm" data-priority="5">Tanggal Registrasi</th>
