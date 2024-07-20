@@ -5,21 +5,22 @@
       <div class="flex-none w-auto max-w-full px-3">
         <div
           class="relative inline-flex items-center justify-center text-white transition-all duration-200 ease-in-out text-base h-19 w-19 rounded-xl">
-          <!-- <?php if (!empty($security['foto_profile'])): ?>
+          <?php if (!empty($security['foto_profile'])): ?>
             <img src="<?= BASE_URL; ?>assets/images/blank-profile-picture.png" alt="profile_image"
               class="w-full shadow-2xl rounded-xl" />
-          <?php else: ?> -->
+          <?php else: ?>
             <img src="getFotoProfile?id=<?= $_SESSION['id_security'] ?>"
               class="w-full h-full object-cover shadow-2xl rounded-xl" alt="foto-profile" />
-            <form id="updateProfileImageForm" action="updateFotoProfile" method="POST" enctype="multipart/form-data">
-              <label for="profileImageInput" class="edit-icon">
-                <i class="fa-solid fa-pen text-white"></i>
-              </label>
-              <input type="file" id="profileImageInput" name="foto_profile" style="display: none;"
-                onchange="submitForm()">
-            </form>
-
-            <!-- <?php endif; ?> -->
+          <?php endif; ?>
+          <!-- Form edit foto profile -->
+          <form id="updateProfileImageForm" action="updateFotoProfile" method="POST" enctype="multipart/form-data">
+            <label for="profileImageInput" class="edit-icon">
+              <i class="fa-solid fa-pen text-white"></i>
+            </label>
+            <input type="file" id="profileImageInput" name="foto_profile" style="display: none;"
+              onchange="submitForm()">
+          </form>
+          <!-- Form edit foto profile -->
         </div>
       </div>
       <div class="flex-none w-auto max-w-full px-3 my-auto">
@@ -117,8 +118,8 @@
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    padding: 5px;
+    border-radius: 100%;
+    padding: 6px;
     cursor: pointer;
   }
 </style>
