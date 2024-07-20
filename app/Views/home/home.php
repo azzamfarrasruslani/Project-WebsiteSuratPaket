@@ -15,10 +15,13 @@
     rel="stylesheet" />
   <!-- Style -->
   <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/home.css">
+  <link href="<?= BASE_URL; ?>assets/css/argon-dashboard-tailwind.css" rel="stylesheet" />
   <!-- Fontawesome Icon -->
   <script src="https://kit.fontawesome.com/c23fedd423.js" crossorigin="anonymous"></script>
   <!-- Bootstrap Icon -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> 
 </head>
 
 
@@ -49,7 +52,7 @@
   </nav>
   <!-- Navbar End -->
   <!-- Hero Section Start -->
-  <section class="hero" id="home">
+  <section class="hero " id="home">
     <!--Content before waves-->
     <div class="content flex">
       <div class="content-judul">
@@ -77,11 +80,52 @@
     <!--Waves end-->
   </section>
   <!-- Hero Section End -->
+
+
+
+
+
+
+  <!-- Contact Section Start -->
+  <section class="bg-white py-16">
+    <div class="container max-w-screen-xl mx-auto px-4">
+
+      <div class="w-full bg-blue-500 rounded-2xl md:rounded-3xl relative lg:flex items-center">
+        <div class="hidden lg:block">
+          <img src="<?= BASE_URL; ?>assets/images/humans.png" alt="Image" class="relative z-10">
+
+          <img src="<?= BASE_URL; ?>assets/images/pattern-2.png" alt="Image" class="absolute top-14 left-40">
+          <img src="<?= BASE_URL; ?>assets/images/pattern.png" alt="Image" class="absolute top-0 z-0">
+        </div>
+
+        <div class="lg:relative py-4 lg:py-0">
+          <h1
+            class="font-semibold text-white text-xl md:text-4xl text-center lg:text-left leading-normal md:mb-5 lg:mb-10">
+            Interested in volunteering? Join <br> with us now</h1>
+          <div class=" md:block flex items-center text-center lg:text-left space-x-5">
+            <input type="text" placeholder="Email"
+              class="px-4 py-4 w-96 bg-gray-50 placeholder-gray-400 rounded-xl outline-none">
+
+            <button
+              class="px-6 py-4 font-semibold bg-gray-50 text-info text-lg rounded-xl hover:bg-blue-500 hover:text-white transition ease-in-out duration-500">Join</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- Contact Section End -->
+
+
+
+
+
 </body>
-  <!--===== SCROLL REVEAL =====  !!ini harus diletakan diatas dari main java!!-->
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <!-- Main java script -->
-  <script src="<?= BASE_URL; ?>assets/js/main.js"></script>
+<!--===== SCROLL REVEAL =====  !!ini harus diletakan diatas dari main java!!-->
+<script src="https://unpkg.com/scrollreveal"></script>
+<!-- Main java script -->
+<script src="<?= BASE_URL; ?>assets/js/main.js"></script>
 
 
 

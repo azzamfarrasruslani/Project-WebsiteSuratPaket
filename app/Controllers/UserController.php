@@ -30,12 +30,16 @@ class UserController extends Controller
 
     public function viewProfile()
     {
-        $data['security'] = $this->userModel->getDataUser();
-        $title = "Profile";
-        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
-        $this->loadNavbar('navbar', $title, $data);
-        $this->view('dashboard/profile', $data);
-        $this->loadFooter('footer');
+        $id_security = isset($_SESSION['id_security']) ? $_SESSION['id_security'] : '';
+        if ($id_security) {
+            $data_security['data_security'] = $this->userModel->getDataUserById($id_security);
+            $title = "Profile";
+            $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+            $this->loadNavbar('navbar', $title, $data_security);
+            $this->view('dashboard/profile', $data_security);
+            $this->loadFooter('footer');
+        }
+
     }
 
     public function aktifkanAkun()
@@ -148,6 +152,54 @@ class UserController extends Controller
         }
     }
 
+
+    public function updateFotoProfile()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profileImage'])) {
+            $id_security = $_SESSION['id_security'];
+
+            $file = $_FILES['profileImage'];
+            $fileName = $file['name'];
+            $fileTmpName = $file['tmp_name'];
+            $fileSize = $file['size'];
+            $fileError = $file['error'];
+            $fileType = $file['type'];
+
+            $fileExt = strtolower(end(explode('.', $fileName)));
+            $allowed = array('jpg', 'jpeg', 'png');
+
+            if (in_array($fileExt, $allowed)) {
+                if ($fileError === 0) {
+                    if ($fileSize < 1000000) { // Batas ukuran file 1MB
+                        $fileNameNew = "profile" . $id_security . "." . $fileExt;
+                        $fileDestination = 'uploads/' . $fileNameNew;
+
+                        if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                            $result = $this->userModel->updateFotoProfile($id_security, $fileNameNew);
+                            if ($result) {
+                                $_SESSION['success'] = "Foto profil berhasil diperbarui.";
+                            } else {
+                                $_SESSION['error'] = "Terjadi kesalahan saat memperbarui data di database.";
+                            }
+                        } else {
+                            $_SESSION['error'] = "Terjadi kesalahan saat mengunggah file.";
+                        }
+                    } else {
+                        $_SESSION['error'] = "Ukuran file terlalu besar.";
+                    }
+                } else {
+                    $_SESSION['error'] = "Terjadi kesalahan saat mengunggah file.";
+                }
+            } else {
+                $_SESSION['error'] = "Jenis file tidak diperbolehkan.";
+            }
+        } else {
+            $_SESSION['error'] = "Tidak ada file yang diunggah.";
+        }
+
+        header("Location: " . BASE_URL . "user/viewProfile");
+        exit;
+    }
 
 
 

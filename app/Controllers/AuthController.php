@@ -52,7 +52,8 @@ class AuthController extends Controller
         $_SESSION['username'] = $dataUser['username'];
         $_SESSION['status'] = $dataUser['status'];
         $_SESSION['user_role'] = $dataUser['role'];
-
+        $this->userModel->logActivity($dataUser['id_security'], "User logged in");
+       
         header('Location: ' . BASE_URL . 'dashboard/dashboard');
         exit;
     }

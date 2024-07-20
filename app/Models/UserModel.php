@@ -34,6 +34,15 @@ class UserModel extends Model
         return $data;
     }
 
+    public function getDataUserById($id_security)
+    {
+        $query = "SELECT * FROM security WHERE id_security = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $id_security);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
     public function UpdateStatusAkun($status, $id_security)
     {
         $query = "UPDATE security SET status = ? WHERE id_security = ?";
@@ -45,7 +54,7 @@ class UserModel extends Model
     public function getImageById($id_security)
     {
         $query = "SELECT foto_profile FROM security WHERE id_security = ?";
-    
+
         $stmt = $this->conn->prepare($query);
         if ($stmt) {
             $stmt->bind_param('i', $id_security);
@@ -59,7 +68,7 @@ class UserModel extends Model
             return null;
         }
     }
-    
+
 
     public function insertSecurity($nama_security, $noHp_security, $username, $password, $role)
     {
@@ -68,6 +77,23 @@ class UserModel extends Model
         $stmt->bind_param("sssss", $nama_security, $noHp_security, $username, $password, $role);
         $stmt->execute();
         return $stmt->affected_rows;
+    }
+
+    public function updateFotoProfile($id_security, $fileNameNew)
+    {
+        $query = "UPDATE security SET foto_profile = ? WHERE id_security = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $fileNameNew, $id_security);
+        return $stmt->execute();
+    }
+
+
+    function logActivity($id_security, $activity) {
+        $sql = "INSERT INTO activity_log (id_security, activity) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("is", $id_security, $activity);
+        $stmt->execute();
+        $stmt->close();
     }
 }
 ?>

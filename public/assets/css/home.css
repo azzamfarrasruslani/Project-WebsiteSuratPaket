@@ -265,15 +265,52 @@ body {
 
 /* ==========================================Hero Section End================================================== */
 
-
 /* ==========================================Tentang Section Start================================================== */
-.tentang {
-  padding: 9rem 7% 1.4rem;
+/* tentang */
+
+.about {
+  color: #000000;
+  padding: 50px 20px;
   text-align: center;
+  display: flex;
 }
-.tentang h1 {
-  font-size: 2.4rem;
-  color: #5e72e4;
+.about h2 {
+  font-size: 3em;
+  color: black;
+  font-weight: 500;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 50%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+  justify-content: center;
+}
+
+.about-text h2 {
+  color: black;
+}
+
+.about-text p {
+  color: #000000;
+  line-height: 1.6;
+  text-align: justify;
 }
 /* ==========================================Tentang Section End================================================== */
 
