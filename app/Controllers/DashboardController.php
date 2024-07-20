@@ -1,23 +1,31 @@
 <?php
 class DashboardController extends Controller
-{public function index()
+{
+    private $dashboardModel;
+
+    public function __construct($db)
+    {
+        parent::__construct($db); // Memanggil konstruktor parent
+        $this->dashboardModel = $this->model('DashboardModel');
+    }
+    public function index()
     {
         if (!isset($_SESSION['username'])) {
             header('Location: ' . BASE_URL . 'auth/login');
             exit;
         }
-    
-        $jmlBarangMasuk = $this->model('DashboardModel')->countDataByWaktuTerima();
-        $jmlBarangKeluar = $this->model('DashboardModel')->countDataByWaktuSerah();
-        $jmlBarangBelumDiambil = $this->model('DashboardModel')->countDataByStatus('Belum Diambil');
-        $jmlBarangSudahDiambil = $this->model('DashboardModel')->countDataByStatus('Sudah Diambil');
-        $dataRiwayat = $this->model('DashboardModel')->getActivityLog($_SESSION['id_security']);
+
+        $jmlBarangMasuk = $this->dashboardModel->countDataByWaktuTerima();
+        $jmlBarangKeluar = $this->dashboardModel->countDataByWaktuSerah();
+        $jmlBarangBelumDiambil = $this->dashboardModel->countDataByStatus('Belum Diambil');
+        $jmlBarangSudahDiambil = $this->dashboardModel->countDataByStatus('Sudah Diambil');
+        $dataRiwayat = $this->dashboardModel->getActivityLog($_SESSION['id_security']);
         $title = "Dashboard";
-    
+
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
         $this->loadNavbar('navbar', $title);
         $this->view('dashboard/dashboard', [
-            'jmlBarangMasuk' => $jmlBarangMasuk, 
+            'jmlBarangMasuk' => $jmlBarangMasuk,
             'jmlBarangKeluar' => $jmlBarangKeluar,
             'jmlBarangBelumDiambil' => $jmlBarangBelumDiambil,
             'jmlBarangSudahDiambil' => $jmlBarangSudahDiambil,
@@ -25,8 +33,7 @@ class DashboardController extends Controller
         ]);
         $this->loadFooter('footer');
     }
-    
+
 
 
 }
-?>

@@ -1,21 +1,33 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 class Notifikasi
 {
-    public static function setPesan($text)
+    public static function setPesan($text, $icon = 'success')
     {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $_SESSION['pesan'] = $text;
+        $_SESSION['icon'] = $icon;
     }
-
 
     public static function tampilPesan()
     {
-                echo '<script>Swal.fire({
-  title: "Good job!",
-  text: "' . $_SESSION['pesan'] . '",
-  icon: "success"
-});</script>';
-        
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
+        if (isset($_SESSION['pesan'])) {
+            echo '<script>
+                Swal.fire({
+                    title: "Notification",
+                    text: "' . $_SESSION['pesan'] . '",
+                    icon: "' . $_SESSION['icon'] . '"
+                });
+                </script>';
+            
+            unset($_SESSION['pesan']);
+            unset($_SESSION['icon']);
+        }
     }
 }
+?>

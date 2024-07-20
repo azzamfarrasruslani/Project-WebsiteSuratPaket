@@ -8,12 +8,8 @@ class App
     public function __construct()
     {
         // Initialize database connection
-        $db = new mysqli('localhost', 'root', '', 'suratpaket');
-
-        if ($db->connect_error) {
-            die("Connection failed: " . $db->connect_error);
-        }
-
+        $db = new Database();
+        
         $url = $this->parseUrl();
 
         if (isset($url[0]) && file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {

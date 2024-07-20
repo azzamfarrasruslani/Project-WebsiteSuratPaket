@@ -1,71 +1,66 @@
 <?php
-class Database
-{
+class Database {
     private $host = 'localhost';
+    private $user = 'root';
+    private $pass = '';
     private $db_name = 'suratpaket';
-    private $username = 'root';
-    private $password = '';
-    private $dbh;
-    private $stmt;
+    private $conn;
 
     public function __construct()
     {
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
+        $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db_name);
 
-        try {
-            $this->dbh = new PDO($dsn, $this->username, $this->password);
-            $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die('Connection failed: ' . $e->getMessage());
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
         }
     }
 
-    public function query($sql)
+    public function query($query)
     {
-        $this->stmt = $this->dbh->prepare($sql);
+        return $this->conn->query($query);
     }
 
-    public function bind($param, $value, $type = null)
+    public function prepare($query)
     {
-        if (is_null($type)) {
-            switch (true) {
-                case is_int($value):
-                    $type = PDO::PARAM_INT;
-                    break;
-                case is_bool($value):
-                    $type = PDO::PARAM_BOOL;
-                    break;
-                case is_null($value):
-                    $type = PDO::PARAM_NULL;
-                    break;
-                default:
-                    $type = PDO::PARAM_STR;
+        return $this->conn->prepare($query);
+    }
+
+    public function bindAndExecute($stmt, $params)
+    {
+        $types = '';
+        foreach ($params as $param) {
+            if (is_int($param)) {
+                $types .= 'i';
+            } elseif (is_double($param)) {
+                $types .= 'd';
+            } elseif (is_string($param)) {
+                $types .= 's';
+            } else {
+                $types .= 'b';
             }
         }
-        $this->stmt->bindValue($param, $value, $type);
+
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
     }
 
-    public function execute()
+    public function resultSet($stmt)
     {
-        return $this->stmt->execute();
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function resultSet()
+    public function single($stmt)
     {
-        $this->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
     }
 
-    public function single()
+    public function rowCount($stmt)
     {
-        $this->execute();
-        return $this->stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function rowCount()
-    {
-        return $this->stmt->rowCount();
+        $stmt->execute();
+        $stmt->store_result();
+        return $stmt->num_rows;
     }
 }
-
 ?>

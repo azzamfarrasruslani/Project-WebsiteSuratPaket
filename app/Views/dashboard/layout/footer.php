@@ -116,7 +116,12 @@
 <script src="<?= BASE_URL; ?>assets/js/dashboard-tailwind.js?v=1.0.1" async></script>
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+// Tampilkan pesan jika ada
+Notifikasi::tampilPesan();
+?>
 
 <!--Datatables -->
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
