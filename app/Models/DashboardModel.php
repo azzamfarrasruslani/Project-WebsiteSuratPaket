@@ -21,14 +21,35 @@ class DashboardModel extends Model
         return $result['jumlahBarang'];
     }
 
-    public function countDataByStatus()
+    // public function countDataByStatus()
+    // {
+    //     $query = "SELECT COUNT(*) AS jumlahBarang FROM serah_terima
+    //        WHERE status_barang = 'Belum Diambil' ";
+    //     $stmt = $this->conn->prepare($query);
+    //     $stmt->execute();
+    //     $result = $stmt->get_result()->fetch_assoc();
+    //     return $result['jumlahBarang'];
+    // }
+    public function countDataByStatus($status)
     {
         $query = "SELECT COUNT(*) AS jumlahBarang FROM serah_terima
-           WHERE status_barang = 'Belum Diambil' ";
+           WHERE status_barang = ? ";
         $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $status);
         $stmt->execute();
         $result = $stmt->get_result()->fetch_assoc();
         return $result['jumlahBarang'];
     }
+    function getActivityLog($id_security)
+    {
+        $sql = "SELECT activity, activity_time FROM activity_log WHERE id_security = ? ORDER BY activity_time DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $id_security);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = $result->fetch_all(MYSQLI_ASSOC);
+        return $data;
+    }
+
 }
 ?>

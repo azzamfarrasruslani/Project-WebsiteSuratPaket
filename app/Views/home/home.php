@@ -15,7 +15,7 @@
     rel="stylesheet" />
   <!-- Style -->
   <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/home.css">
-  <link href="<?= BASE_URL; ?>assets/css/argon-dashboard-tailwind.css" rel="stylesheet" />
+  <!-- <link href="<?= BASE_URL; ?>assets/css/argon-dashboard-tailwind.css" rel="stylesheet" /> -->
   <!-- Fontawesome Icon -->
   <script src="https://kit.fontawesome.com/c23fedd423.js" crossorigin="anonymous"></script>
   <!-- Bootstrap Icon -->
@@ -86,7 +86,7 @@
 
 
 
-  <!-- Contact Section Start -->
+  Contact Section Start -->
   <section class="bg-white py-16">
     <div class="container max-w-screen-xl mx-auto px-4">
 
@@ -115,7 +115,7 @@
     </div>
 
   </section>
-  <!-- Contact Section End -->
+  <!-- Contact Section End
 
 
 
