@@ -55,10 +55,14 @@
                         </span>
                       <?php endif; ?>
                     </td>
-                    <td class="text-sm"><?= $item['waktu_penerimaan'] ?></td>
+                    <td class="text-sm whitespace-nowrap">
+                      <!-- <?= $item['waktu_penerimaan'] ?> -->
+                      <?= date("d-m-Y,H:i:s", strtotime($item["waktu_penerimaan"])) ?> 
+                  </td>
 
                     <!-- <td class="text-sm">
                         <?= !empty($item['waktu_penyerahan']) ? $item['waktu_penyerahan'] : '-' ?>
+                        
                       </td> -->
                     <td class="text-sm"><?= $item['nama_security'] ?></td>
                     <td>
