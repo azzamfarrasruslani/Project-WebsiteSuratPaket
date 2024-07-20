@@ -53,7 +53,7 @@ class AuthController extends Controller
         $_SESSION['status'] = $dataUser['status'];
         $_SESSION['user_role'] = $dataUser['role'];
         $this->userModel->logActivity($dataUser['id_security'], "User logged in");
-       
+
         header('Location: ' . BASE_URL . 'dashboard/dashboard');
         exit;
     }
@@ -63,6 +63,7 @@ class AuthController extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+        $this->userModel->logActivity($_SESSION['id_security'], "User logged out");
         session_destroy();
         header('Location: ' . BASE_URL . '/auth/login');
     }
