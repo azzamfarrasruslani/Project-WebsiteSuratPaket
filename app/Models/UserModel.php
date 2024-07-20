@@ -79,16 +79,17 @@ class UserModel extends Model
         return $stmt->affected_rows;
     }
 
-    public function updateFotoProfile($id_security, $fileNameNew)
+    public function updateFotoProfile($foto_profile, $id_security)
     {
         $query = "UPDATE security SET foto_profile = ? WHERE id_security = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("si", $fileNameNew, $id_security);
+        $stmt->bind_param("si", $foto_profile, $id_security);
         return $stmt->execute();
     }
 
 
-    function logActivity($id_security, $activity) {
+    function logActivity($id_security, $activity)
+    {
         $sql = "INSERT INTO activity_log (id_security, activity) VALUES (?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("is", $id_security, $activity);

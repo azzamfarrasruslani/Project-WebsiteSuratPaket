@@ -44,6 +44,7 @@ class UserController extends Controller
 
     public function aktifkanAkun()
     {
+        $this->checkRole('admin'); // Memeriksa peran admin
         $id_security = isset($_GET['id']) ? $_GET['id'] : '';
         $setStatus = '1';
         if ($id_security) {
@@ -62,6 +63,7 @@ class UserController extends Controller
     }
     public function nonAktifkanAkun()
     {
+        $this->checkRole('admin'); // Memeriksa peran admin
         $id_security = isset($_GET['id']) ? $_GET['id'] : '';
         $setStatus = '0';
         if ($id_security) {
@@ -155,51 +157,52 @@ class UserController extends Controller
 
     public function updateFotoProfile()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profileImage'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto_profile'])) {
+            $errors = [];
             $id_security = $_SESSION['id_security'];
 
-            $file = $_FILES['profileImage'];
-            $fileName = $file['name'];
-            $fileTmpName = $file['tmp_name'];
-            $fileSize = $file['size'];
-            $fileError = $file['error'];
-            $fileType = $file['type'];
+            if (!empty($_FILES['foto_profile']['tmp_name'])) {
+                $allowedTypes = ['image/jpeg', 'image/png'];
+                $fileType = $_FILES['foto_profile']['type'];
+                $fileSize = $_FILES['foto_profile']['size'];
+                $maxFileSize = 2 * 1024 * 1024; // 2 MB
 
-            $fileExt = strtolower(end(explode('.', $fileName)));
-            $allowed = array('jpg', 'jpeg', 'png');
+                if (!in_array($fileType, $allowedTypes)) {
+                    $errors[] = 'Foto profile must be a JPEG or PNG image.';
+                }
 
-            if (in_array($fileExt, $allowed)) {
-                if ($fileError === 0) {
-                    if ($fileSize < 1000000) { // Batas ukuran file 1MB
-                        $fileNameNew = "profile" . $id_security . "." . $fileExt;
-                        $fileDestination = 'uploads/' . $fileNameNew;
+                if ($fileSize > $maxFileSize) {
+                    $errors[] = 'Foto profile must be less than 2 MB.';
+                }
 
-                        if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                            $result = $this->userModel->updateFotoProfile($id_security, $fileNameNew);
-                            if ($result) {
-                                $_SESSION['success'] = "Foto profil berhasil diperbarui.";
-                            } else {
-                                $_SESSION['error'] = "Terjadi kesalahan saat memperbarui data di database.";
-                            }
-                        } else {
-                            $_SESSION['error'] = "Terjadi kesalahan saat mengunggah file.";
-                        }
-                    } else {
-                        $_SESSION['error'] = "Ukuran file terlalu besar.";
-                    }
+                if ($_FILES['foto_profile']['error'] != 0) {
+                    $errors[] = 'Error uploading foto profile: ' . $_FILES['foto_profile']['error'];
+                }
+
+                if (empty($errors)) {
+                    $foto_profile = file_get_contents($_FILES['foto_profile']['tmp_name']);
+                }
+            }
+
+            if (empty($errors)) {
+                $updateFotoProfile = $this->userModel->updateFotoProfile($foto_profile, $id_security);
+
+                if ($updateFotoProfile) {
+                    header('Location:' . BASE_URL . 'User/profile');
+                    exit;
                 } else {
-                    $_SESSION['error'] = "Terjadi kesalahan saat mengunggah file.";
+                    echo "<script>alert('foto gagal diupdate!');</script>";
                 }
             } else {
-                $_SESSION['error'] = "Jenis file tidak diperbolehkan.";
+                foreach ($errors as $error) {
+                    echo "<script>alert('$error');</script>";
+                }
             }
         } else {
-            $_SESSION['error'] = "Tidak ada file yang diunggah.";
+            echo "<script>alert('No file uploaded.');</script>";
         }
-
-        header("Location: " . BASE_URL . "user/viewProfile");
-        exit;
     }
+
 
 
 
