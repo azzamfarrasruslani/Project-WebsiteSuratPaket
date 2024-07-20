@@ -9,7 +9,7 @@
           class="p-6 pb-3 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between items-center">
           <h2 class="text-xl font-bold mb-4">Data Paket Masuk</h2>
           <button onclick="toggleModal()"
-            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">
             <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah Data
           </button>
         </div>
