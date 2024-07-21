@@ -32,7 +32,7 @@
   <nav class="navbar">
     <a href="#"><img class="logo" src="<?= BASE_URL; ?>assets/images/logo-web.png"></a>
     <div class="navbar-login">
-      <a href="<?= BASE_URL; ?>Home/home">Home <i class="fa-solid fa-house" style="color: #5e72e4;"></i></a>
+      <a href="<?= BASE_URL; ?>">Home <i class="fa-solid fa-house" style="color: #5e72e4;"></i></a>
     </div>
     <a href="#menu" id="hamburger-menu">
       <button class="menu"

@@ -24,7 +24,7 @@
                   <th class="text-sm" data-priority="5">Tanggal Registrasi</th>
                   <th class="text-sm" data-priority="6">Role</th>
                   <th class="text-sm" data-priority="7">Status</th>
-                  <th class="text-sm" data-priority="8">Option</th>
+                  <!-- <th class="text-sm" data-priority="8">Option</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -79,11 +79,11 @@
                         </span>
                       <?php endif; ?>
                     </td>
-                    <td> <a href="viewEditBarang?id=<?= $item['id_security'] ?>"
+                    <!-- <td> <a href="viewEditBarang?id=<?= $item['id_security'] ?>"
                         class="text-gray-700  px-4 py-4 text-sm mb-2 whitespace-nowrap capitalize font-semibold flex items-center"
                         role="menuitem" tabindex="-1" id="menu-item-<?= $index ?>-0">
                         <i class="fa-solid fa-pen-to-square fa-2xl" style="color: #0091ff;"></i>
-                      </a></td>
+                      </a></td> -->
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -96,7 +96,7 @@
                   <th class="text-sm" data-priority="5">Tanggal Registrasi</th>
                   <th class="text-sm" data-priority="6">Role</th>
                   <th class="text-sm" data-priority="7">Status</th>
-                  <th class="text-sm" data-priority="8">Option</th>
+                  <!-- <th class="text-sm" data-priority="8">Option</th> -->
                 </tr>
               </tfoot>
             </table>

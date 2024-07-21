@@ -36,7 +36,7 @@ class DashboardController extends Controller
 
     public function viewDatabyWaktuTerima()
     {
-        $tampilDataByWaktuTerima['tampilDataByWaktuTerima'] = $this->dashboardModel->dataByWaktuTerima();
+        $tampilDataByWaktuTerima['tampilDataByWaktuTerima'] = $this->dashboardModel->dataByWaktu('waktu_penerimaan');
         $title = "Data Paket Masuk Hari Ini";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
         $this->loadNavbar('navbar', $title);
@@ -45,7 +45,7 @@ class DashboardController extends Controller
     }
     public function viewDatabyWaktuSerah()
     {
-        $tampilDataByWaktuSerah['tampilDataByWaktuSerah'] = $this->dashboardModel->dataByWaktuSerah();
+        $tampilDataByWaktuSerah['tampilDataByWaktuSerah'] = $this->dashboardModel->dataByWaktu('waktu_penyerahan');
         $title = "Data Paket Masuk Hari Ini";
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
         $this->loadNavbar('navbar', $title);
