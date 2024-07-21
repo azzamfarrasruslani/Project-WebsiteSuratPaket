@@ -98,7 +98,7 @@ class SerahTerimaController extends Controller
             // Menggunakan null coalescing operator untuk menghindari peringatan undefined array key
             $jenis_barang = $_POST['jenis_barang'] ?? null;
             $no_resi = $_POST['no_resi'] ?? null;
-            $nama_kurir = $_POST['nama_kurir'] ?? null;
+            // $nama_kurir = $_POST['nama_kurir'] ?? null;
             $ekspedisi = $_POST['ekspedisi'] ?? null;
             $nama_pemilik = $_POST['nama_pemilik'] ?? null;
             $noHp_pemilik = $_POST['no_hp'] ?? null;
@@ -114,8 +114,6 @@ class SerahTerimaController extends Controller
                 $errors[] = 'Jenis barang is required.';
             } else if (empty($no_resi)) {
                 $errors[] = 'Nomor resi is required.';
-            } else if (empty($nama_kurir)) {
-                $errors[] = 'Nama kurir is required.';
             } else if (empty($nama_pemilik)) {
                 $errors[] = 'Nama pemilik is required.';
             } else if (empty($noHp_pemilik)) {
@@ -152,7 +150,7 @@ class SerahTerimaController extends Controller
                 $foto_barang = file_get_contents($_FILES['foto_barang']['tmp_name']);
                 // Insert data into tables
                 $id_barang = $this->serahTerimaModel->insertBarang($jenis_barang, $no_resi, $foto_barang);
-                $id_kurir = $this->serahTerimaModel->insertKurir($nama_kurir, $ekspedisi);
+                $id_kurir = $this->serahTerimaModel->insertKurir($ekspedisi);
                 $id_pemilik = $this->serahTerimaModel->insertPemilik($nama_pemilik, $noHp_pemilik, $email_pemilik);
                 $result = $this->serahTerimaModel->insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
 
@@ -161,7 +159,7 @@ class SerahTerimaController extends Controller
                     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
                     exit;
                 } else {
-                    
+
                     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
                     // echo "Error: " . $this->serahTerimaModel->conn->error;
                 }
@@ -259,7 +257,6 @@ class SerahTerimaController extends Controller
             $id_serah_terima = $_POST['id_serah_terima'] ?? null;
             $jenis_barang = $_POST['jenis_barang'] ?? null;
             $no_resi = $_POST['no_resi'] ?? null;
-            $nama_kurir = $_POST['nama_kurir'] ?? null;
             $ekspedisi = $_POST['ekspedisi'] ?? null;
             $nama_pemilik = $_POST['nama_pemilik'] ?? null;
             $noHp_pemilik = $_POST['no_hp'] ?? null;
@@ -276,9 +273,6 @@ class SerahTerimaController extends Controller
             }
             if (empty($no_resi)) {
                 $errors[] = 'Nomor resi is required.';
-            }
-            if (empty($nama_kurir)) {
-                $errors[] = 'Nama kurir is required.';
             }
             if (empty($nama_pemilik)) {
                 $errors[] = 'Nama pemilik is required.';
@@ -326,9 +320,20 @@ class SerahTerimaController extends Controller
                     }
                 }
 
+                // Update Serah Terima
                 $updateSerahTerimaResult = $this->serahTerimaModel->updateSerahTerima($id_serah_terima, $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
-                $updateBarangResult = $this->serahTerimaModel->updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang);
-                $updateKurirResult = $this->serahTerimaModel->updateKurir($id_kurir, $nama_kurir, $ekspedisi);
+
+                // Update Barang (conditionally include foto_barang if provided)
+                if ($foto_barang !== null) {
+                    $updateBarangResult = $this->serahTerimaModel->updateBarang($id_barang, $jenis_barang, $no_resi, $foto_barang);
+                } else {
+                    $updateBarangResult = $this->serahTerimaModel->updateBarangWithoutFoto($id_barang, $jenis_barang, $no_resi);
+                }
+
+                // Update Kurir
+                $updateKurirResult = $this->serahTerimaModel->updateKurir($id_kurir, $ekspedisi);
+
+                // Update Pemilik
                 $updatePemilikResult = $this->serahTerimaModel->updatePemilik($id_pemilik, $nama_pemilik, $noHp_pemilik, $email_pemilik);
 
                 // Check if all updates were successful
@@ -346,6 +351,7 @@ class SerahTerimaController extends Controller
             }
         }
     }
+
 
 
     public function hapusData()

@@ -87,7 +87,7 @@
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
                       id="tgl_terima" name="tgl_terima" type="datetime-local" required>
                   </div>
-                  <!-- Nama Kurir -->
+                  <!-- Nama Kurir
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="nama-kurir">
@@ -96,7 +96,7 @@
                     <input
                       class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
                       id="nama_kurir" name="nama_kurir" type="text" required>
-                  </div>
+                  </div> -->
                 </div>
 
 

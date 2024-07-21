@@ -124,10 +124,6 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">Nama Kurir/Pengirim</td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= $serah_terima['nama_kurir'] ?></td>
-                                    </tr>
-                                    <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">Ekspedisi</td>
                                         <td class="px-6 py-4 whitespace-nowrap"><?= $serah_terima['ekspedisi'] ?></td>
                                     </tr>
