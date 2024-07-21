@@ -29,8 +29,27 @@ class DashboardController extends Controller
             'jmlBarangKeluar' => $jmlBarangKeluar,
             'jmlBarangBelumDiambil' => $jmlBarangBelumDiambil,
             'jmlBarangSudahDiambil' => $jmlBarangSudahDiambil,
-            'dataRiwayat' => $dataRiwayat
+            'dataRiwayat' => $dataRiwayat,
         ]);
+        $this->loadFooter('footer');
+    }
+
+    public function viewDatabyWaktuTerima()
+    {
+        $tampilDataByWaktuTerima['tampilDataByWaktuTerima'] = $this->dashboardModel->dataByWaktuTerima();
+        $title = "Data Paket Masuk Hari Ini";
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar', $title);
+        $this->view('dashboard/CrudDashboard/dataByWaktuTerima', $tampilDataByWaktuTerima);
+        $this->loadFooter('footer');
+    }
+    public function viewDatabyWaktuSerah()
+    {
+        $tampilDataByWaktuSerah['tampilDataByWaktuSerah'] = $this->dashboardModel->dataByWaktuSerah();
+        $title = "Data Paket Masuk Hari Ini";
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar', $title);
+        $this->view('dashboard/CrudDashboard/dataByWaktuSerah', $tampilDataByWaktuSerah);
         $this->loadFooter('footer');
     }
 

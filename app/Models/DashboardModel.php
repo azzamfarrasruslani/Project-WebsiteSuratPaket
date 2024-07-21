@@ -1,6 +1,36 @@
 <?php
 class DashboardModel extends Model
 {
+
+    public function dataByWaktuTerima () {
+        $query = "SELECT st.*, b.*, k.*, p.*, s.nama_security
+                  FROM serah_terima st
+                  JOIN kurir k ON st.id_kurir = k.id_kurir 
+                  JOIN barang b ON st.id_barang = b.id_barang 
+                  JOIN pemilik p ON st.id_pemilik = p.id_pemilik
+                  JOIN security s ON st.id_security = s.id_security
+                  WHERE DATE(waktu_penerimaan) = CURDATE()";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC); // Mengambil semua hasil sebagai array asosiatif
+        return $result;
+    }
+    public function dataByWaktuSerah () {
+        $query = "SELECT st.*, b.*, k.*, p.*, s.nama_security
+                  FROM serah_terima st
+                  JOIN kurir k ON st.id_kurir = k.id_kurir 
+                  JOIN barang b ON st.id_barang = b.id_barang 
+                  JOIN pemilik p ON st.id_pemilik = p.id_pemilik
+                  JOIN security s ON st.id_security = s.id_security
+                  WHERE DATE(waktu_penyerahan) = CURDATE()";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC); // Mengambil semua hasil sebagai array asosiatif
+        return $result;
+    }
+
+
+
     public function countDataByWaktuTerima()
     {
         $query = "SELECT COUNT(*) AS jumlahBarang FROM serah_terima
@@ -52,4 +82,3 @@ class DashboardModel extends Model
     }
 
 }
-?>

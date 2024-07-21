@@ -18,7 +18,7 @@
                 </div>
               </div>
               <div class="mt-2">
-                <a href="#"
+                <a href="viewDatabyWaktuTerima"
                   class="text-sm py-2 px-2  bg-gradient-to-tl from-blue-500 to-violet-500 text-white  font-bold dark:text-white rounded-1">More
                   <i class="fa-solid fa-arrow-right fa-xl"></i></a>
               </div>
@@ -54,7 +54,7 @@
                 </div>
               </div>
               <div class="mt-2">
-                <a href="#"
+                <a href="viewDatabyWaktuSerah"
                   class="text-sm py-2 px-2 bg-gradient-to-tl from-red-600 to-orange-600 text-white  font-bold dark:text-white rounded-1">More
                   <i class="fa-solid fa-arrow-right fa-xl"></i></a>
               </div>
@@ -83,11 +83,6 @@
                 <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                   Belum Diambil</p>
                 <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangBelumDiambil ?></h5>
-                <div class="flex justify-between items-center">
-                  <a href="#"
-                    class="text-sm py-2 px-2 bg-gradient-to-tl  from-orange-500 to-yellow-500 text-white  font-bold dark:text-white rounded-1">More
-                    <i class="fa-solid fa-arrow-right fa-xl"></i></a>
-                </div>
               </div>
             </div>
             <div class="px-3 text-right basis-1/3">
@@ -113,11 +108,6 @@
                 <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                   Sudah Diambil</p>
                 <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangSudahDiambil ?></h5>
-                <div class="flex justify-between items-center">
-                  <a href="#"
-                    class="text-sm py-2 px-2 bg-gradient-to-tl   from-emerald-500 to-teal-400 text-white  font-bold dark:text-white rounded-1">More
-                    <i class="fa-solid fa-arrow-right fa-xl"></i></a>
-                </div>
               </div>
             </div>
             <div class="px-3 text-right basis-1/3">

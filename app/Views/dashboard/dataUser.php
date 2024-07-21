@@ -78,7 +78,7 @@
                         <?php endif; ?>
                       <?php else: ?>
                         <span
-                          class="bg-gradient-to-tl from-emerald-500 to-teal-400 text-white px-8 py-2  rounded-1 whitespace-nowrap">
+                          class=" bg-gradient-to-tl from-blue-500 to-violet-500 text-white px-8 py-2  rounded-1 whitespace-nowrap">
                           Aktif
                         </span>
                       <?php endif; ?>
