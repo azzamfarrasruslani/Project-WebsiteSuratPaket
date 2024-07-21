@@ -105,4 +105,13 @@ class UserModel extends Model
         $stmt->bind_param("si", $newPassword, $id_security);
         return $stmt->execute();
     }
+
+    public function updateProfile($nama_security, $username, $noHp_security, $id_security)
+    {
+        $query = "UPDATE security SET nama_security = ?, username = ? , noHp_security = ? 
+        WHERE id_security = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("sssi", $nama_security, $username, $noHp_security, $id_security);
+          return $stmt->execute();
+    }
 }

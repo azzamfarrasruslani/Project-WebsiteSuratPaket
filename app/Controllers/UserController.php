@@ -50,7 +50,7 @@ class UserController extends Controller
         if ($id_security) {
             $result = $this->userModel->UpdateStatusAkun($setStatus, $id_security);
             if ($result) {
-                Notifikasi::setPesan('You have successfully implemented SweetAlert2 in your PHP MVC project!','success');
+                Notifikasi::setPesan('You have successfully implemented SweetAlert2 in your PHP MVC project!', 'success');
                 header('Location:' . BASE_URL . 'user/dataUser');
                 exit;
             } else {
@@ -214,7 +214,7 @@ class UserController extends Controller
         $this->loadFooter('footer');
     }
 
-    // Ganti password method
+
     public function gantiPassword()
     {
         $id_security = $_GET['id'];
@@ -254,11 +254,27 @@ class UserController extends Controller
     }
 
 
+    public function gantiDataProfile()
+    {
+        $id_security = $_SESSION['id_security'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $nama_security = $_POST['nama_security'] ?? null;
+            $username = $_POST['username'] ?? null;
+            $noHp_security = $_POST['noHp_security'] ?? null;
+            $gantiData = $this->userModel->updateProfile($nama_security, $username, $noHp_security, $id_security);
+
+            if ($gantiData) {
+                Notifikasi::setPesan('Data berhasil diubah!', 'success');
+                header('Location:' . BASE_URL . 'User/profile');
+                exit;
+            }
+
+        }
+
+
+    }
+
 
 
 }
-
-
-
-
 
