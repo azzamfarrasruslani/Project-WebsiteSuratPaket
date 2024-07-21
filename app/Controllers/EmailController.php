@@ -14,6 +14,7 @@ class EmailController extends Controller
     public function sendNotification()
     {
         $id_serah_terima = $_GET['id'];
+        $data = $this->emailModel->getSerahTerimaById($id_serah_terima);
         $to = 'azkaarifan13@gmail.com'; // Ganti dengan email tujuan yang benar
         $subject = 'Pemberitahuan Penerimaan Surat/Paket';
         $body = '
@@ -22,10 +23,9 @@ class EmailController extends Controller
             <p>Ini untuk memberitahukan bahwa surat atau paket atas nama Anda telah tiba di Politeknik Caltex Riau.</p>
             <p>Detail penerimaan adalah sebagai berikut:</p>
             <ul>
-                <li><strong>Nomor Paket:</strong> [Nomor Paket]</li>
-                <li><strong>Jenis Surat/Paket:</strong> [Jenis Surat/Paket]</li>
-                <li><strong>Tanggal Penerimaan:</strong> [Tanggal Penerimaan]</li>
-                <li><strong>Keterangan:</strong> [Keterangan Tambahan]</li>
+                <li><strong>Nomor Resi:</strong> ' . $data['no_resi'] . '</li>
+                <li><strong>Jenis Surat/Paket:</strong> ' . $data['jenis_barang'] . '</li>
+                <li><strong>Tanggal Penerimaan:</strong> ' . $data['waktu_penerimaan'] . '</li>
             </ul>
             <p>Silakan datang ke lokasi penerimaan atau hubungi kami jika Anda memerlukan informasi lebih lanjut.</p>
             <p>Terima kasih atas perhatian Anda.</p>
