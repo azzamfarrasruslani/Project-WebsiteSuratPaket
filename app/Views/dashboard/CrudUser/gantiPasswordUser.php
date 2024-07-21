@@ -11,44 +11,51 @@
                             Ganti Password
                         </h3>
                         <div class="w-full mt-2">
-                            <form action="updateStatus?id=<?= htmlspecialchars($id_serah_terima) ?>" method="post"
-                                enctype="multipart/form-data">
+                            <form action="gantiPassword?id=<?= htmlspecialchars($id_security) ?>" method="post"
+                                enctype="multipart/form-data" id="gantiPass">
                                 <div class="mb-6">
+                                    <div class="px-8">
+                                        <?php if (isset($_SESSION['error'])): ?>
+                                            <p class="text-red-600 mt-4"><?= $_SESSION['error']; ?></p>
+                                            <?php unset($_SESSION['error']); ?>
+                                        <?php endif; ?>
+                                        <div class="w-full mb-6">
+                                            <label
+                                                class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                                                for="password-sekarang">
+                                                Password Sekarang :
+                                            </label>
+                                            <input
+                                                class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                                                id="password_sekarang" name="password_sekarang" type="text" required>
 
-                                    <div class="w-full mb-6">
-                                        <label
-                                            class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                                        </div>
+                                        <label class="text-start block capitalize tracking-wide  text-sm font-bold mb-2"
                                             for="tgl_serah">
-                                            Password Sekarang :
+                                            Password Baru
                                         </label>
-                                        <input
-                                            class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                                            id="tgl_serah" name="tgl_serah" type="text" required>
-                                    </div>
-                                    <label
-                                        class="text-start block capitalize tracking-wide  text-sm font-bold mb-2"
-                                        for="tgl_serah">
-                                        Password Baru 
-                                    </label>
-                                    <div class="w-full mb-6">
-                                        <label
-                                            class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
-                                            for="tgl_serah">
-                                            Password :
-                                        </label>
-                                        <input
-                                            class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                                            id="tgl_serah" name="tgl_serah" type="text" required>
-                                    </div>
-                                    <div class="w-full mb-6">
-                                        <label
-                                            class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
-                                            for="tgl_serah">
-                                            Konfirmasi Password :
-                                        </label>
-                                        <input
-                                            class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                                            id="tgl_serah" name="tgl_serah" type="text" required>
+
+                                        <div class="w-full mb-6">
+                                            <label
+                                                class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                                                for="password-baru">
+                                                Password :
+                                            </label>
+                                            <input
+                                                class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                                                id="password_baru" name="password_baru" type="text" required>
+                                        </div>
+                                        <div class="w-full mb-6">
+                                            <label
+                                                class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
+                                                for="password_konfirmasi">
+                                                Konfirmasi Password :
+                                            </label>
+                                            <input
+                                                class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                                                id="password_konfirmasi" name="password_konfirmasi" type="text"
+                                                required>
+                                        </div>
                                     </div>
                                     <div class="flex justify-center mb-4">
                                         <button type="submit"
@@ -56,7 +63,7 @@
                                             class="mr-2 rounded-3 border border-transparent shadow-sm px-5 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm">
                                             Ganti
                                         </button>
-                                        <a href="<?= BASE_URL; ?>SerahTerima/dataBarang"
+                                        <a href="<?= BASE_URL; ?>User/profile"
                                             class="rounded-3 border border-transparent shadow-sm px-5 py-2 bg-gradient-to-tl from-red-600 to-orange-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm "
                                             onclick="return confirm('Apakah Anda Yakin Ingin Keluar?');">
                                             Batal

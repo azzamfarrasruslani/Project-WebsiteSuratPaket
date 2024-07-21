@@ -195,7 +195,7 @@ $isActive = $data['isActive'];
             <?php if ($_SESSION['user_role'] !== 'user'): ?>
                 <li class="mt-0.5 w-full">
                     <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80 
-                    <?= $isActive('User/dataUser') ?>   <?= $isActive('User/viewInsertDataUser') ?>  <?= $isActive('User/viewGantiPassword') ?>"
+                    <?= $isActive('User/dataUser') ?>   <?= $isActive('User/viewInsertDataUser') ?> "
                         href="<?= BASE_URL; ?>User/dataUser">
                         <div
                             class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
@@ -210,7 +210,7 @@ $isActive = $data['isActive'];
             </li>
 
             <li class="mt-0.5 w-full">
-                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80 <?= $isActive('User/profile') ?>"
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80 <?= $isActive('User/profile') ?> <?= $isActive('User/viewGantiPassword') ?>"
                     href="<?= BASE_URL; ?>User/profile">
                     <div
                         class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">

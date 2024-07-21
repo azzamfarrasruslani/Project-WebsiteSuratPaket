@@ -206,14 +206,59 @@ class UserController extends Controller
 
     public function viewGantiPassword()
     {
+        $id_security = isset($_GET['id']) ? $_GET['id'] : '';
         $title = 'Ganti Password';
         $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
         $this->loadNavbar('navbar', $title);
-        $this->view('dashboard/CrudUser/gantiPasswordUser');
+        $this->view('dashboard/CrudUser/gantiPasswordUser', ['id_security' => $id_security]);
         $this->loadFooter('footer');
     }
 
+    // Ganti password method
+    public function gantiPassword()
+    {
+        $id_security = $_GET['id'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $errors = [];
+            $password_sekarang = $_POST['password_sekarang'] ?? null;
+            $password_baru = $_POST['password_baru'] ?? null;
+            $password_konfirmasi = $_POST['password_konfirmasi'] ?? null;
+
+            // Mendapatkan data user berdasarkan username dari session
+            $dataUser = $this->userModel->getUserByUsername($_SESSION['username']);
+
+            // Verifikasi password sekarang dan kesesuaian password baru
+            if ($dataUser['password'] === md5($password_sekarang) && $password_baru === $password_konfirmasi) {
+                // Hash password baru sebelum menyimpannya ke database
+                $hashedPassword = md5($password_baru);
+                $result = $this->userModel->updatePassword($hashedPassword, $id_security);
+
+                if ($result) {
+                    Notifikasi::setPesan('Password berhasil diubah!');
+                    header('Location:' . BASE_URL . 'User/profile');
+                    exit;
+                } else {
+                    $_SESSION['error'] = 'Terjadi kesalahan saat mengubah password.';
+                    header('Location:' . BASE_URL . 'User/profile');
+                    exit;
+                }
+            } else {
+                $_SESSION['error'] = 'Password sekarang salah atau konfirmasi password tidak cocok.';
+                $title = 'Ganti Password';
+                $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+                $this->loadNavbar('navbar', $title);
+                $this->view('dashboard/CrudUser/gantiPasswordUser', ['id_security' => $id_security]);
+                $this->loadFooter('footer');
+            }
+        }
+    }
+
+
+
 
 }
+
+
+
 
 

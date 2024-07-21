@@ -97,10 +97,12 @@ class UserModel extends Model
         $stmt->close();
     }
 
-    public function upadatePassword($newPassword, $id_security)
+    // Update password method
+    public function updatePassword($newPassword, $id_security)
     {
-        $query = "UPDATE security SET password = MD5(?) WHERE id_security = ?";
+        $query = "UPDATE security SET password = ? WHERE id_security = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ss", $newPassword, $id_security);
+        $stmt->bind_param("si", $newPassword, $id_security);
+        return $stmt->execute();
     }
 }
