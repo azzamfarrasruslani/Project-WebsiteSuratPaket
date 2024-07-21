@@ -15,7 +15,7 @@ class EmailController extends Controller
     {
         $id_serah_terima = $_GET['id'];
         $data = $this->emailModel->getSerahTerimaById($id_serah_terima);
-        $to = 'azkaarifan13@gmail.com'; // Ganti dengan email tujuan yang benar
+        $to = $data['email_pemilik']; // Ganti dengan email tujuan yang benar
         $subject = 'Pemberitahuan Penerimaan Surat/Paket';
         $body = '
             <p>Yth. Bapak/Ibu,</p>
@@ -29,7 +29,7 @@ class EmailController extends Controller
             </ul>
             <p>Silakan datang ke lokasi penerimaan atau hubungi kami jika Anda memerlukan informasi lebih lanjut.</p>
             <p>Terima kasih atas perhatian Anda.</p>
-            <p>Hormat kami,<br>Tim Administrasi Politeknik Caltex Riau</p>
+            <p>Hormat kami,<br>Tim Sarana Prasarana Politeknik Caltex Riau</p>
         ';
 
         if ($this->emailModel->sendNotification($to, $subject, $body)) {
