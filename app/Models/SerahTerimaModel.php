@@ -53,28 +53,41 @@ class SerahTerimaModel extends Model
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("sss", $jenis_barang, $no_resi, $foto_barang);
         $stmt->execute();
-        return $this->conn->insert_id;
+        return $stmt->insert_id;
     }
-
+    
     public function insertKurir($nama_kurir, $ekspedisi)
     {
         $sql = "INSERT INTO kurir (nama_kurir, ekspedisi) VALUES (?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ss", $nama_kurir, $ekspedisi);
         if ($stmt->execute()) {
-            return $this->conn->insert_id;
+            return $stmt->insert_id;
         } else {
             return false;
         }
     }
-
+    
     public function insertPemilik($nama_pemilik, $noHp_pemilik, $email_pemilik)
     {
         $sql = "INSERT INTO pemilik (nama_pemilik, noHp_pemilik, email_pemilik) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("sss", $nama_pemilik, $noHp_pemilik, $email_pemilik);
         $stmt->execute();
-        return $this->conn->insert_id;
+        return $stmt->insert_id;
+    }
+    
+    public function insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security)
+    {
+        if(empty($id_barang) || empty($id_kurir) || empty($id_pemilik) || empty($id_security)) {
+            throw new Exception("ID Barang, ID Kurir, ID Pemilik, dan ID Security tidak boleh kosong");
+        }
+    
+        $sql = "INSERT INTO serah_terima (posisi, status_barang, waktu_penerimaan, waktu_penyerahan, id_barang, id_kurir, id_pemilik, id_security) VALUES (?,?,?,?,?,?,?,?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ssssiiii", $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
+        $stmt->execute();
+        return $stmt->affected_rows;
     }
 
     // private function getSecurityIdByName($nama_security)
@@ -87,15 +100,6 @@ class SerahTerimaModel extends Model
     //     $row = $result->fetch_assoc();
     //     return $row['id_security'];
     // }
-
-    public function insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik,$id_security)
-    {
-        $sql = "INSERT INTO serah_terima (posisi, status_barang, waktu_penerimaan, waktu_penyerahan, id_barang, id_kurir, id_pemilik, id_security) VALUES (?,?,?,?,?,?,?,?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssssiiii", $posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
-        $stmt->execute();
-        return $stmt->affected_rows;
-    }
 
     public function hapusdataKurir($id_kurir) {
         $sql = "DELETE FROM kurir WHERE id_kurir = ?"; // Query untuk menghapus data kurir

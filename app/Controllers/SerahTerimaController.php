@@ -369,10 +369,10 @@ class SerahTerimaController extends Controller
         if ($result) {
             echo "<script>
                 alert('Data Berhasil dihapus!');
-                window.location.href='" . BASE_URL . "serahTerima/dataBarang';
+                window.location.href='" . BASE_URL . "SerahTerima/dataBarang';
             </script>";
         } else {
-            header('Location:' . BASE_URL . 'serahTerima/dataBarang');
+            header('Location:' . BASE_URL . 'SerahTerima/dataBarang');
         }
     }
 
