@@ -157,9 +157,11 @@ class SerahTerimaController extends Controller
                 $result = $this->serahTerimaModel->insertSerahTerima($posisi, $status_barang, $waktu_penerimaan, $waktu_penyerahan, $id_barang, $id_kurir, $id_pemilik, $id_security);
 
                 if ($result) {
+                    Notifikasi::setPesan("Data berhasil ditambahkan", 'success');
                     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
                     exit;
                 } else {
+                    
                     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
                     // echo "Error: " . $this->serahTerimaModel->conn->error;
                 }
@@ -170,7 +172,6 @@ class SerahTerimaController extends Controller
             }
         }
     }
-
 
 
     public function detailData()

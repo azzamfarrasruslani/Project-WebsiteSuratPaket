@@ -19,8 +19,7 @@
               <thead>
                 <tr>
                   <th class="text-sm " data-priority="1">AUTHOR</th>
-                  <!-- <th class="text-sm" data-priority="2">Nama Secuirty</th> -->
-                  <th class="text-sm" data-priority="3">No Hp</th>
+                  <th class="text-sm" data-priority="2">No Hp</th>
                   <th class="text-sm" data-priority="4">Username</th>
                   <th class="text-sm" data-priority="5">Tanggal Registrasi</th>
                   <th class="text-sm" data-priority="6">Role</th>
@@ -52,9 +51,6 @@
                         </div>
                       </div>
                     </td>
-
-                    <!-- <td class="capitalize text-sm"><?= $item['nama_security'] ?></td> -->
-
                     <td class="text-sm"><?= $item['noHp_security'] ?></td>
                     <td class="capitalize text-sm"> <?= $item['username'] ?>
                     <td class="text-sm"><?= date("d-m-Y", strtotime($item["tanggal_registrasi"])) ?></td>

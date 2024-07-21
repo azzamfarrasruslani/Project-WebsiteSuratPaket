@@ -50,7 +50,7 @@ class UserController extends Controller
         if ($id_security) {
             $result = $this->userModel->UpdateStatusAkun($setStatus, $id_security);
             if ($result) {
-                Notifikasi::setPesan('You have successfully implemented SweetAlert2 in your PHP MVC project!');
+                Notifikasi::setPesan('You have successfully implemented SweetAlert2 in your PHP MVC project!','success');
                 header('Location:' . BASE_URL . 'user/dataUser');
                 exit;
             } else {
@@ -234,7 +234,7 @@ class UserController extends Controller
                 $result = $this->userModel->updatePassword($hashedPassword, $id_security);
 
                 if ($result) {
-                    Notifikasi::setPesan('Password berhasil diubah!');
+                    Notifikasi::setPesan('Password berhasil diubah!', 'success');
                     header('Location:' . BASE_URL . 'User/profile');
                     exit;
                 } else {

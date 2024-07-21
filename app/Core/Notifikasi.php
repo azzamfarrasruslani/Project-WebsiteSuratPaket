@@ -1,7 +1,7 @@
 <?php
 class Notifikasi
 {
-    public static function setPesan($text, $icon = 'success')
+    public static function setPesan($text, $icon)
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -9,6 +9,7 @@ class Notifikasi
         $_SESSION['pesan'] = $text;
         $_SESSION['icon'] = $icon;
     }
+    
 
     public static function tampilPesan()
     {
@@ -24,7 +25,7 @@ class Notifikasi
                     icon: "' . $_SESSION['icon'] . '"
                 });
                 </script>';
-            
+
             unset($_SESSION['pesan']);
             unset($_SESSION['icon']);
         }

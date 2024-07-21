@@ -57,8 +57,8 @@
                     </td>
                     <td class="text-sm whitespace-nowrap">
                       <!-- <?= $item['waktu_penerimaan'] ?> -->
-                      <?= date("d-m-Y,H:i:s", strtotime($item["waktu_penerimaan"])) ?> 
-                  </td>
+                      <?= date("d-m-Y,H:i:s", strtotime($item["waktu_penerimaan"])) ?>
+                    </td>
 
                     <!-- <td class="text-sm">
                         <?= !empty($item['waktu_penyerahan']) ? $item['waktu_penyerahan'] : '-' ?>
@@ -114,7 +114,7 @@
                             <a href="hapusData?id=<?= $item['id_serah_terima'] ?>"
                               class="text-gray-700  px-4 py-4 text-sm mb-2 whitespace-nowrap capitalize font-semibold flex items-center"
                               role="menuitem" tabindex="-1" id="menu-item-<?= $index ?>-0"
-                              onclick="return confirm('Are you sure you want to delete this item?');">
+                            >
                               <i class="fa-solid fa-trash fa-xl" style="color: #ff004c;"></i>
                               <span class="ml-2">hapus</span>
                             </a>

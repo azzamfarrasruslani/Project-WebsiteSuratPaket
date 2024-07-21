@@ -6,7 +6,7 @@
         class="relative flex flex-col min-w-0 mb-6 pb-5 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
         <div
           class="p-6 pb-3 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between items-center">
-          <h2 class="text-xl font-bold mb-4">Data Paket Masuk Hari Ini</h2>
+          <h2 class="text-xl font-bold mb-4">Data Paket Diambil Hari Ini</h2>
           <h2 class="text-xl font-semibold mb-4"><?= date('d-m-Y') ?></h2>
         </div>
         <div class="px-8 mt-6 lg:mt-0 rounded shadow bg-white">
