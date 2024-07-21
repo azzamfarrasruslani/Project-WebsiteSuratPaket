@@ -33,7 +33,7 @@
       </div>
       <div class="flex-auto flex justify-end px-3 py-3">
         <a href="viewGantiPassword?id=<?= $_SESSION['id_security'] ?>" type="button"
-          class="inline-block px-8 py-2 mb-4 ml-auto font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">
+          class="inline-block px-4 py-4 mb-4 ml-auto font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">
           <span class="mr-2"><i class="fa-solid fa-lock" style="color: #ffffff;"></i></span>
           Ganti Password</a>
       </div>

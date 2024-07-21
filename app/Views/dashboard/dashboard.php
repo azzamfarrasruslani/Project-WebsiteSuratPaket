@@ -10,25 +10,31 @@
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
               <div>
-                <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
-                  Paket Masuk </p>
+                <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">Paket
+                  Masuk</p>
                 <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangMasuk; ?></h5>
-                <p class="mb-0 dark:text-white dark:opacity-60">
-                  hari ini
-                </p>
+                <div class="flex justify-between items-center">
+                  <p class="mb-0 dark:text-white dark:opacity-60">hari ini</p>
+                </div>
+              </div>
+              <div class="mt-2">
+                <a href="#"
+                  class="text-sm py-2 px-2  bg-gradient-to-tl from-blue-500 to-violet-500 text-white  font-bold dark:text-white rounded-1">More
+                  <i class="fa-solid fa-arrow-right fa-xl"></i></a>
               </div>
             </div>
             <div class="px-3 text-right basis-1/3">
               <div
                 class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-blue-500 to-violet-500">
-                <i class="leading-none fa-solid fa-inbox text-lg relative top-3.5 text-white"
-                  style="color: #ffffff;"></i>
+                <i class="leading-none fa-solid fa-inbox text-lg relative top-3.5 text-white"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
 
     <!-- Paket Diambil Hari Ini -->
     <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
@@ -41,11 +47,19 @@
                 <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                   Paket Diambil</p>
                 <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangKeluar ?></h5>
-                <p class="mb-0 dark:text-white dark:opacity-60">
-                  hari ini
-                </p>
+                <div class="flex justify-between items-center">
+                  <p class="mb-0 dark:text-white dark:opacity-60">
+                    hari ini
+                  </p>
+                </div>
+              </div>
+              <div class="mt-2">
+                <a href="#"
+                  class="text-sm py-2 px-2 bg-gradient-to-tl from-red-600 to-orange-600 text-white  font-bold dark:text-white rounded-1">More
+                  <i class="fa-solid fa-arrow-right fa-xl"></i></a>
               </div>
             </div>
+
             <div class="px-3 text-right basis-1/3">
               <div
                 class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-red-600 to-orange-600">
@@ -69,9 +83,11 @@
                 <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                   Belum Diambil</p>
                 <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangBelumDiambil ?></h5>
-                <!-- <p class="mb-0 dark:text-white dark:opacity-60">
-                    hari ini
-                  </p> -->
+                <div class="flex justify-between items-center">
+                  <a href="#"
+                    class="text-sm py-2 px-2 bg-gradient-to-tl  from-orange-500 to-yellow-500 text-white  font-bold dark:text-white rounded-1">More
+                    <i class="fa-solid fa-arrow-right fa-xl"></i></a>
+                </div>
               </div>
             </div>
             <div class="px-3 text-right basis-1/3">
@@ -97,9 +113,11 @@
                 <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                   Sudah Diambil</p>
                 <h5 class="mb-2 font-bold dark:text-white"><?= $jmlBarangSudahDiambil ?></h5>
-                <!-- <p class="mb-0 dark:text-white dark:opacity-60">
-                    hari ini
-                  </p> -->
+                <div class="flex justify-between items-center">
+                  <a href="#"
+                    class="text-sm py-2 px-2 bg-gradient-to-tl   from-emerald-500 to-teal-400 text-white  font-bold dark:text-white rounded-1">More
+                    <i class="fa-solid fa-arrow-right fa-xl"></i></a>
+                </div>
               </div>
             </div>
             <div class="px-3 text-right basis-1/3">
