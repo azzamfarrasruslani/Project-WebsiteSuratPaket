@@ -1,23 +1,21 @@
 <?php
 
-
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
-
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-class EmailModel {
+class EmailModel extends Model
+{
     private $mailer;
+    protected $conn; // Menambahkan properti conn
 
-    public function __construct() {
+    public function __construct($db)
+    {
+        $this->conn = $db; // Menginisialisasi properti conn dengan koneksi database
         $this->mailer = new PHPMailer(true);
     }
 
-    public function sendNotification($to, $subject, $body) {
+    public function sendNotification($to, $subject, $body)
+    {
         try {
             $this->mailer->isSMTP();
             $this->mailer->Host = 'smtp.gmail.com';
@@ -39,5 +37,16 @@ class EmailModel {
             echo 'Mailer Error: ' . $this->mailer->ErrorInfo; // Menampilkan pesan kesalahan
             return false;
         }
+    }
+
+    public function updateStatusNotif($status, $id_serah_terima)
+    {
+        $query = "UPDATE serah_terima 
+                  SET status_notifikasi = ?
+                  WHERE id_serah_terima = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ii", $status, $id_serah_terima);
+        $stmt->execute();
+        $stmt->close();
     }
 }

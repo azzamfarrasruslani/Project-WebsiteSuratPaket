@@ -5,13 +5,15 @@ class EmailController extends Controller
 {
     private $emailModel;
 
-    public function __construct()
+    public function __construct($db)
     {
+        parent::__construct($db);
         $this->emailModel = $this->model('EmailModel');
     }
 
     public function sendNotification()
     {
+        $id_serah_terima = $_GET['id'];
         $to = 'azkaarifan13@gmail.com'; // Ganti dengan email tujuan yang benar
         $subject = 'Pemberitahuan Penerimaan Surat/Paket';
         $body = '
@@ -31,6 +33,7 @@ class EmailController extends Controller
         ';
 
         if ($this->emailModel->sendNotification($to, $subject, $body)) {
+            $this->emailModel->updateStatusNotif(1, $id_serah_terima); // Mengubah status notifikasi menjadi 1
             Notifikasi::setPesan('Notifikasi Berhasil Dikirim!', 'success');
             header('Location:' . BASE_URL . 'SerahTerima/dataBarang');
             exit;
@@ -42,4 +45,5 @@ class EmailController extends Controller
         header("Location: {$_SERVER["HTTP_REFERER"]}");
         exit(0);
     }
+
 }
