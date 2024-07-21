@@ -120,7 +120,7 @@
                                             value="<?= $serah_terima['nama_kurir'] ?>" required>
                                     </div> -->
                                     <!-- Status Barang -->
-                                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <div class="w-full px-3 mb-6">
                                         <label
                                             class="text-start block capitalize tracking-wide text-gray-700 text-sm font-thin mb-2"
                                             for="status-barang">

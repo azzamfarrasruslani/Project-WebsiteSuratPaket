@@ -75,42 +75,7 @@
                       id="nama_pemilik" name="nama_pemilik" type="text" required>
                   </div>
                 </div>
-
-                <!-- Tanggal Penerimaan -->
                 <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
-                      for="">
-                      Tanggal Penerimaan :
-                    </label>
-                    <input
-                      class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="tgl_terima" name="tgl_terima" type="datetime-local" required>
-                  </div>
-                  <!-- Nama Kurir
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
-                      for="nama-kurir">
-                      Nama Kurir :
-                    </label>
-                    <input
-                      class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-2 mb-3 leading-tight focus:outline-none focus:bg-white"
-                      id="nama_kurir" name="nama_kurir" type="text" required>
-                  </div> -->
-                </div>
-
-
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <!-- No HP -->
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
-                      for="no_hp">
-                      Nomor HP :
-                    </label>
-                    <input
-                      class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
-                      id="no_hp" name="no_hp" type="text" required>
-                  </div>
                   <!-- Email -->
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
@@ -121,11 +86,30 @@
                       class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
                       id="email" name="email" type="email" required>
                   </div>
+                  <!-- No HP -->
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
+                      for="no_hp">
+                      Nomor HP :
+                    </label>
+                    <input
+                      class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                      id="no_hp" name="no_hp" type="text" required>
+                  </div>
                 </div>
-
-                <div class="flex flex-wrap -mx-3 mb-12">
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <!-- Tanggal Penerimaan -->
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
+                      for="">
+                      Tanggal Penerimaan :
+                    </label>
+                    <input
+                      class="appearance-none mb-6 block w-full bg-gray-200 text-gray-700 border rounded py-3 px-2 leading-tight focus:outline-none focus:bg-white"
+                      id="tgl_terima" name="tgl_terima" type="datetime-local" required>
+                  </div>
                   <!-- Ekspedisi -->
-                  <div class="w-full px-3 mb-6">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
                       for="ekspedisi">
                       Ekspedisi :
@@ -154,6 +138,10 @@
                     <!-- Hidden input field to store the final value -->
                     <input type="hidden" id="finalEkspedisi" name="ekspedisi">
                   </div>
+                </div>
+
+                <div class="flex flex-wrap -mx-3 ">
+
                   <!-- Security -->
                   <!-- <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="text-start block capitalize tracking-wide text-gray-700 text-sm font-semibold mb-2"
