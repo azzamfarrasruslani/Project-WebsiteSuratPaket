@@ -204,7 +204,14 @@ class UserController extends Controller
         }
     }
 
-
+    public function viewGantiPassword()
+    {
+        $title = 'Ganti Password';
+        $this->loadHeader('header', $title, ['isActive' => [$this, 'isActive']]);
+        $this->loadNavbar('navbar', $title);
+        $this->view('dashboard/CrudUser/gantiPasswordUser');
+        $this->loadFooter('footer');
+    }
 
 
 }

@@ -96,5 +96,11 @@ class UserModel extends Model
         $stmt->execute();
         $stmt->close();
     }
+
+    public function upadatePassword($newPassword, $id_security)
+    {
+        $query = "UPDATE security SET password = MD5(?) WHERE id_security = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $newPassword, $id_security);
+    }
 }
-?>
