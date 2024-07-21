@@ -20,8 +20,10 @@
   <script src="https://kit.fontawesome.com/c23fedd423.js" crossorigin="anonymous"></script>
   <!-- Bootstrap Icon -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+    integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 
@@ -58,7 +60,7 @@
       <div class="content-judul">
         <h1>Surat Paket</h1>
         <h2>Politeknik Caltex Riau</h2>
-        <a href="#ambil" class="cta"><i class="bi bi-search"></i> Cari Barang</a>
+        <a href="<?= BASE_URL; ?>Home/viewPencarianBarang" class="cta"><i class="bi bi-search"></i> Cari Barang</a>
       </div>
       <div class="image-hero">
         <img src="<?= BASE_URL; ?>assets/images/logistics.svg">
@@ -82,53 +84,97 @@
   <!-- Hero Section End -->
 
 
+  <!-- Tentang Section Start -->
+  <section class="about" id="tentang">
+    <h2>Tentang</h2><br>
+    <div class="about-container">
+      <img src="<?= BASE_URL; ?>assets/images/home-delivery-service.svg" alt="Politeknik Caltex Riau"
+        class="about-image">
 
-
-
-
-  Contact Section Start -->
-  <section class="bg-white py-16">
-    <div class="container max-w-screen-xl mx-auto px-4">
-
-      <div class="w-full bg-blue-500 rounded-2xl md:rounded-3xl relative lg:flex items-center">
-        <div class="hidden lg:block">
-          <img src="<?= BASE_URL; ?>assets/images/humans.png" alt="Image" class="relative z-10">
-
-          <img src="<?= BASE_URL; ?>assets/images/pattern-2.png" alt="Image" class="absolute top-14 left-40">
-          <img src="<?= BASE_URL; ?>assets/images/pattern.png" alt="Image" class="absolute top-0 z-0">
-        </div>
-
-        <div class="lg:relative py-4 lg:py-0">
-          <h1
-            class="font-semibold text-white text-xl md:text-4xl text-center lg:text-left leading-normal md:mb-5 lg:mb-10">
-            Interested in volunteering? Join <br> with us now</h1>
-          <div class=" md:block flex items-center text-center lg:text-left space-x-5">
-            <input type="text" placeholder="Email"
-              class="px-4 py-4 w-96 bg-gray-50 placeholder-gray-400 rounded-xl outline-none">
-
-            <button
-              class="px-6 py-4 font-semibold bg-gray-50 text-info text-lg rounded-xl hover:bg-blue-500 hover:text-white transition ease-in-out duration-500">Join</button>
-          </div>
-        </div>
+      <div class="about-text">
+        <p>
+          Website ini adalah sebuah sistem surat atau paket yang ada di Politeknik Caltex Riau.
+          Website ini bertujuan untuk membantu memudahkan security dalam kegiatan masuknya surat atau paket ke dalam
+          <b>Politeknik Caltex Riau (PCR)</b>. Website ini dirancang untuk meningkatkan efisiensi dan akurasi dalam
+          pencatatan
+          serta pengelolaan surat dan paket yang diterima. Dengan adanya Website ini security dapat dengan mudah
+          mencatat
+          informasi detail tentang surat atau paket yang masuk, serta pengguna dapat melacak status pengiriman secara
+          real-time.
+          Hal ini diharapkan dapat mengurangi kesalahan dalam pencatatan dan penyerahan Paket di PCR, mempercepat proses
+          distribusi, dan meningkatkan kepuasan warga PCR.
+        </p>
       </div>
-
-    </div>
-
   </section>
-  <!-- Contact Section End
+  <!-- Tentang Section End -->
+
+
+  <!-- Kontak Section Start -->
+  <section class="contact" id="kontak">
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <div class="content">
+      <h2>Kontak</h2>
+    </div>
+    <div class="container">
+      <div class="form-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6202092678095!2d101.42352197472347!3d0.5709751994234532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5ab67086f2e89%3A0x65a24264fec306bb!2sPoliteknik%20Caltex%20Riau!5e0!3m2!1sid!2sid!4v1721579143808!5m2!1sid!2sid"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="contact-container">
+        <h2>Kontak Kami</h2><br>
+        <p><strong>Politeknik Caltex Riau</strong><br>
+          Jl. Umban Sari (Patin) No. 1 Rumbai<br>
+          Pekanbaru-Riau 28265<br><br>
+          <span>📞 (0761) - 53939 atau 0811 758 0101</span><br>
+          <span>📞 (0761) - 554224</span><br>
+          <span>📧 pcr@pcr.ac.id</span>
+        </p><br>
+        <p><strong>Bagian Akademik dan Kemahasiswaan</strong><br>
+          📞 +62761 53939</p><br>
+        <p><strong>Kontak Security</strong><br>
+          📞 +622288678924</p>
+
+      </div>
+    </div>
+  </section>
+  <!-- Kontak Section End -->
+
+  <!-- footer start -->
+  <footer class="footer bg-blue-300 text-black py-6 text-center">
+    <div class="footer-container max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="footer-left mb-4 md:mb-0">
+        <h3 class="text-xl font-bold">Politeknik Caltex Riau</h3>
+        <p>Jl. Umban Sari (Patin) No. 1 Rumbai, Pekanbaru - 28265 Riau, Indonesia</p>
+        <p><i class="fa-solid fa-phone"></i> +62 761 53939</p>
+        <p><i class="fa-solid fa-envelope"></i> info@pcr.ac.id</p>
+      </div>
+      <div class="footer-right">
+        <h3 class="text-xl font-bold">Follow Us</h3><br>
+        <a href="#" target="_blank" class="text-black hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" target="_blank" class="text-black hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" target="_blank" class="text-black hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" target="_blank" class="text-black hover:text-white"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    </div>
+    <div class="footer-bottom mt-4 border-t border-black pt-4">
+      <p>&copy; 2024 Politeknik Caltex Riau.</p>
+    </div>
+  </footer>
+  <!-- footer end -->
 
 
 
+ 
 
 
-</body>
-<!--===== SCROLL REVEAL =====  !!ini harus diletakan diatas dari main java!!-->
-<script src="https://unpkg.com/scrollreveal"></script>
-<!-- Main java script -->
-<script src="<?= BASE_URL; ?>assets/js/main.js"></script>
-
-
-
+  <!--===== SCROLL REVEAL =====  !!ini harus diletakan diatas dari main java!!-->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- Main java script -->
+  <script src="<?= BASE_URL; ?>assets/js/main.js"></script>
 
 </body>
 

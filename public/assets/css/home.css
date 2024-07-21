@@ -9,13 +9,13 @@
 
 html {
   scroll-behavior: smooth;
-  height: 30000px;
+  /* height: 30000px; */
 }
 
 body {
   opacity: 0.8;
   background-size: 10px 10px;
-  height: 30000px;
+  /* height: 30000px; */
 }
 
 /* ==========================================Navbar Start================================================== */
@@ -57,6 +57,7 @@ body {
   color: #000000;
   transition: 0.3s;
 }
+
 .navbar .navbar-nav a::after {
   content: "";
   display: block;
@@ -65,12 +66,15 @@ body {
   transform: scaley(0);
   transition: 0.3s linear;
 }
+
 .navbar .navbar-nav a:hover::after {
   transform: scale(0.5);
 }
+
 .navbar .navbar-login {
   border-color: #000000;
 }
+
 .navbar .navbar-login a {
   display: inline-block;
   font-size: 1.3rem;
@@ -90,6 +94,7 @@ body {
 #hamburger-menu {
   display: none;
 }
+
 .navbar .menu {
   display: hidd;
   background-color: transparent;
@@ -99,6 +104,7 @@ body {
   padding: 0;
   width: 3rem;
 }
+
 .navbar .line {
   fill: none;
   stroke: #1c1678;
@@ -106,28 +112,34 @@ body {
   transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .navbar .line1 {
   stroke-dasharray: 60 207;
   stroke-width: 6;
 }
+
 .navbar .line2 {
   stroke-dasharray: 60 60;
   stroke-width: 6;
 }
+
 .navbar .line3 {
   stroke-dasharray: 60 207;
   stroke-width: 6;
 }
+
 .navbar .opened .line1 {
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
   stroke-width: 6;
 }
+
 .navbar .opened .line2 {
   stroke-dasharray: 1 60;
   stroke-dashoffset: -30;
   stroke-width: 6;
 }
+
 .navbar .opened .line3 {
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
@@ -140,11 +152,9 @@ body {
 
 .hero {
   position: relative;
-  background: linear-gradient(
-    60deg,
-    rgb(72, 106, 192) 0%,
-    rgba(0, 172, 193, 1) 100%
-  );
+  background: linear-gradient(60deg,
+      rgb(72, 106, 192) 0%,
+      rgba(0, 172, 193, 1) 100%);
   color: white;
   overflow: hidden;
 }
@@ -165,6 +175,7 @@ body {
 .hero .content .content-judul {
   margin-right: 3rem;
 }
+
 .hero .content .content-judul h1 {
   font-size: 4rem;
   color: white;
@@ -222,7 +233,8 @@ body {
   position: relative;
   width: 100%;
   height: 20vh;
-  margin-bottom: -7px; /*Fix for safari gap*/
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
   min-height: 100px;
   max-height: 150px;
 }
@@ -235,29 +247,35 @@ body {
 
 /* Animation */
 
-.parallax > use {
+.parallax>use {
   animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
-.parallax > use:nth-child(1) {
+
+.parallax>use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
 }
-.parallax > use:nth-child(2) {
+
+.parallax>use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
 }
-.parallax > use:nth-child(3) {
+
+.parallax>use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
-.parallax > use:nth-child(4) {
+
+.parallax>use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
 }
+
 @keyframes move-forever {
   0% {
     transform: translate3d(-90px, 0, 0);
   }
+
   100% {
     transform: translate3d(85px, 0, 0);
   }
@@ -265,53 +283,18 @@ body {
 
 /* ==========================================Hero Section End================================================== */
 
+
 /* ==========================================Tentang Section Start================================================== */
-/* tentang */
-
-.about {
-  color: #000000;
-  padding: 50px 20px;
+.tentang {
+  padding: 9rem 7% 1.4rem;
   text-align: center;
-  display: flex;
-}
-.about h2 {
-  font-size: 3em;
-  color: black;
-  font-weight: 500;
 }
 
-.about-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
+.tentang h1 {
+  font-size: 2.4rem;
+  color: #5e72e4;
 }
 
-.about-image {
-  flex: 1;
-  max-width: 50%;
-  height: auto;
-  margin-right: 20px;
-  border-radius: 10px;
-}
-
-.about-text {
-  flex: 1;
-  max-width: 50%;
-  text-align: left;
-  justify-content: center;
-}
-
-.about-text h2 {
-  color: black;
-}
-
-.about-text p {
-  color: #000000;
-  line-height: 1.6;
-  text-align: justify;
-}
 /* ==========================================Tentang Section End================================================== */
 
 /* ==========================================Media Quaries Start ================================================== */
@@ -367,11 +350,9 @@ body {
 
   .hero {
     position: relative;
-    background: linear-gradient(
-      60deg,
-      rgb(72, 106, 192) 0%,
-      rgba(0, 172, 193, 1) 100%
-    );
+    background: linear-gradient(60deg,
+        rgb(72, 106, 192) 0%,
+        rgba(0, 172, 193, 1) 100%);
     color: white;
     overflow: hidden;
   }
@@ -411,7 +392,8 @@ body {
     position: relative;
     width: 100%;
     height: 90vh;
-    margin-bottom: -9px; /*Fix for safari gap*/
+    margin-bottom: -9px;
+    /*Fix for safari gap*/
     min-height: 100px;
     max-height: 40px;
   }
@@ -426,6 +408,7 @@ body {
     0% {
       transform: translate3d(-90px, 0, 0);
     }
+
     100% {
       transform: translate3d(85px, 0, 0);
     }
@@ -448,6 +431,7 @@ body {
     box-sizing: 4rem;
     left: 50rem;
   }
+
   /* Navbar Section End ========================================= */
 
   /* Hero Section Start ========================================= */
@@ -455,17 +439,16 @@ body {
     height: 40px;
     min-height: 40px;
   }
+
   .content {
     height: 30vh;
   }
 
   .hero {
     position: relative;
-    background: linear-gradient(
-      60deg,
-      rgb(72, 106, 192) 0%,
-      rgba(0, 172, 193, 1) 100%
-    );
+    background: linear-gradient(60deg,
+        rgb(72, 106, 192) 0%,
+        rgba(0, 172, 193, 1) 100%);
     color: white;
     overflow: hidden;
   }
@@ -480,6 +463,7 @@ body {
     margin-right: 4rem;
     margin-top: 30rem;
   }
+
   .hero .content .content-judul h1 {
     font-size: 4rem;
     color: white;
@@ -514,7 +498,8 @@ body {
     position: relative;
     width: 100%;
     height: 90vh;
-    margin-bottom: -7px; /*Fix for safari gap*/
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
     min-height: 100px;
     max-height: 40px;
   }
@@ -529,6 +514,7 @@ body {
     0% {
       transform: translate3d(-90px, 0, 0);
     }
+
     100% {
       transform: translate3d(85px, 0, 0);
     }
@@ -537,4 +523,356 @@ body {
   /* Hero Section End ========================================= */
 }
 
-/* ========================================== Media Quaries End ================================================== */
+/* tentang */
+
+.about {
+  padding: 6rem 7% 1.4rem;
+  background: #ffffff;
+  color: #000000;
+  text-align: center;
+  background-size: 50px 60px;
+}
+
+.about h2 {
+  font-size: 3em;
+  color: #5e72e4;
+  font-weight: 700;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 50%;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+  justify-content: center;
+}
+
+.about-text h2 {
+  color: black;
+
+}
+
+.about-text p {
+  color: #000000;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+
+/* Kontak */
+
+.contact {
+  position: relative;
+  min-height: 100vh;
+  padding: 50px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+}
+
+.contact .content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.contact .content h2 {
+  font-size: 3em;
+  color: #5e72e4;
+  font-weight: 700;
+}
+
+.contact .content p {
+  color: rgb(131, 131, 8);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+
+.contact-form {
+  background-color: rgb(18, 24, 93);
+  border-radius: 10px;
+  padding: 50px;
+  border-width: 100px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+  max-width: 300px;
+}
+
+.contact-info h2 {
+  margin-bottom: 10px;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info ul li {
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  width: 1000%;
+  height: 1000%;
+  border: 1000px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 5px;
+  color: #03c4c4;
+  text-align: left;
+}
+
+.contact-form input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background-color: #03c4c4;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contain {
+  width: 100%;
+  margin-left: auto;
+}
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+
+
+.container {
+  display: flex;
+  width: 1200px;
+  margin: 10 auto;
+  padding: 70px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 2rem;
+}
+
+.form-container {
+  flex: 2;
+  margin-right: 20px;
+}
+
+.contact-info {
+  flex: 1;
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
+}
+
+.form-container, .contact-container {
+  width: 48%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+input[type="text"], input[type="email"], input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+h2 {
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #555;
+  display: block;
+}
+
+
+.recaptcha {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.recaptcha label {
+  margin-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
+}
+
+.send-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+}
+
+.contact-info a img {
+  width: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.after-contact-info {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-container,
+  .contact-container {
+    max-width: 1200px;
+  }
+}
+
+/* footer */
+
+.footer {
+  background: linear-gradient(60deg,
+  rgb(72, 106, 192) 0%,
+  rgba(0, 172, 193, 1) 100%);
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-left, .footer-right {
+  flex: 1;
+}
+
+.footer-left h3.footer-right h3 {
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+
+}
+
+.footer-left h3.footer-right h3 {
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+
+}
+
+.footer-right a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 25px;
+  transition: color 0.3s;
+  padding-right: 20px;
+}
+
+.footer-right a:hover {
+  color: #12912f;
+}
+
+.footer-left p, .footer-right p {
+  margin: 5px 0;
+}
+
+
+.footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #ffffff;
+  padding-top: 10px;
+}
+
+
+
+
+
+
+
