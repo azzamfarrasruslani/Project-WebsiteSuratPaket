@@ -50,11 +50,11 @@ class UserController extends Controller
         if ($id_security) {
             $result = $this->userModel->UpdateStatusAkun($setStatus, $id_security);
             if ($result) {
-                Notifikasi::setPesan('You have successfully implemented SweetAlert2 in your PHP MVC project!', 'success');
+                Notifikasi::setPesan('Status akun berhasil diubah', 'success');
                 header('Location:' . BASE_URL . 'user/dataUser');
                 exit;
             } else {
-                echo "<script>alert('Status gagal di update');</script>";
+                Notifikasi::setPesan('Status akun gagal diubah', 'error');
                 header('Location:' . BASE_URL . 'user/dataUser');
             }
         } else {
@@ -70,14 +70,15 @@ class UserController extends Controller
         if ($id_security) {
             $result = $this->userModel->UpdateStatusAkun($setStatus, $id_security);
             if ($result) {
+                Notifikasi::setPesan('Status akun berhasil diubah', 'success');
                 header('Location:' . BASE_URL . 'User/dataUser');
                 exit;
             } else {
-                echo "<script>alert('Status gagal di update');</script>";
+                Notifikasi::setPesan('Status akun gagal diubah', 'error');
                 header('Location:' . BASE_URL . 'User/dataUser');
             }
         } else {
-            echo "<script>alert('id security tidak ditemukan');</script>";
+            Notifikasi::setPesan('id security gagal ditemukan', 'error');
         }
 
     }

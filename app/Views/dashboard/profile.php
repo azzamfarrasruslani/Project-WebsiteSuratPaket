@@ -25,7 +25,7 @@
       </div>
       <div class="flex-none w-auto max-w-full px-3 my-auto">
         <div class="h-full">
-          <h5 class="mb-1 dark:text-white"><?= $_SESSION['nama_security'] ?></h5>
+          <h5 class="mb-1 dark:text-white"><?= $data_security['nama_security'] ?></h5>
           <p class="mb-0 font-semibold leading-normal dark:text-white dark:opacity-60 text-sm">
             <?= $_SESSION['user_role'] ?>
           </p>
