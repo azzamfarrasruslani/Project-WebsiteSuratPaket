@@ -24,10 +24,8 @@ class EmailModel extends Model
             $this->mailer->Password = 'nvrvecfiohjaaxcd'; // Ganti dengan password aplikasi yang benar
             $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $this->mailer->Port = 587;
-
             $this->mailer->setFrom('azkaarifan13@gmail.com', 'Surat Paket');
             $this->mailer->addAddress($to);
-
             $this->mailer->isHTML(true);
             $this->mailer->Subject = $subject;
             $this->mailer->Body = $body;

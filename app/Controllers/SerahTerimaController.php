@@ -159,9 +159,8 @@ class SerahTerimaController extends Controller
                     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
                     exit;
                 } else {
-
+                    Notifikasi::setPesan("Data gagal ditambahkan", 'error');
                     header('Location:' . BASE_URL . 'serahTerima/dataBarang');
-                    // echo "Error: " . $this->serahTerimaModel->conn->error;
                 }
             } else {
                 foreach ($errors as $error) {
@@ -234,9 +233,11 @@ class SerahTerimaController extends Controller
             $result = $this->serahTerimaModel->updateStatusSerahTerima($id_serah_terima, $status_barang, $waktu_penyerahan);
 
             if ($result) {
+                Notifikasi::setPesan("Status berhasil diubah", 'success');
                 header('Location:' . BASE_URL . 'serahTerima/dataBarang');
                 exit;
             } else {
+                Notifikasi::setPesan("Status gagal diubah", 'error');
                 header('Location:' . BASE_URL . 'serahTerima/dataBarang');
             }
         }
@@ -372,13 +373,12 @@ class SerahTerimaController extends Controller
         $this->serahTerimaModel->hapusdataKurir($id_kurir);
         $this->serahTerimaModel->hapusdataPemilik($id_pemilik);
 
-        // Tampilkan pesan sukses atau arahkan ke halaman lain
+       
         if ($result) {
-            echo "<script>
-                alert('Data Berhasil dihapus!');
-                window.location.href='" . BASE_URL . "SerahTerima/dataBarang';
-            </script>";
+            Notifikasi::setPesan("Data berhasil dihapus", 'success');
+            header('Location:' . BASE_URL . 'SerahTerima/dataBarang');
         } else {
+            Notifikasi::setPesan("Data gagal dihapus", 'error');
             header('Location:' . BASE_URL . 'SerahTerima/dataBarang');
         }
     }

@@ -16,14 +16,9 @@
   <!-- Style -->
   <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/home.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.5.3/flowbite.min.css" rel="stylesheet">
+ 
   <!-- Fontawesome Icon -->
   <script src="https://kit.fontawesome.com/c23fedd423.js" crossorigin="anonymous"></script>
-  <!-- Bootstrap Icon -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
-    integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
@@ -51,15 +46,15 @@
   <!-- Navbar End -->
 
   <!-- Hero Section Start -->
-  <div class="min-h-screen bg-gray-100 flex justify-center items-center">
-    <div class=" bg-indigo-500 rounded-lg p-14">
+  <div class="min-h-screen  flex justify-center items-center">
+    <div class=" bg-indigo-500 rounded-lg p-14 px-20">
       <form action="cariBarang" method="post" enctype="multipart/form-data">
-        <h1 class="text-center font-bold text-white text-4xl mb-4">Temukan Barang Anda</h1>
+        <h1 class="text-center font-bold text-white text-3xl mb-4">Temukan Barang Anda</h1>
         <!-- <div class="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-2 justify-between"> -->
         <input class="text-base text-gray-400 flex-grow outline-none px-2" type="text" placeholder="Masukan No Resi"
           name="no_resi" id="no_resi" />
         <div class="sm:flex items-center px-2 rounded-lg space-x-4 mx-auto">
-          <button class="bg-white text-gray-400 text-base rounded-lg px-4 py-2 font-semibold">Search</button>
+          <button class="bg-white text-gray-400 text-base rounded-lg px-4 py-2 font-semibold">Temukan</button>
         </div>
     </div>
     </form>
