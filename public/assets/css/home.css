@@ -653,7 +653,8 @@ body {
 }
 
 .about-text p {
-  color: #000000;
+  margin-top: 8rem;
+  color: #4d4747;
   line-height: 1.6;
   text-align: justify;
 }
