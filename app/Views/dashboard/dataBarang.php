@@ -12,10 +12,10 @@
         <div
           class="p-6 pb-3 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between items-center">
           <h2 class="text-xl font-bold mb-4">Data Paket Masuk</h2>
-          <button onclick="toggleModal()"
+          <a href="javascript:;"  onclick="toggleModal()"
             class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">
             <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Tambah Data
-          </button>
+          </a>
         </div>
         <div class="px-8 mt-6 lg:mt-0 rounded shadow bg-white">
           <?php if (!empty($serah_terima)): ?>
@@ -148,25 +148,3 @@
       </div>
     </div>
   </div>
-
-  <script>
-    function toggleModal() {
-      document.getElementById('modal').classList.toggle('hidden');
-      document.getElementById('table').classList.toggle('hidden');
-    }
-
-    function toggleDropdown(index) {
-      var dropdown = document.getElementById("dropdown-menu-" + index);
-      dropdown.classList.toggle("hidden");
-    }
-
-    window.onclick = function (event) {
-      if (!event.target.matches('[id^="menu-button-"]')) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i]; if
-            (!openDropdown.classList.contains('hidden')) { openDropdown.classList.add('hidden'); }
-        }
-      }
-    } 
-  </script>

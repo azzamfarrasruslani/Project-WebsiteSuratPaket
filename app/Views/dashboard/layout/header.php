@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- shortcut icon -->
+    <!-- Shortcut Icon -->
     <link rel="icon" type="image/png" href="<?= BASE_URL; ?>assets/images/envelope icon.svg" />
     <!-- <title>Surat Paket | Dashboard</title> -->
     <title><?php echo 'Surat Paket | ' . ($title ? $title : 'Surat Paket'); ?></title>
-    <!--     Fonts and icons     -->
+    <!-- Fonts and icons  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Fontawesome Icon -->
     <script src="https://kit.fontawesome.com/c23fedd423.js" crossorigin="anonymous"></script>
@@ -22,113 +22,12 @@
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- Table -->
+    <link href="<?= BASE_URL; ?>assets/css/styleTable.css" rel="stylesheet" />
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.11.3/css/dataTables.tailwind.min.css" rel="stylesheet">
-
-    <style>
-        /*Overrides for Tailwind CSS */
-
-        /*Form fields*/
-        .dataTables_wrapper select,
-        .dataTables_wrapper .dataTables_filter input {
-            color: #4a5568;
-            /*text-gray-700*/
-            padding-left: 1rem;
-            /*pl-4*/
-            padding-right: 1rem;
-            /*pl-4*/
-            padding-top: .5rem;
-            /*pl-2*/
-            padding-bottom: .5rem;
-            /*pl-2*/
-            line-height: 1.25;
-            /*leading-tight*/
-            border-width: 2px;
-            /*border-2*/
-            border-radius: 0.5rem;
-            border-color: #edf2f7;
-            /*border-gray-200*/
-            background-color: #edf2f7;
-            /*bg-gray-200*/
-        }
-
-        /*Row Hover*/
-        table.dataTable.hover tbody tr:hover,
-        table.dataTable.display tbody tr:hover {
-            background-color: #ebf4ff;
-            /*bg-indigo-100*/
-        }
-
-        /*Pagination Buttons*/
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
-            font-weight: 700;
-            /*font-bold*/
-            border-radius: .25rem;
-            /*rounded*/
-            border: 1px solid transparent;
-            /*border border-transparent*/
-        }
-
-        /*Pagination Buttons - Current selected */
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-            color: #fff !important;
-            /*text-white*/
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-            /*shadow*/
-            font-weight: 700;
-            /*font-bold*/
-            border-radius: .25rem;
-            /*rounded*/
-            background: #667eea !important;
-            /*bg-indigo-500*/
-            border: 1px solid transparent;
-            /*border border-transparent*/
-        }
-
-        /*Pagination Buttons - Hover */
-        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            color: #fff !important;
-            /*text-white*/
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-            /*shadow*/
-            font-weight: 700;
-            /*font-bold*/
-            border-radius: .25rem;
-            /*rounded*/
-            background: #667eea !important;
-            /*bg-indigo-500*/
-            border: 1px solid transparent;
-            /*border border-transparent*/
-        }
-
-        /*Add padding to bottom border */
-        table.dataTable.no-footer {
-            border-bottom: 1px solid #e2e8f0;
-            /*border-b-1 border-gray-300*/
-            margin-top: 0.75em;
-            margin-bottom: 0.75em;
-        }
-
-        /*Change colour of responsive icon*/
-        table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
-        table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
-            background-color: #667eea !important;
-            /*bg-indigo-500*/
-        }
-
-        .hidden-col {
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .hidden-col {
-                display: table-cell;
-            }
-        }
-    </style>
 </head>
 
 <body
@@ -141,7 +40,6 @@
 <?php
 $isActive = $data['isActive'];
 ?>
-
 <!-- sidenav  -->
 <aside
     class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0"

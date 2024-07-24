@@ -1,0 +1,18 @@
+.profile-container {
+    position: relative;
+    display: inline-block;
+  }
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+  }
+  .edit-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 5px;
+   padding-right: 5px;
+   border-radius: 100%;
+    cursor: pointer;
+  }

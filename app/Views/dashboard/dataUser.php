@@ -1,6 +1,4 @@
-<?php include ('CrudBarang/inputDataBarang.php'); ?>
 <div id="table" class="container w-full md:w-4/5 xl:w-3/5 mx-auto px-2">
-  <!-- Card -->
   <div class="w-full px-2 py-6 mx-auto">
     <div class="flex-none w-full max-w-full px-4">
       <div
@@ -24,7 +22,6 @@
                   <th class="text-sm" data-priority="5">Tanggal Registrasi</th>
                   <th class="text-sm" data-priority="6">Role</th>
                   <th class="text-sm" data-priority="7">Status</th>
-                  <!-- <th class="text-sm" data-priority="8">Option</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -38,7 +35,7 @@
                               class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl object-cover"
                               alt="foto-profile" />
                           <?php else: ?>
-                            <img src="getFotoProfile?id=<?=$item['id_security'] ?>"
+                            <img src="getFotoProfile?id=<?= $item['id_security'] ?>"
                               class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl object-cover"
                               alt="foto-profile" />
                           <?php endif; ?>
@@ -79,24 +76,17 @@
                         </span>
                       <?php endif; ?>
                     </td>
-                    <!-- <td> <a href="viewEditBarang?id=<?= $item['id_security'] ?>"
-                        class="text-gray-700  px-4 py-4 text-sm mb-2 whitespace-nowrap capitalize font-semibold flex items-center"
-                        role="menuitem" tabindex="-1" id="menu-item-<?= $index ?>-0">
-                        <i class="fa-solid fa-pen-to-square fa-2xl" style="color: #0091ff;"></i>
-                      </a></td> -->
                   </tr>
                 <?php endforeach; ?>
               </tbody>
               <tfoot>
                 <tr>
                   <th class="text-sm " data-priority="1">AUTHOR</th>
-                  <!-- <th class="text-sm" data-priority="2">Nama Secuirty</th> -->
                   <th class="text-sm" data-priority="3">No Hp</th>
                   <th class="text-sm" data-priority="4">Username</th>
                   <th class="text-sm" data-priority="5">Tanggal Registrasi</th>
                   <th class="text-sm" data-priority="6">Role</th>
                   <th class="text-sm" data-priority="7">Status</th>
-                  <!-- <th class="text-sm" data-priority="8">Option</th> -->
                 </tr>
               </tfoot>
             </table>
@@ -107,46 +97,3 @@
       </div>
     </div>
   </div>
-
-
-
-
-  <script>
-    function toggleModal() {
-      document.getElementById('modal').classList.toggle('hidden');
-      document.getElementById('table').classList.toggle('hidden');
-    }
-
-    // function toggleModalUpdateStatus() {
-    //   const modal = document.getElementById('modal-updateStatus');
-    //   const body = document.querySelector('body');
-
-    //   modal.classList.toggle('hidden');
-    //   body.classList.toggle('modal-blur');
-    // }
-
-
-    // function toggleModalEdit(id) {
-    //   // Toggle modal dan table visibility
-    //   document.getElementById('modal-edit').classList.toggle('hidden');
-    //   document.getElementById('table').classList.toggle('hidden');
-
-    //   // Simpan id_serah_terima untuk digunakan kemudian
-    //   document.getElementById('modal-edit').dataset.idSerahTerima = id;
-    // }
-
-
-    function toggleDropdown(index) {
-      var dropdown = document.getElementById("dropdown-menu-" + index);
-      dropdown.classList.toggle("hidden");
-    }
-
-    window.onclick = function (event) {
-      if (!event.target.matches('[id^="menu-button-"]')) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (var i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i]; if
-            (!openDropdown.classList.contains('hidden')) { openDropdown.classList.add('hidden'); }
-        }
-      }
-    } </script>

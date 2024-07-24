@@ -1,3 +1,4 @@
+<link href="<?= BASE_URL; ?>assets/css/profile.css" rel="stylesheet" />
 <div class="relative w-full mx-auto">
   <div
     class="relative flex flex-col flex-auto min-w-0 p-4 mx-6 overflow-hidden break-words bg-white border-0 dark:bg-slate-850 dark:shadow-dark-xl shadow-3xl rounded-2xl bg-clip-border">
@@ -40,8 +41,6 @@
     </div>
   </div>
 </div>
-
-
 <form action="gantiDataProfile" method="POST" enctype="multipart/form-data">
   <div class="w-full p-6 mx-auto">
     <div class="w-11 max-w-full px-3 shrink-0 md:flex-0">
@@ -93,28 +92,6 @@
 
 
 
-
-<style>
-  .profile-container {
-    position: relative;
-    display: inline-block;
-  }
-
-  .profile-image img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .edit-icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 100%;
-    padding: 6px;
-    cursor: pointer;
-  }
-</style>
 
 
 <script>

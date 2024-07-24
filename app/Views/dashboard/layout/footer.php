@@ -114,6 +114,7 @@
 <script src="<?= BASE_URL; ?>assets/js/plugins/perfect-scrollbar.min.js" async></script>
 <!-- main script file  -->
 <script src="<?= BASE_URL; ?>assets/js/dashboard-tailwind.js?v=1.0.1" async></script>
+<script src="<?= BASE_URL; ?>assets/js/dropdownFormBarang.js" async></script>
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- SweetAlert2 JS -->
@@ -157,39 +158,4 @@ Notifikasi::tampilPesan();
     }
   }
 </script>
-
-
-<!-- <script>
-  document.querySelectorAll('.toggle-details').forEach(button => {
-    button.addEventListener('click', function () {
-      const rowId = this.getAttribute('data-row');
-      const detailsRow = document.querySelector(`.details-row[data-row='${rowId}']`);
-      detailsRow.classList.toggle('hidden');
-    });
-  });
-</script> -->
-
-
-<!-- <script>
-  document.getElementById('search').addEventListener('keyup', function () {
-    var input = this.value.toLowerCase();
-    var rows = document.querySelectorAll('#example tbody tr');
-
-    rows.forEach(function (row) {
-      var cells = row.querySelectorAll('td');
-      var match = false;
-
-      cells.forEach(function (cell) {
-        if (cell.innerText.toLowerCase().includes(input)) {
-          match = true;
-        }
-      });
-
-      row.style.display = match ? '' : 'none';
-    });
-  });
-
-</script> -->
-
-
 </html>
