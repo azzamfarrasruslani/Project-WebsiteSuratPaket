@@ -90,7 +90,6 @@
     <div class="about-container">
       <img src="<?= BASE_URL; ?>assets/images/home-delivery-service.svg" alt="Politeknik Caltex Riau"
         class="about-image">
-
       <div class="about-text">
         <p>
           Website ini adalah sebuah sistem surat atau paket yang ada di Politeknik Caltex Riau.
@@ -105,6 +104,7 @@
           distribusi, dan meningkatkan kepuasan warga PCR.
         </p>
       </div>
+    </div>
   </section>
   <!-- Tentang Section End -->
 
@@ -132,7 +132,7 @@
           <span>📞 (0761) - 554224</span><br>
           <span>📧 pcr@pcr.ac.id</span>
         </p><br>
-        <p><strong>Bagian Akademik dan Kemahasiswaan</strong><br>
+        <p><strong>Bagian Sarana san Prasarana</strong><br>
           📞 +62761 53939</p><br>
         <p><strong>Kontak Security</strong><br>
           📞 +622288678924</p>
@@ -165,12 +165,6 @@
     </div>
   </footer>
   <!-- footer end -->
-
-
-
- 
-
-
   <!--===== SCROLL REVEAL =====  !!ini harus diletakan diatas dari main java!!-->
   <script src="https://unpkg.com/scrollreveal"></script>
   <!-- Main java script -->
